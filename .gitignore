@@ -1,0 +1,22 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+*.swo
+*.swp
+.eslintcache
+.nyc_output
+*.log
+.vscode
+.idea
+.cache

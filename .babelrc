@@ -1,0 +1,7 @@
+{
+  "presets": ["airbnb"],
+  "plugins": [
+    ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-sass"] }],
+    ["inline-react-svg"],
+  ],
+}

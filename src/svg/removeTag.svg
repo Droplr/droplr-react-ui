@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>removeTag</title>
+    <desc>Created with Sketch.</desc>
+    <g id="removeTag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.857143)">
+        <path d="M20.75,4.125 L7.625,4.125 C7.02125,4.125 6.54875,4.43125 6.23375,4.895 L1.5,12 L6.23375,19.09625 C6.54875,19.56 7.02125,19.875 7.625,19.875 L20.75,19.875 C21.7125,19.875 22.5,19.0875 22.5,18.125 L22.5,5.875 C22.5,4.9125 21.7125,4.125 20.75,4.125 Z M18.125,15.14125 L16.89125,16.375 L13.75,13.23375 L10.60875,16.375 L9.375,15.14125 L12.51625,12 L9.375,8.85875 L10.60875,7.625 L13.75,10.76625 L16.89125,7.625 L18.125,8.85875 L14.98375,12 L18.125,15.14125 Z" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

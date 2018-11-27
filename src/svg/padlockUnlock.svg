@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>padlock-unlock</title>
+    <desc>Created with Sketch.</desc>
+    <g id="padlock-unlock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M7,6 C7,3.24 9.24,1 12,1 C14.76,1 17,3.24 17,6 L17,8 L18,8 C19.1,8 20,8.9 20,10 L20,20 C20,21.1 19.1,22 18,22 L6,22 C4.9,22 4,21.1 4,20 L4,10 C4,8.9 4.9,8 6,8 L7,8 L10.9614434,8 L15.1,8 L15.1,6 C15.1,4.29 13.71,2.9 12,2.9 C10.29,2.9 8.9,4.29 8.9,6 L7,6 Z M12,17 C13.1,17 14,16.1 14,15 C14,13.9 13.1,13 12,13 C10.9,13 10,13.9 10,15 C10,16.1 10.9,17 12,17 Z" fill="#000000"></path>
+    </g>
+</svg>

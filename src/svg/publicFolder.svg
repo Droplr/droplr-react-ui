@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>publicFolder</title>
+    <desc>Created with Sketch.</desc>
+    <g id="publicFolder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.571429)">
+        <path d="M20,6 L12,6 L10,4 L4,4 C2.9,4 2.01,4.9 2.01,6 L2,18 C2,19.1 2.9,20 4,20 L20,20 C21.1,20 22,19.1 22,18 L22,8 C22,6.9 21.1,6 20,6 Z M15,9 C16.1,9 17,9.9 17,11 C17,12.1 16.1,13 15,13 C13.9,13 13,12.1 13,11 C13,9.9 13.9,9 15,9 Z M19,17 L11,17 L11,16 C11,14.67 13.67,14 15,14 C16.33,14 19,14.67 19,16 L19,17 Z" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

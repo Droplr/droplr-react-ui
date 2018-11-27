@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>viewList</title>
+    <desc>Created with Sketch.</desc>
+    <g id="viewList" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.785714)">
+        <path d="M20.75,7 L3.25,7 C2.56,7 2,6.44 2,5.75 L2,3.25 C2,2.56 2.56,2 3.25,2 L20.75,2 C21.44,2 22,2.56 22,3.25 L22,5.75 C22,6.44 21.44,7 20.75,7 Z M20.75,14.5 L3.25,14.5 C2.56,14.5 2,13.94 2,13.25 C2,12.56 2.56,12 3.25,12 L20.75,12 C21.44,12 22,12.56 22,13.25 C22,13.94 21.44,14.5 20.75,14.5 Z M20.75,22 L3.25,22 C2.56,22 2,21.44 2,20.75 C2,20.06 2.56,19.5 3.25,19.5 L20.75,19.5 C21.44,19.5 22,20.06 22,20.75 C22,21.44 21.44,22 20.75,22 Z" fill="#000000"></path>
+    </g>
+</svg>
