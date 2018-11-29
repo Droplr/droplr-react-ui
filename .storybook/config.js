@@ -34,6 +34,7 @@ const ThemesDecorator = (storyFn) => (
 addDecorator(ThemesDecorator);
 
 function loadStories() {
+  require('../stories/Dropdown');
   require('../stories/ButtonPrimary');
   require('../stories/ButtonSecondary');
   require('../stories/DualButton');
