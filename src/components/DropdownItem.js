@@ -13,9 +13,15 @@ const DropdownItem = ({
   className,
   isActive,
   onClick,
+  clickableElem,
   children
 }) => {
+  function getClickableElem() {
+
+  }
+
   const titleText = typeof title === 'string' ? title : title.text;
+  const elem = getClickableElem();
 
   return (
     <div

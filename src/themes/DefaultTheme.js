@@ -23,8 +23,6 @@ function LightenDarkenColor(color, value) {
   if (blue > 255) blue = 255;
   else if (blue < 0) blue = 0;
 
-  console.log((usePound?"#":"") + (green | (blue << 8) | (red << 16)).toString(16));
-
   return (usePound?"#":"") + (green | (blue << 8) | (red << 16)).toString(16);
 }
 
@@ -128,10 +126,10 @@ export default {
       backgroundColorDisabled: colors.bright,
       borderColor: colors.lightGrey,
       borderColorHover: colors.grey,
-      textColor: colors.darkGrey,
+      textColor: theme.colors.textDark,
       textColorDisabled: colors.lightGrey,
-      iconColor: colors.darkGrey,
-      loaderColor: colors.darkGrey,
+      iconColor: theme.colors.textDark,
+      loaderColor: theme.colors.textDark,
     },
   },
 
