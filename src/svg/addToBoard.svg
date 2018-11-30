@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>addToBoard</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/addToBoard</title>
     <desc>Created with Sketch.</desc>
-    <g id="addToBoard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.285714)">
-        <path d="M13.4642857,9.07142857 L1.75,9.07142857 L1.75,11.0238095 L13.4642857,11.0238095 L13.4642857,9.07142857 Z M13.4642857,5.16666667 L1.75,5.16666667 L1.75,7.11904762 L13.4642857,7.11904762 L13.4642857,5.16666667 Z M1.75,14.9285714 L9.55952381,14.9285714 L9.55952381,12.9761905 L1.75,12.9761905 L1.75,14.9285714 Z M20.7857143,10.5357143 L22.25,12 L15.4264286,18.8333333 L11.0238095,14.4404762 L12.4880952,12.9761905 L15.4264286,15.9047619 L20.7857143,10.5357143 Z" fill="#000000" fill-rule="nonzero"></path>
+    <g id="icons/addToBoard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13.2857143,9.42857143 L3,9.42857143 L3,11.1428571 L13.2857143,11.1428571 L13.2857143,9.42857143 Z M13.2857143,6 L3,6 L3,7.71428571 L13.2857143,7.71428571 L13.2857143,6 Z M3,14.5714286 L9.85714286,14.5714286 L9.85714286,12.8571429 L3,12.8571429 L3,14.5714286 Z M19.7142857,10.7142857 L21,12 L15.0085714,18 L11.1428571,14.1428571 L12.4285714,12.8571429 L15.0085714,15.4285714 L19.7142857,10.7142857 Z" id="addToBoard" fill="#5E646E" fill-rule="nonzero"></path>
     </g>
 </svg>

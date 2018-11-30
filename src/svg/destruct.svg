@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>destruct</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/destruct</title>
     <desc>Created with Sketch.</desc>
-    <g id="destruct" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.928571, 0.285714)">
-        <path d="M20.4945055,6.35164835 L23,3.84615385 L21.1538462,2 L18.6483516,4.50549451 L17.7252747,3.58241758 L15.6153846,5.69230769 C12.0549451,3.84615385 7.7032967,4.37362637 4.67032967,7.27472527 C1.10989011,10.8351648 1.10989011,16.7692308 4.67032967,20.3296703 C8.23076923,23.8901099 14.1648352,23.8901099 17.7252747,20.3296703 C20.6263736,17.4285714 21.1538462,12.9450549 19.3076923,9.38461538 L21.4175824,7.27472527 L20.4945055,6.35164835 Z" fill="#000000"></path>
+    <g id="icons/destruct" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M17.3296703,7.9010989 L19,6.23076923 L17.7692308,5 L16.0989011,6.67032967 L15.4835165,6.05494505 L14.0769231,7.46153846 C11.7032967,6.23076923 8.8021978,6.58241758 6.78021978,8.51648352 C4.40659341,10.8901099 4.40659341,14.8461538 6.78021978,17.2197802 C9.15384615,19.5934066 13.1098901,19.5934066 15.4835165,17.2197802 C17.4175824,15.2857143 17.7692308,12.2967033 16.5384615,9.92307692 L17.9450549,8.51648352 L17.3296703,7.9010989 Z" id="destruct" fill="#5E646E"></path>
     </g>
 </svg>

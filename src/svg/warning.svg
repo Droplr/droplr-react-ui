@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>warning</title>
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/warning</title>
     <desc>Created with Sketch.</desc>
-    <g id="warning" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M22.1190384,19.0917444 L13.2368262,3.68689417 C12.7095588,2.77103528 11.2904242,2.77103528 10.7617545,3.68689417 L1.88094462,19.0917444 C1.38312565,19.9557133 2.06043991,21 3.11918165,21 L20.8822036,21 C21.9395432,21 22.6168573,19.9557133 22.1190384,19.0917444 Z M12,18.4285714 C11.2902857,18.4285714 10.7142857,17.8525714 10.7142857,17.1428571 C10.7142857,16.4331429 11.2902857,15.8571429 12,15.8571429 C12.7097143,15.8571429 13.2857143,16.4331429 13.2857143,17.1428571 C13.2857143,17.8525714 12.7097143,18.4285714 12,18.4285714 Z M13.2857143,14.5714286 L10.7142857,14.5714286 L10.7142857,9.42857143 L13.2857143,9.42857143 L13.2857143,14.5714286 Z" fill="#000000" fill-rule="nonzero"></path>
+    <g id="icons/warning" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3.5,19 L20.5,19 L12,4 L3.5,19 Z M13,17 L11,17 L11,15 L13,15 L13,17 Z M13,14 L11,14 L11,10 L13,10 L13,14 Z" id="warning" fill="#5E646E" fill-rule="nonzero"></path>
     </g>
 </svg>

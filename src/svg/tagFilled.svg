@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>tagFilled</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/tagFilled</title>
     <desc>Created with Sketch.</desc>
-    <g id="tagFilled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.142857)">
-        <path d="M17.4,6.13333333 L22,12 L17.4,17.8666667 C17.0210527,18.3523809 16.3894737,18.6666667 15.6842105,18.6666667 L4.10526316,18.6571429 C2.94736842,18.6571429 2,17.8095238 2,16.7619048 L2,7.23809524 C2,6.19047619 2.94736842,5.34285714 4.10526316,5.34285714 L15.6842105,5.33333333 C16.3894737,5.33333333 17.0210527,5.64761905 17.4,6.13333333 Z M15.3333333,13.3333333 C16.0697129,13.3333333 16.6666667,12.7363797 16.6666667,12 C16.6666667,11.2636203 16.0697129,10.6666667 15.3333333,10.6666667 C14.5969537,10.6666667 14,11.2636203 14,12 C14,12.7363797 14.5969537,13.3333333 15.3333333,13.3333333 Z" fill="#000000" fill-rule="nonzero"></path>
+    <g id="icons/tagFilled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16.455,7.16 L20.25,12 L16.455,16.84 C16.1423684,17.2407143 15.6213158,17.5 15.0394737,17.5 L5.48684211,17.4921429 C4.53157895,17.4921429 3.75,16.7928571 3.75,15.9285714 L3.75,8.07142857 C3.75,7.20714286 4.53157895,6.50785714 5.48684211,6.50785714 L15.0394737,6.5 C15.6213158,6.5 16.1423684,6.75928571 16.455,7.16 Z M14.75,13.1 C15.3575132,13.1 15.85,12.6075132 15.85,12 C15.85,11.3924868 15.3575132,10.9 14.75,10.9 C14.1424868,10.9 13.65,11.3924868 13.65,12 C13.65,12.6075132 14.1424868,13.1 14.75,13.1 Z" id="tagFilled" fill="#5E646E" fill-rule="nonzero"></path>
     </g>
 </svg>
