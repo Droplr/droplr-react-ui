@@ -1,79 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import defaultTheme from '../themes/DefaultTheme';
 
-import { DropdownIcon } from './icons';
-
-console.log(defaultTheme.convertToRgb);
-
-class Dropdown extends Component {
+class Dropdown extends React.Component {
   constructor() {
     super();
-
-    this.getDropdownItem = this.getDropdownItem.bind(this);
-  }
-
-  getDropdownItem(item) {
-    const {
-      title,
-      description,
-      Icon,
-      isActive,
-      className,
-      children,
-    } = item;
-
-    const titleText = typeof title === 'string' ? title : title.text;
-
-    return (
-      <li
-        className={classnames('drui-dropdownItem', { [className]: className })}
-        key={`druiDropdownItem-${titleText.split(' ').join('').toLowerCase()}`}
-      >
-        <button className="drui-dropdownItem__button" type="button">
-          <div className="drui-dropdownItem__icon">
-            {/* Custom icon for dropdown item */}
-            {Icon &&
-              <Icon className="drui-dropdownItem__icon" />
-            }
-
-            {/* No custom icon, menu item is active */}
-            {!Icon && isActive &&
-              <DropdownIcon />
-            }
-          </div>
-
-          {/* Item title */}
-          <div className="drui-dropdownItem__title">
-            
-            <span className="drui-dropdownItem__titleText">{titleText}</span>
-
-            {typeof title === 'object' && title.Icon &&
-              <title.Icon className="drui-dropdownItem__titleIcon" />
-            }
-          </div>
-
-          {/* Item description */}
-          {description &&
-          <span className="drui-dropdownItem__description">{description}</span>
-          }
-        </button>
-      </li>
-    );
   }
 
   render() {
     const {
       position,
       header,
-      items,
       isActive,
       className,
+      children,
     } = this.props;
 
-    if (!isActive) return null;
+    if (!isActive || !children) return null;
 
     return (
       <div className={classnames('drui-dropdown', {
@@ -91,9 +36,9 @@ class Dropdown extends Component {
             </div>
           }
 
-          <ul className="drui-dropdown__itemsList">
-            {items.map(this.getDropdownItem)}
-          </ul>
+          <div className="drui-dropdown__itemsList">
+            {children}
+          </div>
         </div>
 
         <style jsx global>{`
@@ -102,6 +47,8 @@ class Dropdown extends Component {
             position: relative;
             font-family: ${defaultTheme.font.family.primary};
             padding: 4px 0 0;
+            width: auto;
+            min-width: 100px;
             box-sizing: border-box;
 
             *,
@@ -176,63 +123,6 @@ class Dropdown extends Component {
             padding: 0;
             margin: 10px 0 0;
           }
-
-          .drui-dropdownItem {
-            height: 34px;
-          }
-
-          .drui-dropdownItem__button {
-            position: relative;
-            padding: 0 20px 0 46px;
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: ${defaultTheme.dropdown.backgroundColor};
-            transition: background-color 150ms ease;
-            cursor: pointer;
-
-            &:hover {
-              background-color: ${defaultTheme.dropdown.item.hoverColor};
-              cursor: pointer;
-            }
-
-            &:focus {
-              outline: none;
-              background-color: ${defaultTheme.dropdown.item.hoverColor};
-            }
-
-            &:active {
-              background-color: ${defaultTheme.dropdown.item.activeColor};
-            }
-          }
-
-          .drui-dropdownItem__icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            left: 20px;
-            width: 20px;
-            height: 100%;
-
-            svg {
-              fill: ${defaultTheme.dropdown.item.iconColor};
-
-              * {
-                fill: inherit;
-              }
-            }
-          }
-
-          .drui-dropdownItem__title {
-            display: flex;
-            align-items: center;
-            height: 34px;
-            font-size: ${defaultTheme.font.size.normal};
-            font-weight: ${defaultTheme.font.weight.normal};
-            color: ${defaultTheme.dropdown.item.titleColor};
-          }
         `}</style>
       </div>
     );
@@ -240,29 +130,13 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
+  onClick: PropTypes.func,
   isActive: PropTypes.bool.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        text: PropTypes.string.isRequired,
-        Icon: PropTypes.node.isRequired,
-      }),
-    ]).isRequired,
-    description: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-    ]),
-    Icon: PropTypes.node,
-    isActive: PropTypes.bool,
-    className: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]),
-  })).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   position: PropTypes.string,
-  className: PropTypes.string,
   header: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -275,6 +149,7 @@ Dropdown.defaultProps = {
   position: 'bottom',
   header: '',
   className: '',
+  onClick: () => {},
 }
 
 export default Dropdown;
