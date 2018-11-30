@@ -6,6 +6,8 @@ import defaultTheme from '../themes/DefaultTheme';
 
 import { DropdownIcon } from './icons';
 
+console.log(defaultTheme.convertToRgb);
+
 class Dropdown extends Component {
   constructor() {
     super();
@@ -30,31 +32,34 @@ class Dropdown extends Component {
         className={classnames('drui-dropdownItem', { [className]: className })}
         key={`druiDropdownItem-${titleText.split(' ').join('').toLowerCase()}`}
       >
+        <button className="drui-dropdownItem__button" type="button">
+          <div className="drui-dropdownItem__icon">
+            {/* Custom icon for dropdown item */}
+            {Icon &&
+              <Icon className="drui-dropdownItem__icon" />
+            }
 
-        {/* Custom icon for dropdown item */}
-        {Icon &&
-          <Icon className="drui-dropdownItem__icon" />
-        }
+            {/* No custom icon, menu item is active */}
+            {!Icon && isActive &&
+              <DropdownIcon />
+            }
+          </div>
 
-        {/* No custom icon, menu item is active */}
-        {!Icon && isActive &&
-          <DropdownIcon />
-        }
+          {/* Item title */}
+          <div className="drui-dropdownItem__title">
+            
+            <span className="drui-dropdownItem__titleText">{titleText}</span>
 
-        {/* Item title */}
-        <div className="drui-dropdownItem__title">
-          
-          <span className="drui-dropdownItem__titleText">{titleText}</span>
+            {typeof title === 'object' && title.Icon &&
+              <title.Icon className="drui-dropdownItem__titleIcon" />
+            }
+          </div>
 
-          {typeof title === 'object' && title.Icon &&
-            <title.Icon className="drui-dropdownItem__titleIcon" />
+          {/* Item description */}
+          {description &&
+          <span className="drui-dropdownItem__description">{description}</span>
           }
-        </div>
-
-        {/* Item description */}
-        {description &&
-        <span className="drui-dropdownItem__description">{description}</span>
-        }
+        </button>
       </li>
     );
   }
@@ -97,30 +102,54 @@ class Dropdown extends Component {
             position: relative;
             font-family: ${defaultTheme.font.family.primary};
             padding: 4px 0 0;
+            box-sizing: border-box;
 
-            &::before {
-              content: '';
-              display: block;
-              position: absolute;
-              top: 0;
-              left: 50%;
-              transform: translate(-50%, 20%) rotate(45deg);
-              width: 10px;
-              height: 10px;
-              background: ${defaultTheme.dropdown.backgroundColor};
+            *,
+            *::before,
+            *::after {
+              box-sizing: inherit;
             }
           }
 
           .drui-dropdown__inner {
             display: flex;
-            flex-direction: column;
+            position: relative;
             z-index: 1;
+            flex-direction: column;
             width: auto;
             height: auto;
-            padding: 20px 20px 10px;
+            padding: 12px 0;
             border-radius: 4px;
             background-color: ${defaultTheme.dropdown.backgroundColor};
-            box-shadow: 0 2px 12px -1px ${defaultTheme.dropdown.shadowColor};
+
+            &::before {
+              content: '';
+              display: block;
+              position: absolute;
+              z-index: 2;
+              top: -4px;
+              left: 50%;
+              transform: translate(-50%, 20%) rotate(45deg);
+              width: 10px;
+              height: 10px;
+              background: ${defaultTheme.dropdown.backgroundColor};
+              box-shadow: -2px -2px 1px -2px ${defaultTheme.dropdown.shadowColor};
+            }
+
+            &:after {
+              content: '';
+              display: block;
+              position: absolute;
+              z-index: 1;
+              left: 0;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              border-radius: 4px;
+              background-color: transparent;
+              box-shadow: 0 2px 12px -1px ${defaultTheme.dropdown.shadowColor};
+              pointer-events: none;
+            }
           }
 
           .drui-dropdown__header {
@@ -128,7 +157,8 @@ class Dropdown extends Component {
             justify-content: flex-start;
             align-items: center;
             align-content: center;
-            padding-bottom: 10px;
+            padding: 8px 0;
+            margin: 0 20px;
             border-bottom: 1px solid ${defaultTheme.dropdown.borderColor};
           }
 
@@ -148,11 +178,57 @@ class Dropdown extends Component {
           }
 
           .drui-dropdownItem {
+            height: 34px;
+          }
+
+          .drui-dropdownItem__button {
             position: relative;
-            padding: 0 0 0 26px;
+            padding: 0 20px 0 46px;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: ${defaultTheme.dropdown.backgroundColor};
+            transition: background-color 150ms ease;
+            cursor: pointer;
+
+            &:hover {
+              background-color: ${defaultTheme.dropdown.item.hoverColor};
+              cursor: pointer;
+            }
+
+            &:focus {
+              outline: none;
+              background-color: ${defaultTheme.dropdown.item.hoverColor};
+            }
+
+            &:active {
+              background-color: ${defaultTheme.dropdown.item.activeColor};
+            }
+          }
+
+          .drui-dropdownItem__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 20px;
+            height: 100%;
+
+            svg {
+              fill: ${defaultTheme.dropdown.item.iconColor};
+
+              * {
+                fill: inherit;
+              }
+            }
           }
 
           .drui-dropdownItem__title {
+            display: flex;
+            align-items: center;
+            height: 34px;
             font-size: ${defaultTheme.font.size.normal};
             font-weight: ${defaultTheme.font.weight.normal};
             color: ${defaultTheme.dropdown.item.titleColor};

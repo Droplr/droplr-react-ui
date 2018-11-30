@@ -14,12 +14,12 @@ function LightenDarkenColor(color, value) {
   else if (red < 0) red = 0;
 
   // Green
-  let green = ((num >> 8) & 0x00FF) + value;
+  let green = (num & 0x0000FF) + value;
   if (green > 255) green = 255;
   else if (green < 0) green = 0;
 
   // Blue
-  let blue = (num & 0x0000FF) + value;
+  let blue = ((num >> 8) & 0x00FF) + value;
   if (blue > 255) blue = 255;
   else if (blue < 0) blue = 0;
 
@@ -89,6 +89,8 @@ const shadows = {
 }
 
 export default {
+  convertToRgb,
+
   font: {
     family: {
       primary: '"Source Sans Pro", sans-serif',
@@ -150,13 +152,16 @@ export default {
   },
 
   dropdown: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: colors.white,
     shadowColor: shadows.shadowColor,
     titleColor: theme.colors.textDark,
     borderColor: theme.colors.uiLight,
 
     item: {
       titleColor: theme.colors.uiDark,
-    }
+      hoverColor: theme.colors.background,
+      activeColor: LightenDarkenColor(theme.colors.background, -2),
+      iconColor: theme.colors.textDark,
+    },
   },
 };
