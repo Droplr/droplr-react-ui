@@ -16,7 +16,10 @@ class Dropdown extends React.Component {
       isActive,
       className,
       children,
+      noItemsActiveState,
     } = this.props;
+
+    console.log(noItemsActiveState);
 
     if (!isActive || !children) return null;
 
@@ -36,9 +39,16 @@ class Dropdown extends React.Component {
             </div>
           }
 
-          <div className="drui-dropdown__itemsList">
-            {children}
-          </div>
+          <ul className="drui-dropdown__itemsList">
+            {React.Children.map(
+              children,
+              child => (
+                <li className="drui-dropdown__listItemWrapper">
+                  {React.cloneElement(child, { ...child.props, noItemsActiveState })}
+                </li>
+              )
+            )}
+          </ul>
         </div>
 
         <style jsx global>{`
@@ -121,6 +131,12 @@ class Dropdown extends React.Component {
             list-style: none;
             padding: 0;
             margin: 10px 0 0;
+          }
+
+          .drui-dropdown__listItemWrapper {
+            display: flex;
+            padding: 0;
+            margin: 0;
           }
         `}</style>
       </div>

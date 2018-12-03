@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { DropdownIcon } from './icons';
+import { CheckIcon } from './icons';
 
 import defaultTheme from '../themes/DefaultTheme';
 
@@ -16,7 +16,8 @@ const DropdownItem = ({
   isLink,
   href,
   target,
-  children
+  children,
+  noItemsActiveState,
 }) => {
   const titleText = typeof title === 'string' ? title : title.text;
   const ActionElem = isLink ? 'a' : 'button';
@@ -29,6 +30,7 @@ const DropdownItem = ({
           [className]: className,
           ['drui-dropdownItem--withDescription']: description,
           ['drui-dropdownItem--isActive']: isActive,
+          ['drui-dropdownItem--noItemsActiveState']: noItemsActiveState,
         })
       }
       onClick={onClick}
@@ -48,8 +50,8 @@ const DropdownItem = ({
           }
 
           {/* No custom icon, menu item is active */}
-          {!Icon && isActive &&
-            <DropdownIcon className="drui-dropdownItem__icon" />
+          {!noItemsActiveState && !Icon && isActive &&
+            <CheckIcon className="drui-dropdownItem__icon" />
           }
         </div>
 
@@ -72,6 +74,9 @@ const DropdownItem = ({
 
       <style jsx global>{`
         .drui-dropdownItem {
+          flex: 1 0 auto;
+          max-width: 100%;
+          min-width: 0;
           height: 34px;
 
           &.drui-dropdownItem--withDescription {
@@ -88,6 +93,12 @@ const DropdownItem = ({
             .drui-dropdownItem__iconWrapper {
               align-items: flex-start;
               padding-top: 10px;
+            }
+          }
+
+          &.drui-dropdownItem--noItemsActiveState {
+            .drui-dropdownItem__action {
+              padding-left: 20px;
             }
           }
         }
