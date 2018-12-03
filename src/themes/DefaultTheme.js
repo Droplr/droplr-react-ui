@@ -3,6 +3,7 @@ const colors = {
   purpleShadow: '#542D9B',
   purpleDisabled: '#A28FC6',
   purpleBorder: '#542D9B',
+  black: '#000',
   white: '#FFF',
   bright: '#F8F9FC',
   lightGrey: '#DEE3EB',
@@ -34,6 +35,12 @@ export default {
       normal: '400',
       bold: '700',
     },
+  },
+
+  input: {
+    backgroundColor: colors.white,
+    color: colors.black,
+    borderColorFocus: colors.purple,
   },
 
   window: {

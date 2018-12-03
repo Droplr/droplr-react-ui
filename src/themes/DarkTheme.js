@@ -2,6 +2,7 @@ const colors = {
   purple: '#8D61DF',
   purpleDisabled: '#624F86',
   purpleBorder: '#542D9B',
+  black: '#000',
   white: '#FFF',
   veryLightGrey: '#DCDDE6',
   lightGrey: '#60606D',
@@ -23,6 +24,18 @@ const gradients = {
 export default {
   window: {
     backgroundColor: colors.darkGrey,
+  },
+
+  input: {
+    color: colors.grey,
+    colorFocus: colors.lightGrey,
+    backgroundColor: colors.transparentBlack,
+    borderColorFocus: colors.lightGrey,
+    borderColor: colors.black,
+
+    label: {
+      color: colors.white,
+    }
   },
 
   button: {

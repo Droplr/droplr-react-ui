@@ -37,6 +37,7 @@ function loadStories() {
   require('../stories/ButtonPrimary');
   require('../stories/ButtonSecondary');
   require('../stories/DualButton');
+  require('../stories/Input');
   require('../stories/Icons');
 }
 
