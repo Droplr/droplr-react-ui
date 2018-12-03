@@ -141,3 +141,29 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
+  .addWithJSX('With item description', () => {
+    function onItemClick(e) {
+      console.log('click');
+    }
+
+    return (
+      <Dropdown isActive>
+        <DropdownItem
+          title={{ text: 'Item 1', Icon: PadlockLockIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          isActive
+        />
+        <DropdownItem
+          title={{ text: 'Item 2', Icon: TeamIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        />
+        <DropdownItem
+          title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        />
+      </Dropdown>
+    );
+  })

@@ -27,6 +27,7 @@ const DropdownItem = ({
         'drui-dropdownItem',
         {
           [className]: className,
+          ['drui-dropdownItem--withDescription']: description,
           ['drui-dropdownItem--isActive']: isActive,
         })
       }
@@ -72,12 +73,24 @@ const DropdownItem = ({
       <style jsx global>{`
         .drui-dropdownItem {
           height: 34px;
+
+          &.drui-dropdownItem--withDescription {
+            height: auto;
+
+            .drui-dropdownItem__action {
+              flex-wrap: wrap;
+              padding: {
+                top: 10px;
+                bottom: 10px;
+              };
+            }
+          }
         }
 
         .drui-dropdownItem__action {
           display: flex;
           position: relative;
-          padding: 0 20px 0 46px;
+          padding: 5px 20px 5px 46px;
           width: 100%;
           height: 100%;
           border: none;
@@ -172,6 +185,14 @@ const DropdownItem = ({
             fill: ${defaultTheme.dropdown.title.iconFill};
             transition: fill 75ms linear;
           }
+        }
+
+        .drui-dropdownItem__description {
+          flex: 0 0 100%;
+          font-size: 12px;
+          line-height: 15px;
+          text-align: left;
+          color: ${defaultTheme.dropdown.description.color};
         }
       `}</style>
     </div>

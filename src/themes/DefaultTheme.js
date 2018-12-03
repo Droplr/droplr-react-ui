@@ -159,7 +159,7 @@ export default {
 
     item: {
       hoverColor: theme.colors.background,
-      activeColor: LightenDarkenColor(theme.colors.background, -2),
+      activeColor: LightenDarkenColor(theme.colors.background, -3),
       iconColor: theme.colors.textDark,
     },
 
@@ -173,6 +173,10 @@ export default {
 
     icon: {
       fillDanger: theme.colors.danger
-    }
+    },
+
+    description: {
+      color: theme.colors.textDark,
+    },
   },
 };
