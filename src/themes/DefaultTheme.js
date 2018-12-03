@@ -156,10 +156,14 @@ export default {
     borderColor: theme.colors.uiLight,
 
     item: {
-      titleColor: theme.colors.uiDark,
       hoverColor: theme.colors.background,
       activeColor: LightenDarkenColor(theme.colors.background, -2),
       iconColor: theme.colors.textDark,
     },
+
+    title: {
+      color: theme.colors.uiDark,
+      hoverColor: colors.black,
+    }
   },
 };

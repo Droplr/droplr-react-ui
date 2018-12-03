@@ -18,10 +18,6 @@ const DropdownItem = ({
   target,
   children
 }) => {
-  function getClickableElem() {
-
-  }
-
   const titleText = typeof title === 'string' ? title : title.text;
   const ActionElem = isLink ? 'a' : 'button';
 
@@ -38,7 +34,7 @@ const DropdownItem = ({
         target={target || null}
         rel={target === '_blank' ? 'noopener nofollow' : null}
       >
-        <div className="drui-dropdownItem__icon">
+        <div className="drui-dropdownItem__iconWrapper">
           {/* Custom icon for dropdown item */}
           {Icon &&
             <Icon className="drui-dropdownItem__icon" />
@@ -87,6 +83,10 @@ const DropdownItem = ({
           &:hover {
             background-color: ${defaultTheme.dropdown.item.hoverColor};
             cursor: pointer;
+
+            .drui-dropdownItem__title {
+              color: ${defaultTheme.dropdown.title.hoverColor};
+            }
           }
 
           &:focus {
@@ -99,7 +99,7 @@ const DropdownItem = ({
           }
         }
 
-        .drui-dropdownItem__icon {
+        .drui-dropdownItem__iconWrapper {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -109,7 +109,7 @@ const DropdownItem = ({
           width: 20px;
           height: 100%;
 
-          svg {
+          .drui-dropdownItem__icon {
             fill: ${defaultTheme.dropdown.item.iconColor};
 
             * {
@@ -124,7 +124,8 @@ const DropdownItem = ({
           height: 34px;
           font-size: ${defaultTheme.font.size.normal};
           font-weight: ${defaultTheme.font.weight.normal};
-          color: ${defaultTheme.dropdown.item.titleColor};
+          color: ${defaultTheme.dropdown.title.color};
+          transition: color 150ms ease;
         }
       `}</style>
     </div>
