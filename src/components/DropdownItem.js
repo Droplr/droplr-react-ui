@@ -97,6 +97,14 @@ const DropdownItem = ({
             .drui-dropdownItem__icon {
               fill: ${defaultTheme.dropdown.title.hoverColor};
             }
+
+            .drui-dropdownItem__titleIcon {
+              fill: ${defaultTheme.dropdown.title.hoverIconFill};
+
+              * {
+                fill: ${defaultTheme.dropdown.title.hoverIconFill};
+              }
+            }
           }
 
           &:focus {
@@ -130,12 +138,40 @@ const DropdownItem = ({
         }
 
         .drui-dropdownItem__title {
+          flex: 0 1 auto;
+          min-width: 0;
           display: flex;
           align-items: center;
           font-size: ${defaultTheme.font.size.normal};
           font-weight: ${defaultTheme.font.weight.normal};
           color: ${defaultTheme.dropdown.title.color};
           transition: color ${defaultTheme.dropdown.transitionSettings};
+
+          .drui-dropdownItem__titleIcon {
+            margin-left: 6px;
+          }
+        }
+
+        .drui-dropdownItem__titleText {
+          display: flex; // needed to elliminate browser paddings
+          flex: 0 0 auto;
+          min-width: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          max-width: 100%;
+        }
+
+        .drui-dropdownItem__titleIcon {
+          flex: 0 1 24px;
+          display: block;
+          fill: ${defaultTheme.dropdown.title.iconFill};
+          transition: fill 75ms linear;
+
+          * {
+            fill: ${defaultTheme.dropdown.title.iconFill};
+            transition: fill 75ms linear;
+          }
         }
       `}</style>
     </div>

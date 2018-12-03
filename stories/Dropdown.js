@@ -11,6 +11,8 @@ import {
   DownloadIcon,
   ExpireTimeIcon,
   PadlockLockIcon,
+  PadlockUnlockIcon,
+  TeamIcon,
   TrashBinIcon,
 } from '../src/components/icons';
 
@@ -123,6 +125,19 @@ storiesOf('Dropdown', module)
             }
           }
         `}</style>
+      </Dropdown>
+    );
+  })
+  .addWithJSX('With item title icon', () => {
+    function onItemClick(e) {
+      console.log('click');
+    }
+
+    return (
+      <Dropdown isActive>
+        <DropdownItem title={{ text: 'Item 1', Icon: PadlockLockIcon }} onClick={onItemClick} isActive />
+        <DropdownItem title={{ text: 'Item 2', Icon: TeamIcon }} onClick={onItemClick} />
+        <DropdownItem title={{ text: 'Item 3', Icon: PadlockUnlockIcon }} onClick={onItemClick} />
       </Dropdown>
     );
   })

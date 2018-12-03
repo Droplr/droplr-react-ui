@@ -155,7 +155,7 @@ export default {
     titleColor: theme.colors.textDark,
     borderColor: theme.colors.uiLight,
     borderColorLight: theme.colors.background,
-    transitionSettings: '150ms ease',
+    transitionSettings: '150ms linear',
 
     item: {
       hoverColor: theme.colors.background,
@@ -165,8 +165,10 @@ export default {
 
     title: {
       color: theme.colors.uiDark,
+      iconFill: LightenDarkenColor(theme.colors.uiLight, -20),
       hoverColor: colors.black,
       hoverDanger: theme.colors.danger,
+      hoverIconFill: theme.colors.textDark,
     },
 
     icon: {
