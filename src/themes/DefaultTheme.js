@@ -155,6 +155,7 @@ export default {
     titleColor: theme.colors.textDark,
     borderColor: theme.colors.uiLight,
     borderColorLight: theme.colors.background,
+    transitionSettings: '150ms ease',
 
     item: {
       hoverColor: theme.colors.background,

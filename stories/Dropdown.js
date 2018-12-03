@@ -21,11 +21,31 @@ storiesOf('Dropdown', module)
     }
 
     return (
-      <Dropdown
-        header="Dropdown title"
-        onClick={onItemClick}
-        isActive
-      >
+      <Dropdown isActive>
+        <DropdownItem title="Dropdown item 1" onClick={onItemClick} isActive />
+        <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
+        <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
+        <DropdownItem
+          title="Dropdown item 4. Link, internal"
+          isLink
+          href="/"
+        />
+        <DropdownItem
+          title="Dropdown item 5. Link, external"
+          isLink
+          href="https://droplr.com"
+          target="_blank"
+        />
+      </Dropdown>
+    );
+  })
+  .addWithJSX('With title', () => {
+    function onItemClick(e) {
+      console.log('click');
+    }
+
+    return (
+      <Dropdown header="Dropdown title" isActive >
         <DropdownItem title="Dropdown item 1" onClick={onItemClick} isActive />
         <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
@@ -49,11 +69,7 @@ storiesOf('Dropdown', module)
     }
 
     return (
-      <Dropdown
-        header="Dropdown title"
-        onClick={onItemClick}
-        isActive
-      >
+      <Dropdown isActive>
         <DropdownItem title="Open" onClick={onItemClick} Icon={NewWindowIcon} />
         <DropdownItem title="Download" onClick={onItemClick} Icon={DownloadIcon} />
         <DropdownItem title="Set Self-Destruct" onClick={onItemClick} Icon={ExpireTimeIcon} />
@@ -67,11 +83,7 @@ storiesOf('Dropdown', module)
     }
 
     return (
-      <Dropdown
-        header="Dropdown title"
-        onClick={onItemClick}
-        isActive
-      >
+      <Dropdown isActive >
         <DropdownItem title="Open" onClick={onItemClick} Icon={NewWindowIcon} />
         <DropdownItem title="Download" onClick={onItemClick} Icon={DownloadIcon} />
         <DropdownItem title="Set Self-Destruct" onClick={onItemClick} Icon={ExpireTimeIcon} />
@@ -87,6 +99,20 @@ storiesOf('Dropdown', module)
             }
             margin-top: 10px;
             border-top: 1px solid ${defaultTheme.dropdown.borderColorLight};
+
+            &:hover {
+              .drui-dropdownItem__action {
+                background: rgba(249, 76, 76, 0.1);
+              }
+
+              .drui-dropdownItem__title {
+                color: rgb(249, 59, 59);
+              }
+
+              .drui-dropdownItem__icon {
+                fill: rgb(249, 59, 59);
+              }
+            }
 
             .drui-dropdownItem__title {
               color: ${defaultTheme.dropdown.title.hoverDanger};

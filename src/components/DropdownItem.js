@@ -23,7 +23,13 @@ const DropdownItem = ({
 
   return (
     <div
-      className={classnames('drui-dropdownItem', { [className]: className })}
+      className={classnames(
+        'drui-dropdownItem',
+        {
+          [className]: className,
+          ['drui-dropdownItem--isActive']: isActive,
+        })
+      }
       onClick={onClick}
       key={`drui-dropdown-item-${titleText.split(' ').join('').toLowerCase()}`}
     >
@@ -42,7 +48,7 @@ const DropdownItem = ({
 
           {/* No custom icon, menu item is active */}
           {!Icon && isActive &&
-            <DropdownIcon />
+            <DropdownIcon className="drui-dropdownItem__icon" />
           }
         </div>
 
@@ -69,14 +75,14 @@ const DropdownItem = ({
         }
 
         .drui-dropdownItem__action {
-          display: block;
+          display: flex;
           position: relative;
           padding: 0 20px 0 46px;
           width: 100%;
           height: 100%;
           border: none;
           background-color: ${defaultTheme.dropdown.backgroundColor};
-          transition: background-color 150ms ease;
+          transition: background-color ${defaultTheme.dropdown.transitionSettings};
           text-decoration: none;
           cursor: pointer;
 
@@ -86,6 +92,10 @@ const DropdownItem = ({
 
             .drui-dropdownItem__title {
               color: ${defaultTheme.dropdown.title.hoverColor};
+            }
+
+            .drui-dropdownItem__icon {
+              fill: ${defaultTheme.dropdown.title.hoverColor};
             }
           }
 
@@ -108,13 +118,14 @@ const DropdownItem = ({
           left: 20px;
           width: 20px;
           height: 100%;
+        }
 
-          .drui-dropdownItem__icon {
-            fill: ${defaultTheme.dropdown.item.iconColor};
+        .drui-dropdownItem__icon {
+          fill: ${defaultTheme.dropdown.item.iconColor};
+          transition: fill ${defaultTheme.dropdown.transitionSettings};
 
-            * {
-              fill: inherit;
-            }
+          * {
+            fill: inherit;
           }
         }
 
@@ -124,7 +135,7 @@ const DropdownItem = ({
           font-size: ${defaultTheme.font.size.normal};
           font-weight: ${defaultTheme.font.weight.normal};
           color: ${defaultTheme.dropdown.title.color};
-          transition: color 150ms ease;
+          transition: color ${defaultTheme.dropdown.transitionSettings};
         }
       `}</style>
     </div>

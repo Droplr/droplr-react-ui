@@ -48,7 +48,6 @@ class Dropdown extends React.Component {
             font-family: ${defaultTheme.font.family.primary};
             padding: 4px 0 0;
             width: auto;
-            min-width: 100px;
             box-sizing: border-box;
 
             *,
