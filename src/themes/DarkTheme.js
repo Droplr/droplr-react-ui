@@ -1,3 +1,6 @@
+import { lightenDarkenColor } from './helpers';
+import { convertToRgb } from './helpers';
+
 const colors = {
   purple: '#8D61DF',
   purpleDisabled: '#624F86',
@@ -7,7 +10,6 @@ const colors = {
   dark: '#3A3A43',
   darkerDark: '#2D2E33',
   lighterDark: '#464651',
-  darkGrey: '#464651',
   grey: '#CBCEDE',
   lightGrey: '#E9EAED',
   darkerGrey: '#878891',
@@ -62,7 +64,7 @@ export default {
       backgroundColorHover: gradients.darkHover,
       backgroundColorActive: gradients.darkActive,
       backgroundColorDisabled: colors.grey,
-      borderColor: theme.colors.background,
+      borderColor: theme.colors.uiDark,
       textColor: theme.colors.textLight,
       textColorDisabled: theme.colors.textDark,
       iconColor: theme.colors.textLight,
@@ -77,8 +79,8 @@ export default {
       borderColor: theme.colors.brandBorder,
     },
     secondary: {
-      separatorColor: theme.colors.textDark,
-      borderColor: theme.colors.textDark,
+      separatorColor: lightenDarkenColor(theme.colors.uiLight, 20),
+      borderColor: lightenDarkenColor(theme.colors.uiDark, 5),
     },
   },
 
