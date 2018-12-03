@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>removeTag</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/removeTag</title>
     <desc>Created with Sketch.</desc>
-    <g id="removeTag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.857143)">
-        <path d="M20.75,4.125 L7.625,4.125 C7.02125,4.125 6.54875,4.43125 6.23375,4.895 L1.5,12 L6.23375,19.09625 C6.54875,19.56 7.02125,19.875 7.625,19.875 L20.75,19.875 C21.7125,19.875 22.5,19.0875 22.5,18.125 L22.5,5.875 C22.5,4.9125 21.7125,4.125 20.75,4.125 Z M18.125,15.14125 L16.89125,16.375 L13.75,13.23375 L10.60875,16.375 L9.375,15.14125 L12.51625,12 L9.375,8.85875 L10.60875,7.625 L13.75,10.76625 L16.89125,7.625 L18.125,8.85875 L14.98375,12 L18.125,15.14125 Z" fill="#000000" fill-rule="nonzero"></path>
+    <g id="icons/removeTag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18.6666667,6 L8.66666667,6 C8.20666667,6 7.84666667,6.23333333 7.60666667,6.58666667 L4,12 L7.60666667,17.4066667 C7.84666667,17.76 8.20666667,18 8.66666667,18 L18.6666667,18 C19.4,18 20,17.4 20,16.6666667 L20,7.33333333 C20,6.6 19.4,6 18.6666667,6 Z M16.6666667,14.3933333 L15.7266667,15.3333333 L13.3333333,12.94 L10.94,15.3333333 L10,14.3933333 L12.3933333,12 L10,9.60666667 L10.94,8.66666667 L13.3333333,11.06 L15.7266667,8.66666667 L16.6666667,9.60666667 L14.2733333,12 L16.6666667,14.3933333 Z" id="removeTag" fill="#5E646E" fill-rule="nonzero"></path>
     </g>
 </svg>

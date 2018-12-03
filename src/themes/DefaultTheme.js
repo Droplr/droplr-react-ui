@@ -1,43 +1,4 @@
-function LightenDarkenColor(color, value) {
-  let usePound = false;
-
-  if (color[0] === "#") {
-    color = color.slice(1);
-    usePound = true;
-  }
-
-  const num = parseInt(color, 16);
-
-  // Red
-  let red = (num >> 16) + value;
-  if (red > 255) red = 255;
-  else if (red < 0) red = 0;
-
-  // Green
-  let green = (num & 0x0000FF) + value;
-  if (green > 255) green = 255;
-  else if (green < 0) green = 0;
-
-  // Blue
-  let blue = ((num >> 8) & 0x00FF) + value;
-  if (blue > 255) blue = 255;
-  else if (blue < 0) blue = 0;
-
-  return (usePound?"#":"") + (green | (blue << 8) | (red << 16)).toString(16);
-}
-
-function convertToRgb(hexVal) {
-  let color = hexVal;
-
-  if (color[0] === "#") color = color.slice(1);
-  const num = parseInt(color, 16);
-  const rgbVal = {
-    red: num >> 16,
-    green: (num >> 8) & 0x00FF,
-    blue: num & 0x0000FF,
-  }
-  return `${rgbVal.red}, ${rgbVal.green}, ${rgbVal.blue}`;
-}
+import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
   purple: '#7A50C7',
@@ -62,6 +23,9 @@ const colors = {
 const theme = {
   colors: {
     brand: colors.purple,
+    brandShadow: colors.purpleShadow,
+    brandDisabled: colors.purpleDisabled,
+    brandBorder: colors.purpleBorder,
     danger: colors.red,
     success: colors.green,
     link: colors.blue,
@@ -105,7 +69,7 @@ export default {
   },
 
   window: {
-    backgroundColor: colors.bright,
+    backgroundColor: theme.colors.background,
   },
 
   button: {
@@ -113,8 +77,8 @@ export default {
       backgroundColor: gradients.purple,
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
-      backgroundColorDisabled: colors.purpleDisabled,
-      shadowColor: colors.purpleShadow,
+      backgroundColorDisabled: theme.colors.brandDisabled,
+      shadowColor: theme.colors.brandShadow,
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
@@ -123,11 +87,11 @@ export default {
       backgroundColor: gradients.bright,
       backgroundColorHover: gradients.bright,
       backgroundColorActive: gradients.brightActive,
-      backgroundColorDisabled: colors.bright,
-      borderColor: colors.lightGrey,
-      borderColorHover: colors.grey,
+      backgroundColorDisabled: theme.colors.background,
+      borderColor: theme.colors.uiLight,
+      borderColorHover: lightenDarkenColor(theme.colors.uiLight, -10),
       textColor: theme.colors.textDark,
-      textColorDisabled: colors.lightGrey,
+      textColorDisabled: theme.colors.uiLight,
       iconColor: theme.colors.textDark,
       loaderColor: theme.colors.textDark,
     },
@@ -135,18 +99,32 @@ export default {
 
   dualButton: {
     primary: {
-      separatorColor: colors.purple,
-      shadowColor: colors.purpleShadow,
-      borderColor: colors.purpleBorder,
+      separatorColor: theme.colors.brand,
+      shadowColor: theme.colors.brandShadow,
+      borderColor: theme.colors.brandBorder,
     },
     secondary: {
       separatorColor: colors.white,
-      borderColor: colors.lightGrey,
+      borderColor: theme.colors.uiLight,
     },
   },
 
   loader: {
-    backgroundColor: colors.purple,
+    backgroundColor: theme.colors.brand,
+  },
+
+  dropdown: {
+    backgroundColor: colors.white,
+    shadowColor: shadows.shadowColor,
+    titleColor: theme.colors.textDark,
+    borderColor: theme.colors.uiLight,
+
+    item: {
+      titleColor: theme.colors.uiDark,
+      hoverColor: theme.colors.background,
+      activeColor: lightenDarkenColor(theme.colors.background, -2),
+      iconColor: theme.colors.textDark,
+    },
   },
 
   dropdown: {
@@ -159,13 +137,13 @@ export default {
 
     item: {
       hoverColor: theme.colors.background,
-      activeColor: LightenDarkenColor(theme.colors.background, -3),
+      activeColor: lightenDarkenColor(theme.colors.background, -3),
       iconColor: theme.colors.textDark,
     },
 
     title: {
       color: theme.colors.uiDark,
-      iconFill: LightenDarkenColor(theme.colors.uiLight, -20),
+      iconFill: lightenDarkenColor(theme.colors.uiLight, -20),
       hoverColor: colors.black,
       hoverDanger: theme.colors.danger,
       hoverIconFill: theme.colors.textDark,

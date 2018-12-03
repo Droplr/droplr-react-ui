@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>pen</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/pen</title>
     <desc>Created with Sketch.</desc>
-    <g id="pen" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.285714)">
-        <path d="M16.3632075,2.91981132 C15.8915094,2.44811321 15.1839623,2.44811321 14.7122642,2.91981132 L2.91981132,14.7122642 C2.68396226,14.9481132 2.56603774,15.1839623 2.56603774,15.5377358 L2.56603774,20.254717 C2.56603774,20.9622642 3.03773585,21.4339623 3.74528302,21.4339623 L8.46226415,21.4339623 C8.81603774,21.4339623 9.05188679,21.3160377 9.28773585,21.0801887 L21.0801887,9.28773585 C21.5518868,8.81603774 21.5518868,8.10849057 21.0801887,7.63679245 L16.3632075,2.91981132 Z M7.99056604,19.0754717 L4.9245283,19.0754717 L4.9245283,16.009434 L12,8.93396226 L15.0660377,12 L7.99056604,19.0754717 Z M16.7169811,10.3490566 L13.6509434,7.28301887 L15.5377358,5.39622642 L18.6037736,8.46226415 L16.7169811,10.3490566 Z" fill="#000000" fill-rule="nonzero"></path>
+    <g id="icons/pen" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15.7,4.3 C15.3,3.9 14.7,3.9 14.3,4.3 L4.3,14.3 C4.1,14.5 4,14.7 4,15 L4,19 C4,19.6 4.4,20 5,20 L9,20 C9.3,20 9.5,19.9 9.7,19.7 L19.7,9.7 C20.1,9.3 20.1,8.7 19.7,8.3 L15.7,4.3 Z M8.6,18 L6,18 L6,15.4 L12,9.4 L14.6,12 L8.6,18 Z M16,10.6 L13.4,8 L15,6.4 L17.6,9 L16,10.6 Z" id="pen" fill="#5E646E"></path>
     </g>
 </svg>
