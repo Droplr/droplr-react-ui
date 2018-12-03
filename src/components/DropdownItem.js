@@ -13,7 +13,9 @@ const DropdownItem = ({
   className,
   isActive,
   onClick,
-  clickableElem,
+  isLink,
+  href,
+  target,
   children
 }) => {
   function getClickableElem() {
@@ -21,7 +23,7 @@ const DropdownItem = ({
   }
 
   const titleText = typeof title === 'string' ? title : title.text;
-  const elem = getClickableElem();
+  const ActionElem = isLink ? 'a' : 'button';
 
   return (
     <div
@@ -29,7 +31,13 @@ const DropdownItem = ({
       onClick={onClick}
       key={`drui-dropdown-item-${titleText.split(' ').join('').toLowerCase()}`}
     >
-      <button className="drui-dropdownItem__button" type="button">
+      <ActionElem
+        href={href || null}
+        type={!href ? 'button' : null}
+        className="drui-dropdownItem__action"
+        target={target || null}
+        rel={target === '_blank' ? 'noopener nofollow' : null}
+      >
         <div className="drui-dropdownItem__icon">
           {/* Custom icon for dropdown item */}
           {Icon &&
@@ -53,9 +61,9 @@ const DropdownItem = ({
 
         {/* Item description */}
         {description &&
-        <span className="drui-dropdownItem__description">{description}</span>
+          <span className="drui-dropdownItem__description">{description}</span>
         }
-      </button>
+      </ActionElem>
 
       {children || null}
 
@@ -64,7 +72,8 @@ const DropdownItem = ({
           height: 34px;
         }
 
-        .drui-dropdownItem__button {
+        .drui-dropdownItem__action {
+          display: block;
           position: relative;
           padding: 0 20px 0 46px;
           width: 100%;
@@ -72,6 +81,7 @@ const DropdownItem = ({
           border: none;
           background-color: ${defaultTheme.dropdown.backgroundColor};
           transition: background-color 150ms ease;
+          text-decoration: none;
           cursor: pointer;
 
           &:hover {

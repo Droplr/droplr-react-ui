@@ -21,6 +21,8 @@ const ThemesDecorator = (storyFn) => (
     <div className="storyWrapperDark theme--dark">
       {storyFn()}
       <style jsx>{`
+      @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
+
         .storyWrapperDark {
           width: 400px;
           padding: 40px;
