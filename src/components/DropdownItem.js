@@ -121,7 +121,6 @@ const DropdownItem = ({
         .drui-dropdownItem__title {
           display: flex;
           align-items: center;
-          height: 34px;
           font-size: ${defaultTheme.font.size.normal};
           font-weight: ${defaultTheme.font.weight.normal};
           color: ${defaultTheme.dropdown.title.color};

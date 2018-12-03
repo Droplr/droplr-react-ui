@@ -154,6 +154,7 @@ export default {
     shadowColor: shadows.shadowColor,
     titleColor: theme.colors.textDark,
     borderColor: theme.colors.uiLight,
+    borderColorLight: theme.colors.background,
 
     item: {
       hoverColor: theme.colors.background,
@@ -164,6 +165,11 @@ export default {
     title: {
       color: theme.colors.uiDark,
       hoverColor: colors.black,
+      hoverDanger: theme.colors.danger,
+    },
+
+    icon: {
+      fillDanger: theme.colors.danger
     }
   },
 };
