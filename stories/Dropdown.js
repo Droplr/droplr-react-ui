@@ -116,6 +116,12 @@ storiesOf('Dropdown', module)
               }
             }
 
+            &:active {
+              .drui-dropdownItem__action {
+                background: rgba(249, 76, 76, 0.2);
+              }
+            }
+
             .drui-dropdownItem__title {
               color: ${defaultTheme.dropdown.title.hoverDanger};
             }

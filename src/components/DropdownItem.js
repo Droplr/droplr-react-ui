@@ -84,6 +84,11 @@ const DropdownItem = ({
                 bottom: 10px;
               };
             }
+
+            .drui-dropdownItem__iconWrapper {
+              align-items: flex-start;
+              padding-top: 10px;
+            }
           }
         }
 
