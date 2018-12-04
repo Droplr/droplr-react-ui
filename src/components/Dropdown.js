@@ -19,8 +19,6 @@ class Dropdown extends React.Component {
       noItemsActiveState,
     } = this.props;
 
-    console.log(noItemsActiveState);
-
     if (!isActive || !children) return null;
 
     return (

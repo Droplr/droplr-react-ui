@@ -227,7 +227,10 @@ DropdownItem.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
-  Icon: PropTypes.node,
+  Icon: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]),
   isActive: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.oneOfType([

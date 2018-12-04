@@ -17,7 +17,7 @@ import {
 } from '../src/components/icons';
 
 storiesOf('Dropdown', module)
-  .addWithJSX('primary', () => {
+  .addWithJSX('Dropdown minimum props', () => {
     function onItemClick(e) {
       console.log('click');
     }
@@ -41,14 +41,14 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
-  .addWithJSX('No item active state', () => {
+  .addWithJSX('Dropdown no item active state', () => {
     function onItemClick(e) {
       console.log('click');
     }
 
     return (
       <Dropdown isActive noItemsActiveState>
-        <DropdownItem title="Dropdown item 1Dropdown item 1Dropdown item 1Dropdown item 1Dropdown item 1" onClick={onItemClick} isActive />
+        <DropdownItem title="Dropdown item 1" onClick={onItemClick} isActive />
         <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
@@ -65,7 +65,7 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
-  .addWithJSX('With title', () => {
+  .addWithJSX('Dropdown with title', () => {
     function onItemClick(e) {
       console.log('click');
     }
@@ -89,7 +89,7 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
-  .addWithJSX('With icon', () => {
+  .addWithJSX('Dropdown with icon', () => {
     function onItemClick(e) {
       console.log('click');
     }
@@ -103,7 +103,7 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
-  .addWithJSX('With element modifier', () => {
+  .addWithJSX('Dropdown with element modifier', () => {
     function onItemClick(e) {
       console.log('click');
     }
@@ -158,7 +158,7 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
-  .addWithJSX('With item title icon', () => {
+  .addWithJSX('Dropdown with item title icon', () => {
     function onItemClick(e) {
       console.log('click');
     }
@@ -171,7 +171,7 @@ storiesOf('Dropdown', module)
       </Dropdown>
     );
   })
-  .addWithJSX('With item description', () => {
+  .addWithJSX('Dropdown with item description', () => {
     function onItemClick(e) {
       console.log('click');
     }
