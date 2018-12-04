@@ -1,7 +1,5 @@
 import { lightenDarkenColor, convertToRgb } from './helpers';
 
-console.log(lightenDarkenColor);
-
 const colors = {
   purple: '#7A50C7',
   purpleShadow: '#542D9B',
