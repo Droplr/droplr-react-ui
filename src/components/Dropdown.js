@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import defaultTheme from '../themes/DefaultTheme';
+import darkTheme from '../themes/DarkTheme';
 
 class Dropdown extends React.Component {
   constructor() {
@@ -51,7 +52,7 @@ class Dropdown extends React.Component {
 
         <style jsx global>{`
           .drui-dropdown {
-            display: block;
+            display: table;
             position: relative;
             font-family: ${defaultTheme.font.family.primary};
             padding: 4px 0 0;
@@ -135,6 +136,29 @@ class Dropdown extends React.Component {
             display: flex;
             padding: 0;
             margin: 0;
+          }
+
+          .theme--dark {
+            .drui-dropdown__inner {
+              background-color: ${darkTheme.dropdown.backgroundColor};
+
+              &::before {
+                background: ${darkTheme.dropdown.backgroundColor};
+                box-shadow: -2px -2px 1px -2px ${darkTheme.dropdown.shadowColor};
+              }
+
+              &::after {
+                box-shadow: 0 2px 12px -1px  ${darkTheme.dropdown.shadowColor};
+              }
+            }
+
+            .drui-dropdown__header {
+              border-bottom: 1px solid ${darkTheme.dropdown.borderColor};
+            }
+
+            .drui-dropdown__title {
+              color: ${darkTheme.dropdown.titleColor};
+            }
           }
         `}</style>
       </div>

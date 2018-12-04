@@ -118,24 +118,11 @@ export default {
     shadowColor: shadows.shadowColor,
     titleColor: theme.colors.textDark,
     borderColor: theme.colors.uiLight,
-
-    item: {
-      titleColor: theme.colors.uiDark,
-      hoverColor: theme.colors.background,
-      activeColor: lightenDarkenColor(theme.colors.background, -2),
-      iconColor: theme.colors.textDark,
-    },
-  },
-
-  dropdown: {
-    backgroundColor: colors.white,
-    shadowColor: shadows.shadowColor,
-    titleColor: theme.colors.textDark,
-    borderColor: theme.colors.uiLight,
     borderColorLight: theme.colors.background,
     transitionSettings: '150ms linear',
 
     item: {
+      titleColor: theme.colors.uiDark,
       hoverColor: theme.colors.background,
       activeColor: lightenDarkenColor(theme.colors.background, -3),
       iconColor: theme.colors.textDark,
@@ -143,10 +130,10 @@ export default {
 
     title: {
       color: theme.colors.uiDark,
-      iconFill: lightenDarkenColor(theme.colors.uiLight, -20),
+      iconFill: theme.colors.text,
       hoverColor: colors.black,
       hoverDanger: theme.colors.danger,
-      hoverIconFill: theme.colors.textDark,
+      hoverIconFill: lightenDarkenColor(theme.colors.text, -16),
     },
 
     icon: {

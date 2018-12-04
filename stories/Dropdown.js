@@ -5,6 +5,7 @@ import Dropdown from '../src/components/Dropdown';
 import DropdownItem from '../src/components/DropdownItem';
 
 import defaultTheme from '../src/themes/DefaultTheme';
+import darkTheme from '../src/themes/DarkTheme';
 
 import {
   NewWindowIcon,
@@ -152,6 +153,40 @@ storiesOf('Dropdown', module)
 
             .drui-dropdownItem__icon {
               fill: ${defaultTheme.dropdown.icon.fillDanger};
+            }
+          }
+
+          .theme--dark {
+            .drui-dropdownItem--danger {
+              border-top-color: ${darkTheme.dropdown.borderColorLight};
+
+              &:hover {
+                .drui-dropdownItem__action {
+                  background: ${darkTheme.dropdown.item.hoverColor};
+                }
+
+                .drui-dropdownItem__title {
+                  color: rgb(249, 59, 59);
+                }
+
+                .drui-dropdownItem__icon {
+                  fill: rgb(249, 59, 59);
+                }
+              }
+
+              &:active {
+                .drui-dropdownItem__action {
+                  background: ${darkTheme.dropdown.item.activeColor};
+                }
+              }
+
+              .drui-dropdownItem__title {
+                color: ${darkTheme.dropdown.title.hoverDanger};
+              }
+
+              .drui-dropdownItem__icon {
+                fill: ${darkTheme.dropdown.icon.fillDanger};
+              }
             }
           }
         `}</style>

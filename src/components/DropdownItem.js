@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { CheckIcon } from './icons';
 
 import defaultTheme from '../themes/DefaultTheme';
+import darkTheme from '../themes/DarkTheme';
 
 const DropdownItem = ({
   title,
@@ -13,14 +14,13 @@ const DropdownItem = ({
   className,
   isActive,
   onClick,
-  isLink,
   href,
   target,
   children,
   noItemsActiveState,
 }) => {
   const titleText = typeof title === 'string' ? title : title.text;
-  const ActionElem = isLink ? 'a' : 'button';
+  const ActionElem = href ? 'a' : 'button';
 
   return (
     <div
@@ -99,6 +99,7 @@ const DropdownItem = ({
           &.drui-dropdownItem--noItemsActiveState {
             .drui-dropdownItem__action {
               padding-left: 20px;
+              padding-right: 20px;
             }
           }
         }
@@ -106,11 +107,11 @@ const DropdownItem = ({
         .drui-dropdownItem__action {
           display: flex;
           position: relative;
-          padding: 5px 20px 5px 46px;
+          padding: 5px 46px 5px 46px;
           width: 100%;
           height: 100%;
           border: none;
-          background-color: ${defaultTheme.dropdown.backgroundColor};
+          background-color: transparent;
           transition: background-color ${defaultTheme.dropdown.transitionSettings};
           text-decoration: none;
           cursor: pointer;
@@ -131,7 +132,7 @@ const DropdownItem = ({
               fill: ${defaultTheme.dropdown.title.hoverIconFill};
 
               * {
-                fill: ${defaultTheme.dropdown.title.hoverIconFill};
+                fill: inherit;
               }
             }
           }
@@ -198,7 +199,7 @@ const DropdownItem = ({
           transition: fill 75ms linear;
 
           * {
-            fill: ${defaultTheme.dropdown.title.iconFill};
+            fill: inherit;
             transition: fill 75ms linear;
           }
         }
@@ -209,6 +210,50 @@ const DropdownItem = ({
           line-height: 15px;
           text-align: left;
           color: ${defaultTheme.dropdown.description.color};
+        }
+
+        .theme--dark {
+          .drui-dropdownItem__action {
+            &:hover {
+              background-color: ${darkTheme.dropdown.item.hoverColor};
+
+              .drui-dropdownItem__title {
+                color: ${darkTheme.dropdown.title.hoverColor};
+              }
+
+              .drui-dropdownItem__icon {
+                fill: ${darkTheme.dropdown.title.hoverColor};
+              }
+
+              .drui-dropdownItem__titleIcon {
+                fill: ${darkTheme.dropdown.title.hoverIconFill};
+              }
+            }
+
+            &:focus {
+              background-color: ${darkTheme.dropdown.item.hoverColor};
+            }
+
+            &:active {
+              background-color: ${darkTheme.dropdown.item.activeColor};
+            }
+          }
+
+          .drui-dropdownItem__icon {
+            fill: ${darkTheme.dropdown.item.iconColor};
+          }
+
+          .drui-dropdownItem__title {
+            color: ${darkTheme.dropdown.title.color};
+          }
+
+          .drui-dropdownItem__titleIcon {
+            fill: ${darkTheme.dropdown.title.iconFill};
+          }
+
+          .drui-dropdownItem__description {
+            color: ${darkTheme.dropdown.description.color};
+          }
         }
       `}</style>
     </div>
@@ -231,13 +276,28 @@ DropdownItem.propTypes = {
     PropTypes.node,
     PropTypes.func,
   ]),
-  isActive: PropTypes.bool,
   className: PropTypes.string,
+  isActive: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  position: PropTypes.string,
+  onClick: PropTypes.func,
+  href: PropTypes.string,
+  target: PropTypes.string,
+  noItemsActiveState: PropTypes.bool,
+};
+
+DropdownItem.defaultProps = {
+  description: '',
+  Icon: null,
+  className: '',
+  isActive: false,
+  children: null,
+  onClick: () => {},
+  href: '',
+  trarget: '',
+  noItemsActiveState: false,
 };
 
 export default DropdownItem;

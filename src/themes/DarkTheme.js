@@ -5,6 +5,10 @@ const colors = {
   purple: '#8D61DF',
   purpleDisabled: '#624F86',
   purpleBorder: '#542D9B',
+  red: '#F94C4C',
+  green: '#50BF17',
+  greenLight: '#70C843',
+  blue: '#488EFF',
   white: '#FFF',
   black: '#000',
   dark: '#3A3A43',
@@ -32,8 +36,13 @@ const theme = {
     text: colors.white,
     textLight: colors.grey,
     textDark: colors.darkerGrey,
+    light: colors.lightGrey,
   },
 };
+
+const shadows = {
+  shadowColor: `rgba(${convertToRgb(colors.black)}, 0.5)`,
+}
 
 const gradients = {
   purple: 'linear-gradient(0deg, #7140CC 0%, #8D61DF 100%)',
@@ -86,5 +95,35 @@ export default {
 
   loader: {
     backgroundColor: theme.colors.brand,
+  },
+
+  dropdown: {
+    backgroundColor: theme.colors.uiDark,
+    shadowColor: shadows.shadowColor,
+    titleColor: colors.white,
+    borderColor: theme.colors.uiLight,
+    borderColorLight: theme.colors.background,
+
+    item: {
+      hoverColor: lightenDarkenColor(theme.colors.uiDark, -10),
+      activeColor: lightenDarkenColor(theme.colors.uiDark, -15),
+      iconColor: colors.white,
+    },
+
+    title: {
+      color: theme.colors.light,
+      hoverColor: colors.white,
+      hoverDanger: theme.colors.danger,
+      iconFill: theme.colors.textDark,
+      hoverIconFill: theme.colors.textDark,
+    },
+
+    icon: {
+      fillDanger: theme.colors.danger
+    },
+
+    description: {
+      color: theme.colors.textLight,
+    },
   },
 };
