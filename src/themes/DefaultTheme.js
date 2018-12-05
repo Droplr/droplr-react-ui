@@ -1,41 +1,20 @@
 import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
-  purple: '#7A50C7',
-  purpleShadow: '#542D9B',
-  purpleDisabled: '#A28FC6',
-  purpleBorder: '#542D9B',
-  red: '#F94C4C',
-  green: '#50BF17',
-  greenLight: '#70C843',
-  blue: '#0B68FF',
   white: '#FFF',
   black: '#000',
-  bright: '#F8F9FC',
-  lightGrey: '#DEE3EB',
-  grey: '#A1AAB7',
-  greyDark: '#5E646E',
-  greyDarker: '#44484F',
-  transparentWhite: 'rgba(255, 255, 255, 0.1)',
-  transparentBlack: 'rgba(0, 0, 0, 0.1)',
-};
-
-const theme = {
-  colors: {
-    brand: colors.purple,
-    brandShadow: colors.purpleShadow,
-    brandDisabled: colors.purpleDisabled,
-    brandBorder: colors.purpleBorder,
-    danger: colors.red,
-    success: colors.green,
-    link: colors.blue,
-    info: colors.blue,
-    background: colors.bright,
-    uiLight: colors.lightGrey,
-    uiDark: colors.greyDarker,
-    text: colors.grey,
-    textDark: colors.greyDark,
-  },
+  brand: '#7A50C7',
+  brandLight: '#A28FC6',
+  brandDark: '#542D9B',
+  sunsetOrange: '#F94C4C',
+  lima: '#50BF17',
+  sushi: '#70C843',
+  blueRibbon: '#0B68FF',
+  whiteLilac: '#F8F9FC',
+  mystic: '#DEE3EB',
+  grayChateau: '#A1AAB7',
+  shuttleGray: '#5E646E',
+  mako: '#44484F',
 };
 
 const gradients = {
@@ -47,7 +26,7 @@ const gradients = {
 };
 
 const shadows = {
-  shadowColor: `rgba(${convertToRgb(theme.colors.text)}, 0.3)`,
+  shadowColor: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
 }
 
 export default {
@@ -69,7 +48,7 @@ export default {
   },
 
   window: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: colors.whiteLilac,
   },
 
   button: {
@@ -77,8 +56,8 @@ export default {
       backgroundColor: gradients.purple,
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
-      backgroundColorDisabled: theme.colors.brandDisabled,
-      shadowColor: theme.colors.brandShadow,
+      backgroundColorDisabled: colors.brandLight,
+      shadowColor: lightenDarkenColor(colors.brand, -20),
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
@@ -87,43 +66,43 @@ export default {
       backgroundColor: gradients.bright,
       backgroundColorHover: gradients.bright,
       backgroundColorActive: gradients.brightActive,
-      backgroundColorDisabled: theme.colors.background,
-      borderColor: theme.colors.uiLight,
-      borderColorHover: lightenDarkenColor(theme.colors.uiLight, -10),
-      textColor: theme.colors.textDark,
-      textColorDisabled: theme.colors.uiLight,
-      iconColor: theme.colors.textDark,
-      loaderColor: theme.colors.textDark,
+      backgroundColorDisabled: colors.whiteLilac,
+      borderColor: colors.mystic,
+      borderColorHover: lightenDarkenColor(colors.mystic, -10),
+      textColor: colors.shuttleGray,
+      textColorDisabled: colors.mystic,
+      iconColor: colors.shuttleGray,
+      loaderColor: colors.shuttleGray,
     },
   },
 
   dualButton: {
     primary: {
-      separatorColor: theme.colors.brand,
-      shadowColor: theme.colors.brandShadow,
-      borderColor: theme.colors.brandBorder,
+      separatorColor: colors.brand,
+      shadowColor: lightenDarkenColor(colors.brand, -20),
+      borderColor: colors.brandDark,
     },
     secondary: {
       separatorColor: colors.white,
-      borderColor: theme.colors.uiLight,
+      borderColor: colors.mystic,
     },
   },
 
   loader: {
-    backgroundColor: theme.colors.brand,
+    backgroundColor: colors.brand,
   },
 
   dropdown: {
     backgroundColor: colors.white,
     shadowColor: shadows.shadowColor,
-    titleColor: theme.colors.textDark,
-    borderColor: theme.colors.uiLight,
+    titleColor: colors.shuttleGray,
+    borderColor: colors.mystic,
 
     item: {
-      titleColor: theme.colors.uiDark,
-      hoverColor: theme.colors.background,
-      activeColor: lightenDarkenColor(theme.colors.background, -2),
-      iconColor: theme.colors.textDark,
+      titleColor: colors.mako,
+      hoverColor: colors.whiteLilac,
+      activeColor: lightenDarkenColor(colors.whiteLilac, -2),
+      iconColor: colors.shuttleGray,
     },
   },
 };
