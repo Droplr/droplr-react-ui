@@ -25,7 +25,7 @@ storiesOf('Dropdown', module)
 
     return (
       <Dropdown isActive>
-        <DropdownItem title="Dropdown item 1" onClick={onItemClick} isActive />
+        <DropdownItem title="Dropdown item 1" onClick={onItemClick} active />
         <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
@@ -49,7 +49,7 @@ storiesOf('Dropdown', module)
 
     return (
       <Dropdown isActive noItemsActiveState>
-        <DropdownItem title="Dropdown item 1" onClick={onItemClick} isActive />
+        <DropdownItem title="Dropdown item 1" onClick={onItemClick} active />
         <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
@@ -73,7 +73,7 @@ storiesOf('Dropdown', module)
 
     return (
       <Dropdown header="Dropdown title" isActive >
-        <DropdownItem title="Dropdown item 1" onClick={onItemClick} isActive />
+        <DropdownItem title="Dropdown item 1" onClick={onItemClick} active />
         <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
@@ -148,11 +148,11 @@ storiesOf('Dropdown', module)
             }
 
             .drui-dropdownItem__title {
-              color: ${defaultTheme.dropdown.title.hoverDanger};
+              color: ${defaultTheme.dropdown.item.title.hoverDanger};
             }
 
             .drui-dropdownItem__icon {
-              fill: ${defaultTheme.dropdown.icon.fillDanger};
+              fill: ${defaultTheme.dropdown.item.icon.fillDanger};
             }
           }
 
@@ -181,11 +181,11 @@ storiesOf('Dropdown', module)
               }
 
               .drui-dropdownItem__title {
-                color: ${darkTheme.dropdown.title.hoverDanger};
+                color: ${darkTheme.dropdown.item.title.hoverDanger};
               }
 
               .drui-dropdownItem__icon {
-                fill: ${darkTheme.dropdown.icon.fillDanger};
+                fill: ${darkTheme.dropdown.item.icon.fillDanger};
               }
             }
           }
@@ -200,7 +200,7 @@ storiesOf('Dropdown', module)
 
     return (
       <Dropdown isActive>
-        <DropdownItem title={{ text: 'Item 1', Icon: PadlockLockIcon }} onClick={onItemClick} isActive />
+        <DropdownItem title={{ text: 'Item 1', Icon: PadlockLockIcon }} onClick={onItemClick} active />
         <DropdownItem title={{ text: 'Item 2', Icon: TeamIcon }} onClick={onItemClick} />
         <DropdownItem title={{ text: 'Item 3', Icon: PadlockUnlockIcon }} onClick={onItemClick} />
       </Dropdown>
@@ -217,12 +217,40 @@ storiesOf('Dropdown', module)
           title={{ text: 'Item 1', Icon: PadlockLockIcon }}
           onClick={onItemClick}
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-          isActive
+          active
         />
         <DropdownItem
           title={{ text: 'Item 2', Icon: TeamIcon }}
           onClick={onItemClick}
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        />
+        <DropdownItem
+          title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        />
+      </Dropdown>
+    );
+  })
+  .addWithJSX('Dropdown item disabled', () => {
+    function onItemClick(e) {
+      console.log('click');
+    }
+
+    return (
+      <Dropdown isActive>
+        <DropdownItem
+          title={{ text: 'Item 1', Icon: PadlockLockIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          active
+          disabled
+        />
+        <DropdownItem
+          title={{ text: 'Item 2', Icon: TeamIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          disabled
         />
         <DropdownItem
           title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}

@@ -126,18 +126,19 @@ export default {
       hoverColor: theme.colors.background,
       activeColor: lightenDarkenColor(theme.colors.background, -3),
       iconColor: theme.colors.textDark,
-    },
+      disabledColor: theme.colors.text,
 
-    title: {
-      color: theme.colors.uiDark,
-      iconFill: theme.colors.text,
-      hoverColor: colors.black,
-      hoverDanger: theme.colors.danger,
-      hoverIconFill: lightenDarkenColor(theme.colors.text, -16),
-    },
-
-    icon: {
-      fillDanger: theme.colors.danger
+      title: {
+        color: theme.colors.uiDark,
+        iconFill: theme.colors.text,
+        hoverColor: colors.black,
+        hoverDanger: theme.colors.danger,
+        hoverIconFill: lightenDarkenColor(theme.colors.text, -16),
+      },
+  
+      icon: {
+        fillDanger: theme.colors.danger
+      },
     },
 
     description: {

@@ -12,11 +12,12 @@ const DropdownItem = ({
   description,
   Icon,
   className,
-  isActive,
+  active,
   onClick,
   href,
   target,
   children,
+  disabled,
   noItemsActiveState,
 }) => {
   const titleText = typeof title === 'string' ? title : title.text;
@@ -29,7 +30,8 @@ const DropdownItem = ({
         {
           [className]: className,
           ['drui-dropdownItem--withDescription']: description,
-          ['drui-dropdownItem--isActive']: isActive,
+          ['drui-dropdownItem--active']: active,
+          ['drui-dropdownItem--disabled']: disabled,
           ['drui-dropdownItem--noItemsActiveState']: noItemsActiveState,
         })
       }
@@ -42,6 +44,7 @@ const DropdownItem = ({
         className="drui-dropdownItem__action"
         target={target || null}
         rel={target === '_blank' ? 'noopener nofollow' : null}
+        disabled={ActionElem === 'button' ? disabled : null}
       >
         <div className="drui-dropdownItem__iconWrapper">
           {/* Custom icon for dropdown item */}
@@ -50,7 +53,7 @@ const DropdownItem = ({
           }
 
           {/* No custom icon, menu item is active */}
-          {!noItemsActiveState && !Icon && isActive &&
+          {!noItemsActiveState && !Icon && active &&
             <CheckIcon className="drui-dropdownItem__icon" />
           }
         </div>
@@ -95,12 +98,41 @@ const DropdownItem = ({
               padding-top: 10px;
             }
           }
+        }
 
-          &.drui-dropdownItem--noItemsActiveState {
-            .drui-dropdownItem__action {
-              padding-left: 20px;
-              padding-right: 20px;
+        .drui-dropdownItem.drui-dropdownItem--disabled {
+          .drui-dropdownItem__action {
+            &:hover {
+              cursor: not-allowed;
+              background-color: transparent;
             }
+          }
+
+          .drui-dropdownItem__icon,
+          .drui-dropdownItem__title,
+          .drui-dropdownItem__titleIcon,
+          .drui-dropdownItem__description {
+            opacity: 0.6;
+            color: ${defaultTheme.dropdown.item.disabledColor};
+            fill: ${defaultTheme.dropdown.item.disabledColor};
+          }
+
+          &:hover {
+            .drui-dropdownItem__icon,
+            .drui-dropdownItem__title,
+            .drui-dropdownItem__titleIcon,
+            .drui-dropdownItem__description {
+              opacity: 0.6;
+            color: ${defaultTheme.dropdown.item.disabledColor};
+              fill: ${defaultTheme.dropdown.item.disabledColor};
+            }
+          }
+        }
+
+        .drui-dropdownItem--noItemsActiveState {
+          .drui-dropdownItem__action {
+            padding-left: 20px;
+            padding-right: 20px;
           }
         }
 
@@ -121,15 +153,15 @@ const DropdownItem = ({
             cursor: pointer;
 
             .drui-dropdownItem__title {
-              color: ${defaultTheme.dropdown.title.hoverColor};
+              color: ${defaultTheme.dropdown.item.title.hoverColor};
             }
 
             .drui-dropdownItem__icon {
-              fill: ${defaultTheme.dropdown.title.hoverColor};
+              fill: ${defaultTheme.dropdown.item.title.hoverColor};
             }
 
             .drui-dropdownItem__titleIcon {
-              fill: ${defaultTheme.dropdown.title.hoverIconFill};
+              fill: ${defaultTheme.dropdown.item.title.hoverIconFill};
 
               * {
                 fill: inherit;
@@ -174,7 +206,7 @@ const DropdownItem = ({
           align-items: center;
           font-size: ${defaultTheme.font.size.normal};
           font-weight: ${defaultTheme.font.weight.normal};
-          color: ${defaultTheme.dropdown.title.color};
+          color: ${defaultTheme.dropdown.item.title.color};
           transition: color ${defaultTheme.dropdown.transitionSettings};
 
           .drui-dropdownItem__titleIcon {
@@ -195,7 +227,7 @@ const DropdownItem = ({
         .drui-dropdownItem__titleIcon {
           flex: 0 1 24px;
           display: block;
-          fill: ${defaultTheme.dropdown.title.iconFill};
+          fill: ${defaultTheme.dropdown.item.title.iconFill};
           transition: fill 75ms linear;
 
           * {
@@ -213,20 +245,49 @@ const DropdownItem = ({
         }
 
         .theme--dark {
+          .drui-dropdownItem.drui-dropdownItem--disabled {
+            .drui-dropdownItem__action {
+              &:hover {
+                cursor: not-allowed;
+                background-color: transparent;
+              }
+            }
+
+            .drui-dropdownItem__icon,
+            .drui-dropdownItem__title,
+            .drui-dropdownItem__titleIcon,
+            .drui-dropdownItem__description {
+              opacity: 0.6;
+              color: ${darkTheme.dropdown.item.disabledColor};
+              fill: ${darkTheme.dropdown.item.disabledColor};
+            }
+
+            &:hover {
+              .drui-dropdownItem__icon,
+              .drui-dropdownItem__title,
+              .drui-dropdownItem__titleIcon,
+              .drui-dropdownItem__description {
+                opacity: 0.6;
+                color: ${darkTheme.dropdown.item.disabledColor};
+                fill: ${darkTheme.dropdown.item.disabledColor};
+              }
+            }
+          }
+
           .drui-dropdownItem__action {
             &:hover {
               background-color: ${darkTheme.dropdown.item.hoverColor};
 
               .drui-dropdownItem__title {
-                color: ${darkTheme.dropdown.title.hoverColor};
+                color: ${darkTheme.dropdown.item.title.hoverColor};
               }
 
               .drui-dropdownItem__icon {
-                fill: ${darkTheme.dropdown.title.hoverColor};
+                fill: ${darkTheme.dropdown.item.title.hoverColor};
               }
 
               .drui-dropdownItem__titleIcon {
-                fill: ${darkTheme.dropdown.title.hoverIconFill};
+                fill: ${darkTheme.dropdown.item.title.hoverIconFill};
               }
             }
 
@@ -244,11 +305,11 @@ const DropdownItem = ({
           }
 
           .drui-dropdownItem__title {
-            color: ${darkTheme.dropdown.title.color};
+            color: ${darkTheme.dropdown.item.title.color};
           }
 
           .drui-dropdownItem__titleIcon {
-            fill: ${darkTheme.dropdown.title.iconFill};
+            fill: ${darkTheme.dropdown.item.title.iconFill};
           }
 
           .drui-dropdownItem__description {
@@ -277,7 +338,7 @@ DropdownItem.propTypes = {
     PropTypes.func,
   ]),
   className: PropTypes.string,
-  isActive: PropTypes.bool,
+  active: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -286,18 +347,20 @@ DropdownItem.propTypes = {
   href: PropTypes.string,
   target: PropTypes.string,
   noItemsActiveState: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 DropdownItem.defaultProps = {
   description: '',
   Icon: null,
   className: '',
-  isActive: false,
+  active: false,
   children: null,
-  onClick: () => {},
   href: '',
   trarget: '',
   noItemsActiveState: false,
+  disabled: false,
+  onClick: () => {},
 };
 
 export default DropdownItem;
