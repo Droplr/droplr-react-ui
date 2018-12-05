@@ -5,15 +5,17 @@ import * as icons from '../src/components/icons';
 
 const iconsArray = Object.keys(icons).map((key) => icons[key]);
 
-function getIcon(Icon) {
-  var _this = <Icon />;
+function getIcons() {
+  return iconsArray.map(Icon => {
+    const iconComponent = <Icon />;
 
-  return (
-    <div className="iconWrapper" key={`icon-${_this.type.name}`}>
-      <Icon />
-      <span className="icon__title">{_this.type.name}</span>
-    </div>
-  );
+    return (
+      <div className="iconWrapper" key={`icon-${iconComponent.type.name}`}>
+        <Icon />
+        <span className="icon__title">{iconComponent.type.name}</span>
+      </div>
+    );
+  })
 }
 
 const IconsDecorator = (storyFn) => (
@@ -72,7 +74,5 @@ const IconsDecorator = (storyFn) => (
 storiesOf('Icons', module)
   .addDecorator(IconsDecorator)
   .addWithJSX('All icons', () => (
-    <>
-      {iconsArray.map(getIcon)}
-    </>
+    <>{getIcons()}</>
   ))

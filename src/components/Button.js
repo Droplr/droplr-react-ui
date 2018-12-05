@@ -121,6 +121,7 @@ class Button extends React.PureComponent {
           .drui-button--disabled:hover {
             background: ${defaultTheme.button.primary.backgroundColorDisabled};
             box-shadow: none;
+            cursor: not-allowed;
             border: none;
           }
 
