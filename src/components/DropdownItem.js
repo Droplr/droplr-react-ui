@@ -81,6 +81,14 @@ const DropdownItem = ({
           max-width: 100%;
           min-width: 0;
           height: 34px;
+          font-family: ${defaultTheme.font.family.primary};
+          box-sizing: border-box;
+
+          *,
+          *:before,
+          *:after {
+            box-sizing: inherit;
+          }
 
           &.drui-dropdownItem--withDescription {
             height: auto;

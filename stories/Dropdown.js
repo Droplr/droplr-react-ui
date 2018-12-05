@@ -30,12 +30,10 @@ storiesOf('Dropdown', module)
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
           title="Dropdown item 4. Link, internal"
-          isLink
           href="/"
         />
         <DropdownItem
           title="Dropdown item 5. Link, external"
-          isLink
           href="https://droplr.com"
           target="_blank"
         />
@@ -54,12 +52,10 @@ storiesOf('Dropdown', module)
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
           title="Dropdown item 4. Link, internal"
-          isLink
           href="/"
         />
         <DropdownItem
           title="Dropdown item 5. Link, external"
-          isLink
           href="https://droplr.com"
           target="_blank"
         />
@@ -78,43 +74,41 @@ storiesOf('Dropdown', module)
         <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
         <DropdownItem
           title="Dropdown item 4. Link, internal"
-          isLink
           href="/"
         />
         <DropdownItem
           title="Dropdown item 5. Link, external"
-          isLink
           href="https://droplr.com"
           target="_blank"
         />
       </Dropdown>
     );
   })
-  .addWithJSX('Dropdown with icon', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
-
-    return (
-      <Dropdown isActive>
-        <DropdownItem title="Open" onClick={onItemClick} Icon={NewWindowIcon} />
-        <DropdownItem title="Download" onClick={onItemClick} Icon={DownloadIcon} />
-        <DropdownItem title="Set Self-Destruct" onClick={onItemClick} Icon={ExpireTimeIcon} />
-        <DropdownItem title="Set Privacy" onClick={onItemClick} Icon={PadlockLockIcon} />
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Dropdown with element modifier', () => {
+  .addWithJSX('Complex', () => {
     function onItemClick(e) {
       console.log('click');
     }
 
     return (
       <Dropdown isActive >
-        <DropdownItem title="Open" onClick={onItemClick} Icon={NewWindowIcon} />
-        <DropdownItem title="Download" onClick={onItemClick} Icon={DownloadIcon} />
-        <DropdownItem title="Set Self-Destruct" onClick={onItemClick} Icon={ExpireTimeIcon} />
-        <DropdownItem title="Set Privacy" onClick={onItemClick} Icon={PadlockLockIcon} />
+        <DropdownItem
+          title={{ text: 'Item 1', Icon: PadlockLockIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          active
+          disabled
+        />
+        <DropdownItem
+          title={{ text: 'Item 2', Icon: TeamIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          disabled
+        />
+        <DropdownItem
+          title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}
+          onClick={onItemClick}
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        />
         <DropdownItem className="drui-dropdownItem--danger" title="Delete" onClick={onItemClick} Icon={TrashBinIcon} />
 
         <style jsx global>{`
@@ -190,73 +184,6 @@ storiesOf('Dropdown', module)
             }
           }
         `}</style>
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Dropdown with item title icon', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
-
-    return (
-      <Dropdown isActive>
-        <DropdownItem title={{ text: 'Item 1', Icon: PadlockLockIcon }} onClick={onItemClick} active />
-        <DropdownItem title={{ text: 'Item 2', Icon: TeamIcon }} onClick={onItemClick} />
-        <DropdownItem title={{ text: 'Item 3', Icon: PadlockUnlockIcon }} onClick={onItemClick} />
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Dropdown with item description', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
-
-    return (
-      <Dropdown isActive>
-        <DropdownItem
-          title={{ text: 'Item 1', Icon: PadlockLockIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-          active
-        />
-        <DropdownItem
-          title={{ text: 'Item 2', Icon: TeamIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        />
-        <DropdownItem
-          title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        />
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Dropdown item disabled', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
-
-    return (
-      <Dropdown isActive>
-        <DropdownItem
-          title={{ text: 'Item 1', Icon: PadlockLockIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-          active
-          disabled
-        />
-        <DropdownItem
-          title={{ text: 'Item 2', Icon: TeamIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-          disabled
-        />
-        <DropdownItem
-          title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        />
       </Dropdown>
     );
   })

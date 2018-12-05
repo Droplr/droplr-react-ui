@@ -12,7 +12,6 @@ class Dropdown extends React.Component {
 
   render() {
     const {
-      position,
       header,
       isActive,
       className,
@@ -23,10 +22,7 @@ class Dropdown extends React.Component {
     if (!isActive || !children) return null;
 
     return (
-      <div className={classnames('drui-dropdown', {
-        [`drui-dropdown--${position}`]: position,
-        [className]: className,
-      })}
+      <div className={classnames('drui-dropdown', { [className]: className })}
       >
 
         <div className="drui-dropdown__inner">
@@ -168,26 +164,25 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  onClick: PropTypes.func,
   isActive: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  position: PropTypes.string,
   header: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
       title: PropTypes.string,
     }),
   ]),
+  className: PropTypes.string,
+  noItemsActiveState: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
-  position: 'bottom',
   header: '',
   className: '',
-  onClick: () => {},
+  noItemsActiveState: false,
 }
 
 export default Dropdown;

@@ -122,6 +122,7 @@ class Button extends React.PureComponent {
             background: ${defaultTheme.button.primary.backgroundColorDisabled};
             box-shadow: none;
             border: none;
+            cursor: not-allowed;
           }
 
           .drui-button--loading,

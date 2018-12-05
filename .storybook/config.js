@@ -21,7 +21,7 @@ const ThemesDecorator = (storyFn) => (
     <div className="storyWrapperDark theme--dark">
       {storyFn()}
       <style jsx>{`
-      @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
+        @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
 
         .storyWrapperDark {
           width: 400px;
@@ -37,6 +37,7 @@ addDecorator(ThemesDecorator);
 
 function loadStories() {
   require('../stories/Dropdown');
+  require('../stories/DropdownItem');
   require('../stories/ButtonPrimary');
   require('../stories/ButtonSecondary');
   require('../stories/DualButton');
