@@ -246,7 +246,7 @@ class Button extends React.PureComponent {
                 background: ${darkTheme.button.secondary.backgroundColorDisabled};
                 color: ${darkTheme.button.secondary.textColorDisabled};
                 box-shadow: none;
-                border-color: ${darkTheme.button.secondary.textColorDisabled};
+                border-color: ${darkTheme.button.secondary.borderColorDisabled};
                 cursor: not-allowed;
 
                 .drui-button__dropdownIcon {
