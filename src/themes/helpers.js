@@ -23,7 +23,7 @@ function lightenDarkenColor(color, value) {
   if (blue > 255) blue = 255;
   else if (blue < 0) blue = 0;
 
-  return (usePound?'#':'') + (green | (blue << 8) | (red << 16)).toString(16);
+  return (usePound ? '#' : '') + (green | (blue << 8) | (red << 16)).toString(16);
 }
 
 function convertToRgb(hexVal) {
