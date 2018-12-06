@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>down</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/down</title>
     <desc>Created with Sketch.</desc>
-    <g id="down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.142857)">
-        <polygon fill="#000000" transform="translate(12.000000, 12.500000) rotate(-180.000000) translate(-12.000000, -12.500000) " points="7 15 12 10 17 15"></polygon>
+    <g id="icons/down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="down" fill="#5E646E" transform="translate(12.000000, 12.000000) scale(1, -1) translate(-12.000000, -12.000000) " points="17 15 12 9 7 15"></polygon>
     </g>
 </svg>

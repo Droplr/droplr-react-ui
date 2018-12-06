@@ -1,14 +1,17 @@
+import { lightenDarkenColor, convertToRgb } from './helpers';
+
 const colors = {
-  purple: '#8D61DF',
-  purpleDisabled: '#624F86',
-  purpleBorder: '#542D9B',
   white: '#FFF',
-  veryLightGrey: '#DCDDE6',
-  lightGrey: '#60606D',
-  grey: '#464651',
-  darkGrey: '#2D2E33',
-  transparentWhite: 'rgba(255, 255, 255, 0.1)',
-  transparentBlack: 'rgba(0, 0, 0, 0.1)',
+  black: '#000',
+  brand: '#8D61DF',
+  brandLight: '#624F86',
+  brandDark: '#542D9B',
+  tuna: '#3A3A43',
+  shark: '#2D2E33',
+  mako: '#464651',
+  blueHaze: '#CBCEDE',
+  athensGray: '#E9EAED',
+  waterloo: '#878891',
 };
 
 const gradients = {
@@ -22,7 +25,7 @@ const gradients = {
 
 export default {
   window: {
-    backgroundColor: colors.darkGrey,
+    backgroundColor: colors.shark,
   },
 
   button: {
@@ -30,7 +33,7 @@ export default {
       backgroundColor: gradients.purple,
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
-      backgroundColorDisabled: colors.purpleDisabled,
+      backgroundColorDisabled: colors.brandLight,
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
@@ -39,28 +42,29 @@ export default {
       backgroundColor: gradients.dark,
       backgroundColorHover: gradients.darkHover,
       backgroundColorActive: gradients.darkActive,
-      backgroundColorDisabled: colors.grey,
-      borderColor: colors.darkGrey,
-      textColor: colors.veryLightGrey,
-      textColorDisabled: colors.lightGrey,
-      iconColor: colors.veryLightGrey,
-      iconColorDisabled: colors.lightGrey,
-      loaderColor: colors.veryLightGrey,
+      backgroundColorDisabled: colors.mako,
+      borderColor: colors.tuna,
+      borderColorDisabled: colors.shark,
+      textColor: colors.blueHaze,
+      textColorDisabled: `rgba(${convertToRgb(colors.waterloo)}, 0.5)`,
+      iconColor: colors.blueHaze,
+      iconColorDisabled: `rgba(${convertToRgb(colors.waterloo)}, 0.5)`,
+      loaderColor: colors.blueHaze,
     },
   },
 
   dualButton: {
     primary: {
-      separatorColor: colors.purple,
-      borderColor: colors.purpleBorder,
+      separatorColor: colors.brand,
+      borderColor: colors.brandDark,
     },
     secondary: {
-      separatorColor: colors.lightGrey,
-      borderColor: colors.darkGrey,
+      separatorColor: lightenDarkenColor(colors.mako, 20),
+      borderColor: lightenDarkenColor(colors.tuna, 5),
     },
   },
 
   loader: {
-    backgroundColor: colors.purple,
+    backgroundColor: colors.brand,
   },
 };

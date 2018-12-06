@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>folder</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/folder</title>
     <desc>Created with Sketch.</desc>
-    <g id="folder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 0.571429)">
-        <path d="M10,4 L4,4 C2.9,4 2.01,4.9 2.01,6 L2,18 C2,19.1 2.9,20 4,20 L20,20 C21.1,20 22,19.1 22,18 L22,8 C22,6.9 21.1,6 20,6 L12,6 L10,4 L10,4 Z" fill="#000000"></path>
+    <g id="icons/folder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5.6,5.5 C4.72,5.5 4.008,6.23125 4.008,7.125 L4,16.875 C4,17.76875 4.72,18.5 5.6,18.5 L18.4,18.5 C19.28,18.5 20,17.76875 20,16.875 L20,8.75 C20,7.85625 19.28,7.125 18.4,7.125 L12,7.125 L10.4,5.5 L5.6,5.5 Z" id="folder" fill="#5E646E" fill-rule="nonzero"></path>
     </g>
 </svg>

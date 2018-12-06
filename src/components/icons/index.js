@@ -9,15 +9,12 @@ import CameraIcon from '../../svg/camera.svg';
 import CheckIcon from '../../svg/check.svg';
 import ChevronLeftIcon from '../../svg/chevronLeft.svg';
 import ClipboardIcon from '../../svg/clipboard.svg';
-import CloneCompleteIcon from '../../svg/cloneComplete.svg';
 import CloudUploadIcon from '../../svg/cloudUpload.svg';
-import CloudUploadBoldIcon from '../../svg/cloudUploadBold.svg';
 import CommentIcon from '../../svg/comment.svg';
 import CopyIcon from '../../svg/copy.svg';
 import CreateBoardIcon from '../../svg/createBoard.svg';
 import CrossIcon from '../../svg/cross.svg';
 import DestructIcon from '../../svg/destruct.svg';
-import DetachIcon from '../../svg/detach.svg';
 import DisableIcon from '../../svg/disable.svg';
 import DotsIcon from '../../svg/dots.svg';
 import DownIcon from '../../svg/down.svg';
@@ -39,12 +36,8 @@ import NewWindowIcon from '../../svg/newWindow.svg';
 import NotesIcon from '../../svg/notes.svg';
 import NotesBoldIcon from '../../svg/notesBold.svg';
 import OthersIcon from '../../svg/others.svg';
-import PadlockIcon from '../../svg/padlock.svg';
-import PadlockBoldIcon from '../../svg/padlockBold.svg';
 import PadlockLockIcon from '../../svg/padlockLock.svg';
-import PadlockLockOutlineIcon from '../../svg/padlockLockOutline.svg';
 import PadlockUnlockIcon from '../../svg/padlockUnlock.svg';
-import PadlockUnlockOutlineIcon from '../../svg/padlockUnlockOutline.svg';
 import PenIcon from '../../svg/pen.svg';
 import PrivateIcon from '../../svg/private.svg';
 import ProfileIcon from '../../svg/profile.svg';
@@ -70,7 +63,6 @@ import ViewListIcon from '../../svg/viewList.svg';
 import WalletIcon from '../../svg/wallet.svg';
 import WarningIcon from '../../svg/warning.svg';
 import WatchFolderIcon from '../../svg/watchFolder.svg';
-import ZoomCloseIcon from '../../svg/zoomClose.svg';
 import ZoomInIcon from '../../svg/zoomIn.svg';
 import ZoomOutIcon from '../../svg/zoomOut.svg';
 import ZoomResetIcon from '../../svg/zoomReset.svg';
@@ -87,15 +79,12 @@ export {
   CheckIcon,
   ChevronLeftIcon,
   ClipboardIcon,
-  CloneCompleteIcon,
   CloudUploadIcon,
-  CloudUploadBoldIcon,
   CommentIcon,
   CopyIcon,
   CreateBoardIcon,
   CrossIcon,
   DestructIcon,
-  DetachIcon,
   DisableIcon,
   DotsIcon,
   DownIcon,
@@ -117,12 +106,8 @@ export {
   NotesIcon,
   NotesBoldIcon,
   OthersIcon,
-  PadlockIcon,
-  PadlockBoldIcon,
   PadlockLockIcon,
-  PadlockLockOutlineIcon,
   PadlockUnlockIcon,
-  PadlockUnlockOutlineIcon,
   PenIcon,
   PrivateIcon,
   ProfileIcon,
@@ -148,7 +133,6 @@ export {
   WalletIcon,
   WarningIcon,
   WatchFolderIcon,
-  ZoomCloseIcon,
   ZoomInIcon,
   ZoomOutIcon,
   ZoomResetIcon,

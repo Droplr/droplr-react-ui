@@ -1,15 +1,20 @@
+import { lightenDarkenColor, convertToRgb } from './helpers';
+
 const colors = {
-  purple: '#7A50C7',
-  purpleShadow: '#542D9B',
-  purpleDisabled: '#A28FC6',
-  purpleBorder: '#542D9B',
   white: '#FFF',
-  bright: '#F8F9FC',
-  lightGrey: '#DEE3EB',
-  grey: '#CCD3DE',
-  darkGrey: '#3E4247',
-  transparentWhite: 'rgba(255, 255, 255, 0.1)',
-  transparentBlack: 'rgba(0, 0, 0, 0.1)',
+  black: '#000',
+  brand: '#7A50C7',
+  brandLight: '#A28FC6',
+  brandDark: '#542D9B',
+  sunsetOrange: '#F94C4C',
+  lima: '#50BF17',
+  sushi: '#70C843',
+  blueRibbon: '#0B68FF',
+  whiteLilac: '#F8F9FC',
+  mystic: '#DEE3EB',
+  grayChateau: '#A1AAB7',
+  shuttleGray: '#5E646E',
+  mako: '#44484F',
 };
 
 const gradients = {
@@ -19,6 +24,10 @@ const gradients = {
   bright: 'linear-gradient(0deg, #F8F9FC 0%, #FFF 100%)',
   brightActive: 'linear-gradient(0deg, #FFF 0%, #F8F9FC 100%)',
 };
+
+const shadows = {
+  shadowColor: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
+}
 
 export default {
   font: {
@@ -37,7 +46,7 @@ export default {
   },
 
   window: {
-    backgroundColor: colors.bright,
+    backgroundColor: colors.whiteLilac,
   },
 
   button: {
@@ -45,8 +54,8 @@ export default {
       backgroundColor: gradients.purple,
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
-      backgroundColorDisabled: colors.purpleDisabled,
-      shadowColor: colors.purpleShadow,
+      backgroundColorDisabled: colors.brandLight,
+      shadowColor: lightenDarkenColor(colors.brand, -20),
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
@@ -55,29 +64,43 @@ export default {
       backgroundColor: gradients.bright,
       backgroundColorHover: gradients.bright,
       backgroundColorActive: gradients.brightActive,
-      backgroundColorDisabled: colors.bright,
-      borderColor: colors.lightGrey,
-      borderColorHover: colors.grey,
-      textColor: colors.darkGrey,
-      textColorDisabled: colors.lightGrey,
-      iconColor: colors.darkGrey,
-      loaderColor: colors.darkGrey,
+      backgroundColorDisabled: colors.whiteLilac,
+      borderColor: colors.mystic,
+      borderColorHover: lightenDarkenColor(colors.mystic, -10),
+      textColor: colors.shuttleGray,
+      textColorDisabled: colors.mystic,
+      iconColor: colors.shuttleGray,
+      loaderColor: colors.shuttleGray,
     },
   },
 
   dualButton: {
     primary: {
-      separatorColor: colors.purple,
-      shadowColor: colors.purpleShadow,
-      borderColor: colors.purpleBorder,
+      separatorColor: colors.brand,
+      shadowColor: lightenDarkenColor(colors.brand, -20),
+      borderColor: colors.brandDark,
     },
     secondary: {
       separatorColor: colors.white,
-      borderColor: colors.lightGrey,
+      borderColor: colors.mystic,
     },
   },
 
   loader: {
-    backgroundColor: colors.purple,
+    backgroundColor: colors.brand,
+  },
+
+  dropdown: {
+    backgroundColor: colors.white,
+    shadowColor: shadows.shadowColor,
+    titleColor: colors.shuttleGray,
+    borderColor: colors.mystic,
+
+    item: {
+      titleColor: colors.mako,
+      hoverColor: colors.whiteLilac,
+      activeColor: lightenDarkenColor(colors.whiteLilac, -2),
+      iconColor: colors.shuttleGray,
+    },
   },
 };

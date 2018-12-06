@@ -71,7 +71,7 @@ class DualButton extends React.PureComponent {
           }
 
           .drui-dualButton--secondary {
-            .button:first-child {
+            .drui-button:first-child {
               border-right: none;
             }
 
