@@ -77,30 +77,30 @@ export default {
     backgroundColor: colors.tuna,
     shadowColor: shadows.shadowColor,
     titleColor: colors.white,
-    borderColor: colors.mako,
-    borderColorLight: colors.shark,
+    borderColor: colors.shark,
+    headerBorderColor: colors.mako,
+  },
 
-    item: {
-      hoverColor: lightenDarkenColor(colors.tuna, -10),
-      activeColor: lightenDarkenColor(colors.tuna, -15),
-      iconColor: colors.white,
-      disabledColor: colors.waterloo,
+  dropdownItem: {
+    backgoundColorHover: lightenDarkenColor(colors.tuna, -10),
+    backgoundColorActive: lightenDarkenColor(colors.tuna, -15),
+    iconColor: colors.white,
+    disabledColor: colors.waterloo,
 
-      title: {
-        color: colors.athensGray,
-        hoverColor: colors.white,
-        hoverDanger: colors.sunsetOrange,
-        iconFill: colors.waterloo,
-        hoverIconFill: colors.waterloo,
-      },
-  
-      icon: {
-        fillDanger: colors.sunsetOrange,
-      },
+    title: {
+      textColor: colors.athensGray,
+      textColorHover: colors.white,
+      textColorHoverDanger: colors.sunsetOrange,
+      iconFill: colors.waterloo,
+      iconFillHover: colors.waterloo,
+    },
+
+    icon: {
+      fillDanger: colors.sunsetOrange,
     },
 
     description: {
-      color: colors.mako,
+      color: colors.blueHaze,
     },
   },
 };

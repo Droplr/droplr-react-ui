@@ -5,18 +5,14 @@ import classnames from 'classnames';
 import defaultTheme from '../themes/DefaultTheme';
 import darkTheme from '../themes/DarkTheme';
 
-class Dropdown extends React.Component {
-  constructor() {
-    super();
-  }
-
+class Dropdown extends React.PureComponent {
   render() {
     const {
       header,
       isActive,
       className,
       children,
-      noItemsActiveState,
+      showItemStatus,
     } = this.props;
 
     if (!isActive || !children) return null;
@@ -28,9 +24,7 @@ class Dropdown extends React.Component {
         <div className="drui-dropdown__inner">
           {header &&
             <div className="drui-dropdown__header">
-              <span className="drui-dropdown__title">
-                {typeof header === 'string' ? header : header.title}
-              </span>
+              <span className="drui-dropdown__title">{header}</span>
             </div>
           }
 
@@ -39,7 +33,7 @@ class Dropdown extends React.Component {
               children,
               child => (
                 <li className="drui-dropdown__listItemWrapper">
-                  {React.cloneElement(child, { ...child.props, noItemsActiveState })}
+                  {React.cloneElement(child, { ...child.props, showItemStatus })}
                 </li>
               )
             )}
@@ -111,7 +105,7 @@ class Dropdown extends React.Component {
             align-content: center;
             padding: 8px 0;
             margin: 0 20px;
-            border-bottom: 1px solid ${defaultTheme.dropdown.borderColor};
+            border-bottom: 1px solid ${defaultTheme.dropdown.headerBorderColor};
           }
 
           .drui-dropdown__title {
@@ -150,7 +144,7 @@ class Dropdown extends React.Component {
             }
 
             .drui-dropdown__header {
-              border-bottom: 1px solid ${darkTheme.dropdown.borderColor};
+              border-bottom: 1px solid ${darkTheme.dropdown.headerBorderColor};
             }
 
             .drui-dropdown__title {
@@ -168,21 +162,17 @@ Dropdown.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
+    PropTypes.func,
   ]).isRequired,
-  header: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      title: PropTypes.string,
-    }),
-  ]),
+  header: PropTypes.string,
   className: PropTypes.string,
-  noItemsActiveState: PropTypes.bool,
+  showItemStatus: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   header: '',
   className: '',
-  noItemsActiveState: false,
+  showItemStatus: false,
 }
 
 export default Dropdown;

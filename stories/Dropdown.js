@@ -8,9 +8,6 @@ import defaultTheme from '../src/themes/DefaultTheme';
 import darkTheme from '../src/themes/DarkTheme';
 
 import {
-  NewWindowIcon,
-  DownloadIcon,
-  ExpireTimeIcon,
   PadlockLockIcon,
   PadlockUnlockIcon,
   TeamIcon,
@@ -18,112 +15,122 @@ import {
 } from '../src/components/icons';
 
 storiesOf('Dropdown', module)
-  .addWithJSX('Dropdown minimum props', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
+  .addWithJSX('Dropdown minimum props', () => (
+    <Dropdown isActive>
+      <DropdownItem title="Dropdown item 1" active />
+      <DropdownItem title="Dropdown item 2" />
+      <DropdownItem title="Dropdown item 3" />
+      <DropdownItem
+        title="Dropdown item 4. Link, internal"
+        href="javascript:void(0)"
+      />
+      <DropdownItem
+        title="Dropdown item 5. Link, external"
+        href="https://droplr.com"
+        target="_blank"
+      />
+    </Dropdown>
+  ))
+  .addWithJSX('Dropdown no item active state', () => (
+    <Dropdown isActive showItemStatus>
+      <DropdownItem title="Dropdown item 1" active />
+      <DropdownItem title="Dropdown item 2" />
+      <DropdownItem title="Dropdown item 3" />
+      <DropdownItem
+        title="Dropdown item 4. Link, internal"
+        href="javascript:void(0)"
+      />
+      <DropdownItem
+        title="Dropdown item 5. Link, external"
+        href="https://droplr.com"
+        target="_blank"
+      />
+    </Dropdown>
+  ))
+  .addWithJSX('Dropdown with title', () => (
+    <Dropdown header="Dropdown title" isActive >
+      <DropdownItem title="Dropdown item 1" active />
+      <DropdownItem title="Dropdown item 2" />
+      <DropdownItem title="Dropdown item 3" />
+      <DropdownItem
+        title="Dropdown item 4. Link, internal"
+        href="javascript:void(0)"
+      />
+      <DropdownItem
+        title="Dropdown item 5. Link, external"
+        href="https://droplr.com"
+        target="_blank"
+      />
+    </Dropdown>
+  ))
+  .addWithJSX('Complex', () => (
+    <Dropdown isActive >
+      <DropdownItem
+        title="Item 1"
+        TitleIcon={PadlockLockIcon}
+        
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        active
+        disabled
+      />
+      <DropdownItem
+        title="Item 2"
+        TitleIcon={TeamIcon}
+        
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        disabled
+      />
+      <DropdownItem
+        title="Item 3"
+        TitleIcon={PadlockUnlockIcon}
+        
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+      />
+      <DropdownItem className="drui-dropdownItem--danger" title="Delete" Icon={TrashBinIcon} />
 
-    return (
-      <Dropdown isActive>
-        <DropdownItem title="Dropdown item 1" onClick={onItemClick} active />
-        <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
-        <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
-        <DropdownItem
-          title="Dropdown item 4. Link, internal"
-          href="/"
-        />
-        <DropdownItem
-          title="Dropdown item 5. Link, external"
-          href="https://droplr.com"
-          target="_blank"
-        />
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Dropdown no item active state', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
+      <style jsx global>{`
+        .drui-dropdownItem--danger {
+          height: 50px;
+          padding-top: 10px;
+          margin-top: 10px;
+          border-top: 1px solid ${defaultTheme.dropdown.headerBorderColor};
 
-    return (
-      <Dropdown isActive noItemsActiveState>
-        <DropdownItem title="Dropdown item 1" onClick={onItemClick} active />
-        <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
-        <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
-        <DropdownItem
-          title="Dropdown item 4. Link, internal"
-          href="/"
-        />
-        <DropdownItem
-          title="Dropdown item 5. Link, external"
-          href="https://droplr.com"
-          target="_blank"
-        />
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Dropdown with title', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
-
-    return (
-      <Dropdown header="Dropdown title" isActive >
-        <DropdownItem title="Dropdown item 1" onClick={onItemClick} active />
-        <DropdownItem title="Dropdown item 2" onClick={onItemClick} />
-        <DropdownItem title="Dropdown item 3" onClick={onItemClick} />
-        <DropdownItem
-          title="Dropdown item 4. Link, internal"
-          href="/"
-        />
-        <DropdownItem
-          title="Dropdown item 5. Link, external"
-          href="https://droplr.com"
-          target="_blank"
-        />
-      </Dropdown>
-    );
-  })
-  .addWithJSX('Complex', () => {
-    function onItemClick(e) {
-      console.log('click');
-    }
-
-    return (
-      <Dropdown isActive >
-        <DropdownItem
-          title={{ text: 'Item 1', Icon: PadlockLockIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-          active
-          disabled
-        />
-        <DropdownItem
-          title={{ text: 'Item 2', Icon: TeamIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-          disabled
-        />
-        <DropdownItem
-          title={{ text: 'Item 3', Icon: PadlockUnlockIcon }}
-          onClick={onItemClick}
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        />
-        <DropdownItem className="drui-dropdownItem--danger" title="Delete" onClick={onItemClick} Icon={TrashBinIcon} />
-
-        <style jsx global>{`
-          .drui-dropdownItem--danger {
-            height: 50px;
-            padding: {
-              top: 10px;
-              bottom: px
+          &:hover {
+            .drui-dropdownItem__action {
+              background: rgba(249, 76, 76, 0.1);
             }
-            margin-top: 10px;
-            border-top: 1px solid ${defaultTheme.dropdown.borderColorLight};
+
+            .drui-dropdownItem__title {
+              color: rgb(249, 59, 59);
+            }
+
+            .drui-dropdownItem__icon {
+              fill: rgb(249, 59, 59);
+            }
+          }
+
+          &:active {
+            .drui-dropdownItem__action {
+              background: rgba(249, 76, 76, 0.2);
+            }
+          }
+
+          .drui-dropdownItem__title {
+            color: ${defaultTheme.dropdownItem.title.textColorHoverDanger};
+          }
+
+          .drui-dropdownItem__icon {
+            fill: ${defaultTheme.dropdownItem.icon.fillDanger};
+          }
+        }
+
+        .theme--dark {
+          .drui-dropdownItem--danger {
+            border-top-color: ${darkTheme.dropdown.borderColor};
 
             &:hover {
               .drui-dropdownItem__action {
-                background: rgba(249, 76, 76, 0.1);
+                background: ${darkTheme.dropdownItem.backgoundColorHover};
               }
 
               .drui-dropdownItem__title {
@@ -137,53 +144,19 @@ storiesOf('Dropdown', module)
 
             &:active {
               .drui-dropdownItem__action {
-                background: rgba(249, 76, 76, 0.2);
+                background: ${darkTheme.dropdownItem.backgoundColorActive};
               }
             }
 
             .drui-dropdownItem__title {
-              color: ${defaultTheme.dropdown.item.title.hoverDanger};
+              color: ${darkTheme.dropdownItem.title.textColorHoverDanger};
             }
 
             .drui-dropdownItem__icon {
-              fill: ${defaultTheme.dropdown.item.icon.fillDanger};
+              fill: ${darkTheme.dropdownItem.icon.fillDanger};
             }
           }
-
-          .theme--dark {
-            .drui-dropdownItem--danger {
-              border-top-color: ${darkTheme.dropdown.borderColorLight};
-
-              &:hover {
-                .drui-dropdownItem__action {
-                  background: ${darkTheme.dropdown.item.hoverColor};
-                }
-
-                .drui-dropdownItem__title {
-                  color: rgb(249, 59, 59);
-                }
-
-                .drui-dropdownItem__icon {
-                  fill: rgb(249, 59, 59);
-                }
-              }
-
-              &:active {
-                .drui-dropdownItem__action {
-                  background: ${darkTheme.dropdown.item.activeColor};
-                }
-              }
-
-              .drui-dropdownItem__title {
-                color: ${darkTheme.dropdown.item.title.hoverDanger};
-              }
-
-              .drui-dropdownItem__icon {
-                fill: ${darkTheme.dropdown.item.icon.fillDanger};
-              }
-            }
-          }
-        `}</style>
-      </Dropdown>
-    );
-  })
+        }
+      `}</style>
+    </Dropdown>
+  ))

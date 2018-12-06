@@ -17,24 +17,6 @@ const colors = {
   mako: '#44484F',
 };
 
-const theme = {
-  colors: {
-    brand: colors.purple,
-    brandShadow: colors.purpleShadow,
-    brandDisabled: colors.purpleDisabled,
-    brandBorder: colors.purpleBorder,
-    danger: colors.red,
-    success: colors.green,
-    link: colors.blue,
-    info: colors.blue,
-    background: colors.bright,
-    uiLight: colors.lightGrey,
-    uiDark: colors.greyDarker,
-    text: colors.grey,
-    textDark: colors.greyDark,
-  },
-};
-
 const gradients = {
   purple: 'linear-gradient(0deg, #6B3CC1 0%, #7A50C7 100%)',
   purpleHover: 'linear-gradient(0deg, #7A50C7 0%, #6B3CC1 100%)',
@@ -48,8 +30,6 @@ const shadows = {
 }
 
 export default {
-  convertToRgb,
-
   font: {
     family: {
       primary: '"Source Sans Pro", sans-serif',
@@ -115,27 +95,27 @@ export default {
     shadowColor: shadows.shadowColor,
     titleColor: colors.shuttleGray,
     borderColor: colors.mystic,
-    borderColorLight: colors.whiteLilac,
+    headerBorderColor: colors.whiteLilac,
     transitionSettings: '150ms linear',
+  },
 
-    item: {
-      titleColor: colors.mako,
-      hoverColor: colors.whiteLilac,
-      activeColor: lightenDarkenColor(colors.whiteLilac, -2),
-      iconColor: colors.shuttleGray,
-      disabledColor: colors.grayChateau,
+  dropdownItem: {
+    titleColor: colors.mako,
+    backgoundColorHover: colors.whiteLilac,
+    backgoundColorActive: lightenDarkenColor(colors.whiteLilac, -2),
+    iconColor: colors.shuttleGray,
+    disabledColor: colors.grayChateau,
 
-      title: {
-        color: colors.mako,
-        iconFill: colors.grayChateau,
-        hoverColor: colors.black,
-        hoverDanger: theme.colors.danger,
-        hoverIconFill: lightenDarkenColor(colors.grayChateau, -16),
-      },
-  
-      icon: {
-        fillDanger: theme.colors.danger
-      },
+    title: {
+      textColor: colors.mako,
+      textColorHover: colors.black,
+      textColorHoverDanger: colors.sunsetOrange,
+      iconFill: colors.grayChateau,
+      iconFillHover: lightenDarkenColor(colors.grayChateau, -16),
+    },
+
+    icon: {
+      fillDanger: colors.sunsetOrange
     },
 
     description: {

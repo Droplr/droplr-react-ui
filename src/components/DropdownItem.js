@@ -9,6 +9,7 @@ import darkTheme from '../themes/DarkTheme';
 
 const DropdownItem = ({
   title,
+  TitleIcon,
   description,
   Icon,
   className,
@@ -16,11 +17,9 @@ const DropdownItem = ({
   onClick,
   href,
   target,
-  children,
   disabled,
-  noItemsActiveState,
+  showItemStatus,
 }) => {
-  const titleText = typeof title === 'string' ? title : title.text;
   const ActionElem = href ? 'a' : 'button';
 
   return (
@@ -32,11 +31,10 @@ const DropdownItem = ({
           ['drui-dropdownItem--withDescription']: description,
           ['drui-dropdownItem--active']: active,
           ['drui-dropdownItem--disabled']: disabled,
-          ['drui-dropdownItem--noItemsActiveState']: noItemsActiveState,
+          ['drui-dropdownItem--showItemStatus']: showItemStatus,
         })
       }
       onClick={onClick}
-      key={`drui-dropdown-item-${titleText.split(' ').join('').toLowerCase()}`}
     >
       <ActionElem
         href={href || null}
@@ -44,7 +42,7 @@ const DropdownItem = ({
         className="drui-dropdownItem__action"
         target={target || null}
         rel={target === '_blank' ? 'noopener nofollow' : null}
-        disabled={ActionElem === 'button' ? disabled : null}
+        disabled={disabled}
       >
         <div className="drui-dropdownItem__iconWrapper">
           {/* Custom icon for dropdown item */}
@@ -53,17 +51,17 @@ const DropdownItem = ({
           }
 
           {/* No custom icon, menu item is active */}
-          {!noItemsActiveState && !Icon && active &&
+          {!showItemStatus && !Icon && active &&
             <CheckIcon className="drui-dropdownItem__icon" />
           }
         </div>
 
         {/* Item title */}
         <div className="drui-dropdownItem__title">
-          <span className="drui-dropdownItem__titleText">{titleText}</span>
+          <span className="drui-dropdownItem__titleText">{title}</span>
 
-          {typeof title === 'object' && title.Icon &&
-            <title.Icon className="drui-dropdownItem__titleIcon" />
+          {TitleIcon &&
+            <TitleIcon className="drui-dropdownItem__titleIcon" />
           }
         </div>
 
@@ -72,8 +70,6 @@ const DropdownItem = ({
           <span className="drui-dropdownItem__description">{description}</span>
         }
       </ActionElem>
-
-      {children || null}
 
       <style jsx global>{`
         .drui-dropdownItem {
@@ -121,8 +117,8 @@ const DropdownItem = ({
           .drui-dropdownItem__titleIcon,
           .drui-dropdownItem__description {
             opacity: 0.6;
-            color: ${defaultTheme.dropdown.item.disabledColor};
-            fill: ${defaultTheme.dropdown.item.disabledColor};
+            color: ${defaultTheme.dropdownItem.disabledColor};
+            fill: ${defaultTheme.dropdownItem.disabledColor};
           }
 
           &:hover {
@@ -131,13 +127,13 @@ const DropdownItem = ({
             .drui-dropdownItem__titleIcon,
             .drui-dropdownItem__description {
               opacity: 0.6;
-            color: ${defaultTheme.dropdown.item.disabledColor};
-              fill: ${defaultTheme.dropdown.item.disabledColor};
+            color: ${defaultTheme.dropdownItem.disabledColor};
+              fill: ${defaultTheme.dropdownItem.disabledColor};
             }
           }
         }
 
-        .drui-dropdownItem--noItemsActiveState {
+        .drui-dropdownItem--showItemStatus {
           .drui-dropdownItem__action {
             padding-left: 20px;
             padding-right: 20px;
@@ -157,19 +153,19 @@ const DropdownItem = ({
           cursor: pointer;
 
           &:hover {
-            background-color: ${defaultTheme.dropdown.item.hoverColor};
+            background-color: ${defaultTheme.dropdownItem.backgoundColorHover};
             cursor: pointer;
 
             .drui-dropdownItem__title {
-              color: ${defaultTheme.dropdown.item.title.hoverColor};
+              color: ${defaultTheme.dropdownItem.title.textColorHover};
             }
 
             .drui-dropdownItem__icon {
-              fill: ${defaultTheme.dropdown.item.title.hoverColor};
+              fill: ${defaultTheme.dropdownItem.title.textColorHover};
             }
 
             .drui-dropdownItem__titleIcon {
-              fill: ${defaultTheme.dropdown.item.title.hoverIconFill};
+              fill: ${defaultTheme.dropdownItem.title.iconFillHover};
 
               * {
                 fill: inherit;
@@ -179,11 +175,11 @@ const DropdownItem = ({
 
           &:focus {
             outline: none;
-            background-color: ${defaultTheme.dropdown.item.hoverColor};
+            background-color: ${defaultTheme.dropdownItem.backgoundColorHover};
           }
 
           &:active {
-            background-color: ${defaultTheme.dropdown.item.activeColor};
+            background-color: ${defaultTheme.dropdownItem.backgoundColorActive};
           }
         }
 
@@ -199,7 +195,7 @@ const DropdownItem = ({
         }
 
         .drui-dropdownItem__icon {
-          fill: ${defaultTheme.dropdown.item.iconColor};
+          fill: ${defaultTheme.dropdownItem.iconColor};
           transition: fill ${defaultTheme.dropdown.transitionSettings};
 
           * {
@@ -214,7 +210,7 @@ const DropdownItem = ({
           align-items: center;
           font-size: ${defaultTheme.font.size.normal};
           font-weight: ${defaultTheme.font.weight.normal};
-          color: ${defaultTheme.dropdown.item.title.color};
+          color: ${defaultTheme.dropdownItem.title.textColor};
           transition: color ${defaultTheme.dropdown.transitionSettings};
 
           .drui-dropdownItem__titleIcon {
@@ -235,7 +231,7 @@ const DropdownItem = ({
         .drui-dropdownItem__titleIcon {
           flex: 0 1 24px;
           display: block;
-          fill: ${defaultTheme.dropdown.item.title.iconFill};
+          fill: ${defaultTheme.dropdownItem.title.iconFill};
           transition: fill 75ms linear;
 
           * {
@@ -249,7 +245,7 @@ const DropdownItem = ({
           font-size: 12px;
           line-height: 15px;
           text-align: left;
-          color: ${defaultTheme.dropdown.description.color};
+          color: ${defaultTheme.dropdownItem.description.color};
         }
 
         .theme--dark {
@@ -266,8 +262,8 @@ const DropdownItem = ({
             .drui-dropdownItem__titleIcon,
             .drui-dropdownItem__description {
               opacity: 0.6;
-              color: ${darkTheme.dropdown.item.disabledColor};
-              fill: ${darkTheme.dropdown.item.disabledColor};
+              color: ${darkTheme.dropdownItem.disabledColor};
+              fill: ${darkTheme.dropdownItem.disabledColor};
             }
 
             &:hover {
@@ -276,52 +272,52 @@ const DropdownItem = ({
               .drui-dropdownItem__titleIcon,
               .drui-dropdownItem__description {
                 opacity: 0.6;
-                color: ${darkTheme.dropdown.item.disabledColor};
-                fill: ${darkTheme.dropdown.item.disabledColor};
+                color: ${darkTheme.dropdownItem.disabledColor};
+                fill: ${darkTheme.dropdownItem.disabledColor};
               }
             }
           }
 
           .drui-dropdownItem__action {
             &:hover {
-              background-color: ${darkTheme.dropdown.item.hoverColor};
+              background-color: ${darkTheme.dropdownItem.backgoundColorHover};
 
               .drui-dropdownItem__title {
-                color: ${darkTheme.dropdown.item.title.hoverColor};
+                color: ${darkTheme.dropdownItem.title.textColorHover};
               }
 
               .drui-dropdownItem__icon {
-                fill: ${darkTheme.dropdown.item.title.hoverColor};
+                fill: ${darkTheme.dropdownItem.title.textColorHover};
               }
 
               .drui-dropdownItem__titleIcon {
-                fill: ${darkTheme.dropdown.item.title.hoverIconFill};
+                fill: ${darkTheme.dropdownItem.title.iconFillHover};
               }
             }
 
             &:focus {
-              background-color: ${darkTheme.dropdown.item.hoverColor};
+              background-color: ${darkTheme.dropdownItem.backgoundColorHover};
             }
 
             &:active {
-              background-color: ${darkTheme.dropdown.item.activeColor};
+              background-color: ${darkTheme.dropdownItem.backgoundColorActive};
             }
           }
 
           .drui-dropdownItem__icon {
-            fill: ${darkTheme.dropdown.item.iconColor};
+            fill: ${darkTheme.dropdownItem.iconColor};
           }
 
           .drui-dropdownItem__title {
-            color: ${darkTheme.dropdown.item.title.color};
+            color: ${darkTheme.dropdownItem.title.textColor};
           }
 
           .drui-dropdownItem__titleIcon {
-            fill: ${darkTheme.dropdown.item.title.iconFill};
+            fill: ${darkTheme.dropdownItem.title.iconFill};
           }
 
           .drui-dropdownItem__description {
-            color: ${darkTheme.dropdown.description.color};
+            color: ${darkTheme.dropdownItem.description.color};
           }
         }
       `}</style>
@@ -330,45 +326,34 @@ const DropdownItem = ({
 };
 
 DropdownItem.propTypes = {
-  title: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      Icon: PropTypes.node.isRequired,
-    }),
-  ]).isRequired,
+  title: PropTypes.string.isRequired,
+  TitleIcon: PropTypes.func,
   description: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
-  Icon: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.func,
-  ]),
+  Icon: PropTypes.func,
   className: PropTypes.string,
   active: PropTypes.bool,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
   onClick: PropTypes.func,
   href: PropTypes.string,
   target: PropTypes.string,
-  noItemsActiveState: PropTypes.bool,
+  showItemStatus: PropTypes.bool,
   disabled: PropTypes.bool,
 };
 
 DropdownItem.defaultProps = {
   description: '',
   Icon: null,
+  TitleIcon: null,
   className: '',
   active: false,
   children: null,
   href: '',
   trarget: '',
-  noItemsActiveState: false,
+  showItemStatus: false,
   disabled: false,
-  onClick: () => {},
+  onClick() {},
 };
 
 export default DropdownItem;
