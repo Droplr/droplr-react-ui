@@ -1,5 +1,4 @@
-import { lightenDarkenColor } from './helpers';
-import { convertToRgb } from './helpers';
+import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
   white: '#FFF',

@@ -30,8 +30,6 @@ const shadows = {
 }
 
 export default {
-  convertToRgb,
-
   font: {
     family: {
       primary: '"Source Sans Pro", sans-serif',
