@@ -38,6 +38,7 @@ addDecorator(ThemesDecorator);
 function loadStories() {
   require('../stories/Dropdown');
   require('../stories/DropdownItem');
+  require('../stories/DropdownWithToggler');
   require('../stories/ButtonPrimary');
   require('../stories/ButtonSecondary');
   require('../stories/DualButton');
