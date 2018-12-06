@@ -42,6 +42,7 @@
     "react-dom": "^16.6.0"
   },
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react-click-outside": "^3.0.1"
   }
 }

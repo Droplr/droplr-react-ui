@@ -19,9 +19,18 @@ const DropdownItem = ({
   children,
   disabled,
   noItemsActiveState,
+  closeDropdownOnClick,
+  closeDropdown,
 }) => {
   const titleText = typeof title === 'string' ? title : title.text;
   const ActionElem = href ? 'a' : 'button';
+
+  function onItemClick(e) {
+    e.stopPropagation();
+
+    onClick();
+    if (closeDropdownOnClick) closeDropdown();
+  }
 
   return (
     <div
@@ -35,10 +44,10 @@ const DropdownItem = ({
           ['drui-dropdownItem--noItemsActiveState']: noItemsActiveState,
         })
       }
-      onClick={onClick}
       key={`drui-dropdown-item-${titleText.split(' ').join('').toLowerCase()}`}
     >
       <ActionElem
+        onClick={onItemClick}
         href={href || null}
         type={!href ? 'button' : null}
         className="drui-dropdownItem__action"
@@ -356,6 +365,8 @@ DropdownItem.propTypes = {
   target: PropTypes.string,
   noItemsActiveState: PropTypes.bool,
   disabled: PropTypes.bool,
+  closeDropdownOnClick: PropTypes.bool,
+  closeDropdown: PropTypes.func,
 };
 
 DropdownItem.defaultProps = {
@@ -369,6 +380,8 @@ DropdownItem.defaultProps = {
   noItemsActiveState: false,
   disabled: false,
   onClick: () => {},
+  closeDropdownOnClick: PropTypes.bool,
+  closeDropdown: () => {},
 };
 
 export default DropdownItem;

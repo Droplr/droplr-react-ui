@@ -12,7 +12,7 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { children, type, Icon, onClick, className, disabled, loading, maxWidth, dropdown } = this.props;
+    const { children, type, Icon, onClick, className, disabled, loading, maxWidth, dropdown, buttonType } = this.props;
 
     return (
       <button
@@ -28,6 +28,7 @@ class Button extends React.PureComponent {
           [className]: className,
         })}
         onClick={onClick}
+        type={buttonType}
         disabled={disabled || loading}
       >
         <>
@@ -272,6 +273,7 @@ class Button extends React.PureComponent {
 Button.propTypes = {
   children: PropTypes.string,
   type: PropTypes.string.isRequired,
+  buttonType: PropTypes.string,
   Icon: PropTypes.func,
   onClick: PropTypes.func,
   className: PropTypes.string,
@@ -283,6 +285,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   children: '',
+  buttonType: 'button',
   Icon: null,
   onClick() {},
   className: '',

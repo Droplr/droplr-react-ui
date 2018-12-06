@@ -17,6 +17,8 @@ class Dropdown extends React.Component {
       className,
       children,
       noItemsActiveState,
+      closeOnItemClick,
+      close,
     } = this.props;
 
     if (!isActive || !children) return null;
@@ -39,7 +41,14 @@ class Dropdown extends React.Component {
               children,
               child => (
                 <li className="drui-dropdown__listItemWrapper">
-                  {React.cloneElement(child, { ...child.props, noItemsActiveState })}
+                  {React.cloneElement(
+                    child,
+                    {
+                      ...child.props,
+                      noItemsActiveState,
+                      closeDropdownOnClick: closeOnItemClick,
+                      closeDropdown: close,
+                    })}
                 </li>
               )
             )}
@@ -49,7 +58,10 @@ class Dropdown extends React.Component {
         <style jsx global>{`
           .drui-dropdown {
             display: table;
-            position: relative;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: ${defaultTheme.font.family.primary};
             padding: 4px 0 0;
             width: auto;
@@ -177,12 +189,16 @@ Dropdown.propTypes = {
   ]),
   className: PropTypes.string,
   noItemsActiveState: PropTypes.bool,
+  closeOnItemClick: PropTypes.bool,
+  close: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
   header: '',
   className: '',
   noItemsActiveState: false,
+  closeOnItemClick: false,
+  close: () => {},
 }
 
 export default Dropdown;
