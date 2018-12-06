@@ -50,7 +50,7 @@ class Button extends React.PureComponent {
             box-sizing: border-box;
             height: 40px;
             width: auto;
-            padding: 0 20px;
+            padding: 0 16px;
             border-radius: 4px;
             background: ${defaultTheme.button.primary.backgroundColor};
             box-shadow: 0 1px 0 0 ${defaultTheme.button.primary.shadowColor};
@@ -76,8 +76,8 @@ class Button extends React.PureComponent {
           }
 
           .drui-button__icon {
-            width: 18px;
-            height: 18px;
+            width: 24px;
+            height: 24px;
 
             path {
               fill: ${defaultTheme.button.primary.iconColor};
@@ -109,7 +109,7 @@ class Button extends React.PureComponent {
 
           .drui-button--withText {
             .drui-button__dropdownIcon {
-              margin-left: 16px;
+              margin-left: 8px;
             }
           }
 
@@ -123,6 +123,7 @@ class Button extends React.PureComponent {
             box-shadow: none;
             border: none;
             cursor: not-allowed;
+            border: none;
           }
 
           .drui-button--loading,
@@ -246,7 +247,7 @@ class Button extends React.PureComponent {
                 background: ${darkTheme.button.secondary.backgroundColorDisabled};
                 color: ${darkTheme.button.secondary.textColorDisabled};
                 box-shadow: none;
-                border-color: ${darkTheme.button.secondary.textColorDisabled};
+                border-color: ${darkTheme.button.secondary.borderColorDisabled};
                 cursor: not-allowed;
 
                 .drui-button__dropdownIcon {

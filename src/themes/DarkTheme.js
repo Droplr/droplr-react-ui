@@ -1,43 +1,18 @@
-import { lightenDarkenColor } from './helpers';
-import { convertToRgb } from './helpers';
+import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
-  purple: '#8D61DF',
-  purpleDisabled: '#624F86',
-  purpleBorder: '#542D9B',
-  red: '#F94C4C',
-  green: '#50BF17',
-  greenLight: '#70C843',
-  blue: '#488EFF',
   white: '#FFF',
   black: '#000',
-  dark: '#3A3A43',
-  darkerDark: '#2D2E33',
-  lighterDark: '#464651',
-  grey: '#CBCEDE',
-  lightGrey: '#E9EAED',
-  darkerGrey: '#878891',
-  transparentWhite: 'rgba(255, 255, 255, 0.1)',
-  transparentBlack: 'rgba(0, 0, 0, 0.1)',
-};
-
-const theme = {
-  colors: {
-    brand: colors.purple,
-    brandDisabled: colors.purpleDisabled,
-    brandBorder: colors.purpleBorder,
-    danger: colors.red,
-    success: colors.green,
-    link: colors.blue,
-    info: colors.blue,
-    background: colors.darkerDark,
-    uiLight: colors.lighterDark,
-    uiDark: colors.dark,
-    text: colors.white,
-    textLight: colors.grey,
-    textDark: colors.darkerGrey,
-    light: colors.lightGrey,
-  },
+  brand: '#8D61DF',
+  brandLight: '#624F86',
+  brandDark: '#542D9B',
+  sunsetOrange: '#F94C4C',
+  tuna: '#3A3A43',
+  shark: '#2D2E33',
+  mako: '#464651',
+  blueHaze: '#CBCEDE',
+  athensGray: '#E9EAED',
+  waterloo: '#878891',
 };
 
 const shadows = {
@@ -55,7 +30,7 @@ const gradients = {
 
 export default {
   window: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: colors.shark,
   },
 
   button: {
@@ -63,68 +38,69 @@ export default {
       backgroundColor: gradients.purple,
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
-      backgroundColorDisabled: theme.colors.brandDisabled,
-      textColor: theme.colors.text,
-      iconColor: theme.colors.text,
-      loaderColor: theme.colors.text,
+      backgroundColorDisabled: colors.brandLight,
+      textColor: colors.white,
+      iconColor: colors.white,
+      loaderColor: colors.white,
     },
     secondary: {
       backgroundColor: gradients.dark,
       backgroundColorHover: gradients.darkHover,
       backgroundColorActive: gradients.darkActive,
-      backgroundColorDisabled: colors.grey,
-      borderColor: theme.colors.uiDark,
-      textColor: theme.colors.textLight,
-      textColorDisabled: theme.colors.textDark,
-      iconColor: theme.colors.textLight,
-      iconColorDisabled: theme.colors.textDark,
-      loaderColor: theme.colors.textLight,
+      backgroundColorDisabled: colors.mako,
+      borderColor: colors.tuna,
+      borderColorDisabled: colors.shark,
+      textColor: colors.blueHaze,
+      textColorDisabled: `rgba(${convertToRgb(colors.waterloo)}, 0.5)`,
+      iconColor: colors.blueHaze,
+      iconColorDisabled: `rgba(${convertToRgb(colors.waterloo)}, 0.5)`,
+      loaderColor: colors.blueHaze,
     },
   },
 
   dualButton: {
     primary: {
-      separatorColor: theme.colors.brand,
-      borderColor: theme.colors.brandBorder,
+      separatorColor: colors.brand,
+      borderColor: colors.brandDark,
     },
     secondary: {
-      separatorColor: lightenDarkenColor(theme.colors.uiLight, 20),
-      borderColor: lightenDarkenColor(theme.colors.uiDark, 5),
+      separatorColor: lightenDarkenColor(colors.mako, 20),
+      borderColor: lightenDarkenColor(colors.tuna, 5),
     },
   },
 
   loader: {
-    backgroundColor: theme.colors.brand,
+    backgroundColor: colors.brand,
   },
 
   dropdown: {
-    backgroundColor: theme.colors.uiDark,
+    backgroundColor: colors.tuna,
     shadowColor: shadows.shadowColor,
     titleColor: colors.white,
-    borderColor: theme.colors.uiLight,
-    borderColorLight: theme.colors.background,
+    borderColor: colors.mako,
+    borderColorLight: colors.shark,
 
     item: {
-      hoverColor: lightenDarkenColor(theme.colors.uiDark, -10),
-      activeColor: lightenDarkenColor(theme.colors.uiDark, -15),
+      hoverColor: lightenDarkenColor(colors.tuna, -10),
+      activeColor: lightenDarkenColor(colors.tuna, -15),
       iconColor: colors.white,
-      disabledColor: theme.colors.textDark,
+      disabledColor: colors.waterloo,
 
       title: {
-        color: theme.colors.light,
+        color: colors.athensGray,
         hoverColor: colors.white,
-        hoverDanger: theme.colors.danger,
-        iconFill: theme.colors.textDark,
-        hoverIconFill: theme.colors.textDark,
+        hoverDanger: colors.sunsetOrange,
+        iconFill: colors.waterloo,
+        hoverIconFill: colors.waterloo,
       },
   
       icon: {
-        fillDanger: theme.colors.danger
+        fillDanger: colors.sunsetOrange,
       },
     },
 
     description: {
-      color: theme.colors.textLight,
+      color: colors.mako,
     },
   },
 };
