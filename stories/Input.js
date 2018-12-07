@@ -1,44 +1,48 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Input from '../src/components/Input';
+import darkTheme from '../src/themes/DarkTheme';
+
+const InputDecorator = (storyFn) => (
+  <>
+    {storyFn()}
+    <style jsx global>{`
+      .storyWrapperDark {
+        background: ${darkTheme.inputWindow.backgroundColor} !important;
+      }
+    `}</style>
+  </>
+);
 
 storiesOf('Input', module)
+  .addDecorator(InputDecorator)
   .addWithJSX('normal', () => (
-    <Input />
+    <Input name="Name" />
   ))
   .addWithJSX('disabled', () => (
-    <Input disabled />
+    <Input name="Name" disabled />
   ))
   .addWithJSX('placeholder', () => (
-    <Input placeholder="Type something..." />
+    <Input name="Name" placeholder="Type something..." />
   ))
   .addWithJSX('password', () => (
-    <Input type="password" />
+    <Input name="Name" type="password" />
   ))
   .addWithJSX('auto focus', () => (
-    <Input autoFocus />
+    <Input name="Name" autoFocus />
   ))
   .addWithJSX('read only', () => (
-    <Input readOnly value="Sample text..." />
+    <Input name="Name" readOnly value="Sample text..." />
   ))
   .addWithJSX('label', () => (
-    <Input label="Label" />
+    <Input name="Name" label="Label" />
   ))
   .addWithJSX('sublabel', () => (
-    <Input sublabel="Sublabel" />
-  ))
-  .addWithJSX('label + sublabel', () => (
-    <Input label="Label" sublabel="Sublabel" />
+    <Input name="Name" sublabel="Sublabel" />
   ))
   .addWithJSX('info', () => (
-    <Input info="Sample info text..." />
+    <Input name="Name" info="Sample info text..." />
   ))
   .addWithJSX('error', () => (
-    <Input error="Sample error text..." />
-  ))
-  .addWithJSX('label + error', () => (
-    <Input label="Label" value="example@mail.com" error="Sample error text..." />
-  ))
-  .addWithJSX('label + sublabel + error', () => (
-    <Input label="Label" sublabel="Sublabel" value="example@mail.com" error="Sample error text..." />
+    <Input name="Name" error="Sample error text..." />
   ))
