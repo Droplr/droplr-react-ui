@@ -18,9 +18,7 @@ class Dropdown extends React.PureComponent {
     if (!isActive || !children) return null;
 
     return (
-      <div className={classnames('drui-dropdown', { [className]: className })}
-      >
-
+      <div className={classnames('drui-dropdown', { [className]: className })}>
         <div className="drui-dropdown__inner">
           {header &&
             <div className="drui-dropdown__header">
@@ -104,14 +102,14 @@ class Dropdown extends React.PureComponent {
             align-items: center;
             align-content: center;
             padding: 8px 0;
-            margin: 0 20px;
+            margin: 0 20px 10px;
             border-bottom: 1px solid ${defaultTheme.dropdown.headerBorderColor};
           }
 
           .drui-dropdown__title {
             font-size: ${defaultTheme.font.size.small};
             text-transform: uppercase;
-            color: ${defaultTheme.dropdown.titleColor};
+            color: ${defaultTheme.dropdown.headerTextColor};
             font-weight: 600;
           }
 
@@ -120,7 +118,7 @@ class Dropdown extends React.PureComponent {
             flex-direction: column;
             list-style: none;
             padding: 0;
-            margin: 10px 0 0;
+            margin: 0;
           }
 
           .drui-dropdown__listItemWrapper {
@@ -148,7 +146,7 @@ class Dropdown extends React.PureComponent {
             }
 
             .drui-dropdown__title {
-              color: ${darkTheme.dropdown.titleColor};
+              color: ${darkTheme.dropdown.headerTextColor};
             }
           }
         `}</style>
@@ -160,9 +158,10 @@ class Dropdown extends React.PureComponent {
 Dropdown.propTypes = {
   isActive: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
     PropTypes.func,
+    PropTypes.arrayOf(PropTypes.func),
   ]).isRequired,
   header: PropTypes.string,
   className: PropTypes.string,

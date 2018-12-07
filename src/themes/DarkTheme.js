@@ -6,7 +6,6 @@ const colors = {
   brand: '#8D61DF',
   brandLight: '#624F86',
   brandDark: '#542D9B',
-  sunsetOrange: '#F94C4C',
   tuna: '#3A3A43',
   shark: '#2D2E33',
   mako: '#464651',
@@ -76,31 +75,24 @@ export default {
   dropdown: {
     backgroundColor: colors.tuna,
     shadowColor: shadows.shadowColor,
-    titleColor: colors.white,
     borderColor: colors.shark,
+    headerTextColor: colors.white,
     headerBorderColor: colors.mako,
   },
 
   dropdownItem: {
-    backgoundColorHover: lightenDarkenColor(colors.tuna, -10),
-    backgoundColorActive: lightenDarkenColor(colors.tuna, -15),
+    textColor: colors.athensGray,
+    textColorHover: colors.white,
+    backgroundColor: colors.tuna,
+    backgroundColorHover: lightenDarkenColor(colors.tuna, -10),
+    backgroundColorActive: lightenDarkenColor(colors.tuna, -15),
     iconColor: colors.white,
+    titleIconColor: colors.waterloo,
+    titleIconColorHover: colors.waterloo,
     disabledColor: colors.waterloo,
 
-    title: {
-      textColor: colors.athensGray,
-      textColorHover: colors.white,
-      textColorHoverDanger: colors.sunsetOrange,
-      iconFill: colors.waterloo,
-      iconFillHover: colors.waterloo,
-    },
-
-    icon: {
-      fillDanger: colors.sunsetOrange,
-    },
-
     description: {
-      color: colors.blueHaze,
+      textColor: colors.blueHaze,
     },
   },
 };
