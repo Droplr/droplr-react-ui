@@ -6,7 +6,6 @@ const colors = {
   brand: '#7A50C7',
   brandLight: '#A28FC6',
   brandDark: '#542D9B',
-  sunsetOrange: '#F94C4C',
   lima: '#50BF17',
   sushi: '#70C843',
   blueRibbon: '#0B68FF',
@@ -93,14 +92,25 @@ export default {
   dropdown: {
     backgroundColor: colors.white,
     shadowColor: shadows.shadowColor,
-    titleColor: colors.shuttleGray,
     borderColor: colors.mystic,
+    headerTextColor: colors.shuttleGray,
+    headerBorderColor: colors.whiteLilac,
+    transitionSettings: '150ms linear',
+  },
 
-    item: {
-      titleColor: colors.mako,
-      hoverColor: colors.whiteLilac,
-      activeColor: lightenDarkenColor(colors.whiteLilac, -2),
-      iconColor: colors.shuttleGray,
+  dropdownItem: {
+    textColor: colors.mako,
+    textColorHover: colors.black,
+    backgroundColor: colors.white,
+    backgroundColorHover: colors.whiteLilac,
+    backgroundColorActive: lightenDarkenColor(colors.whiteLilac, -2),
+    iconColor: colors.shuttleGray,
+    titleIconColor: colors.grayChateau,
+    titleIconColorHover: lightenDarkenColor(colors.grayChateau, -16),
+    disabledColor: colors.grayChateau,
+
+    description: {
+      textColor: colors.shuttleGray,
     },
   },
 };
