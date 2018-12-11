@@ -14,6 +14,10 @@ const colors = {
   waterloo: '#878891',
 };
 
+const shadows = {
+  shadowColor: `rgba(${convertToRgb(colors.black)}, 0.5)`,
+}
+
 const gradients = {
   purple: 'linear-gradient(0deg, #7140CC 0%, #8D61DF 100%)',
   purpleHover: 'linear-gradient(0deg, #8D61DF 0%, #7140CC 100%)',
@@ -91,5 +95,29 @@ export default {
 
   loader: {
     backgroundColor: colors.brand,
+  },
+
+  dropdown: {
+    backgroundColor: colors.tuna,
+    shadowColor: shadows.shadowColor,
+    borderColor: colors.shark,
+    headerTextColor: colors.white,
+    headerBorderColor: colors.mako,
+  },
+
+  dropdownItem: {
+    textColor: colors.athensGray,
+    textColorHover: colors.white,
+    backgroundColor: colors.tuna,
+    backgroundColorHover: lightenDarkenColor(colors.tuna, -10),
+    backgroundColorActive: lightenDarkenColor(colors.tuna, -15),
+    iconColor: colors.white,
+    titleIconColor: colors.waterloo,
+    titleIconColorHover: colors.waterloo,
+    disabledColor: colors.waterloo,
+
+    description: {
+      textColor: colors.blueHaze,
+    },
   },
 };
