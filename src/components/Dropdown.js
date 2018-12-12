@@ -5,34 +5,26 @@ import classnames from 'classnames';
 import defaultTheme from '../themes/DefaultTheme';
 import darkTheme from '../themes/DarkTheme';
 
-class Dropdown extends React.Component {
-  constructor() {
-    super();
-  }
-
+class Dropdown extends React.PureComponent {
   render() {
     const {
       header,
       isActive,
       className,
       children,
-      noItemsActiveState,
       closeOnItemClick,
       close,
+      showItemStatus,
     } = this.props;
 
     if (!isActive || !children) return null;
 
     return (
-      <div className={classnames('drui-dropdown', { [className]: className })}
-      >
-
+      <div className={classnames('drui-dropdown', { [className]: className })}>
         <div className="drui-dropdown__inner">
           {header &&
             <div className="drui-dropdown__header">
-              <span className="drui-dropdown__title">
-                {typeof header === 'string' ? header : header.title}
-              </span>
+              <span className="drui-dropdown__title">{header}</span>
             </div>
           }
 
@@ -45,8 +37,8 @@ class Dropdown extends React.Component {
                     child,
                     {
                       ...child.props,
-                      noItemsActiveState,
-                      closeDropdownOnClick: closeOnItemClick,
+                      showItemStatus,
+                      closeOnItemClick,
                       closeDropdown: close,
                     })}
                 </li>
@@ -122,14 +114,14 @@ class Dropdown extends React.Component {
             align-items: center;
             align-content: center;
             padding: 8px 0;
-            margin: 0 20px;
-            border-bottom: 1px solid ${defaultTheme.dropdown.borderColor};
+            margin: 0 20px 10px;
+            border-bottom: 1px solid ${defaultTheme.dropdown.headerBorderColor};
           }
 
           .drui-dropdown__title {
             font-size: ${defaultTheme.font.size.small};
             text-transform: uppercase;
-            color: ${defaultTheme.dropdown.titleColor};
+            color: ${defaultTheme.dropdown.headerTextColor};
             font-weight: 600;
           }
 
@@ -138,7 +130,7 @@ class Dropdown extends React.Component {
             flex-direction: column;
             list-style: none;
             padding: 0;
-            margin: 10px 0 0;
+            margin: 0;
           }
 
           .drui-dropdown__listItemWrapper {
@@ -162,11 +154,11 @@ class Dropdown extends React.Component {
             }
 
             .drui-dropdown__header {
-              border-bottom: 1px solid ${darkTheme.dropdown.borderColor};
+              border-bottom: 1px solid ${darkTheme.dropdown.headerBorderColor};
             }
 
             .drui-dropdown__title {
-              color: ${darkTheme.dropdown.titleColor};
+              color: ${darkTheme.dropdown.headerTextColor};
             }
           }
         `}</style>
@@ -178,25 +170,20 @@ class Dropdown extends React.Component {
 Dropdown.propTypes = {
   isActive: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.func,
+    PropTypes.arrayOf(PropTypes.func),
   ]).isRequired,
-  header: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      title: PropTypes.string,
-    }),
-  ]),
+  header: PropTypes.string,
   className: PropTypes.string,
-  noItemsActiveState: PropTypes.bool,
-  closeOnItemClick: PropTypes.bool,
-  close: PropTypes.func,
+  showItemStatus: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   header: '',
   className: '',
-  noItemsActiveState: false,
+  showItemStatus: false,
   closeOnItemClick: false,
   close: () => {},
 }

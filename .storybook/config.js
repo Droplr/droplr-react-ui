@@ -41,6 +41,8 @@ function loadStories() {
   require('../stories/DropdownWithToggler');
   require('../stories/ButtonPrimary');
   require('../stories/ButtonSecondary');
+  require('../stories/Dropdown');
+  require('../stories/DropdownItem');
   require('../stories/DualButton');
   require('../stories/Icons');
 }
