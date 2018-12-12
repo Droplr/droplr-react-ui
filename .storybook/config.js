@@ -14,7 +14,7 @@ const ThemesDecorator = (storyFn) => (
         .storyWrapperLight {
           width: 400px;
           padding: 40px;
-          background: ${defaultTheme.window.backgroundColor};
+          background: #F8F9FC;
         }
       `}</style>
     </div>
@@ -24,7 +24,7 @@ const ThemesDecorator = (storyFn) => (
         .storyWrapperDark {
           width: 400px;
           padding: 40px;
-          background: ${darkTheme.window.backgroundColor};
+          background: #2D2E33;
         }
       `}</style>
     </div>

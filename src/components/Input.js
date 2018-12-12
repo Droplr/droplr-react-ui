@@ -6,10 +6,6 @@ import darkTheme from '../themes/DarkTheme';
 import { ErrorIcon } from './icons';
 
 class Input extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {
       name,
@@ -24,6 +20,7 @@ class Input extends React.PureComponent {
       autoFocus,
       readOnly,
       disabled,
+      onBlur,
       onFocus,
       onKeyPress,
       onChange,
@@ -31,8 +28,8 @@ class Input extends React.PureComponent {
 
     return (
       <div className="drui-inputContainer">
-        {label && <span className="drui-input-label">{label}</span>}
-        {sublabel && <span className="drui-input-sublabel">{sublabel}</span>}
+        {label && <span className="drui-inputLabel">{label}</span>}
+        {sublabel && <span className="drui-inputSublabel">{sublabel}</span>}
         <div className="drui-inputIconContainer">
           <input
             name={name}
@@ -48,14 +45,15 @@ class Input extends React.PureComponent {
             autoFocus={autoFocus}
             readOnly={readOnly}
             disabled={disabled}
+            onBlur={onBlur}
             onFocus={onFocus}
             onKeyPress={onKeyPress}
             onChange={onChange}
           />
-          {error && <ErrorIcon className="drui-input-error__errorIcon" />}
+          {error && <ErrorIcon className="drui-inputError__errorIcon" />}
         </div>
-        {info && !error && <div className="drui-input-info"><span>{info}</span></div>}
-        {error && <div className="drui-input-error"><span>{error}</span></div>}
+        {info && !error && <div className="drui-inputInfo"><span>{info}</span></div>}
+        {error && <div className="drui-inputError"><span>{error}</span></div>}
         <style jsx global>{`
           .drui-inputContainer {
             font-size: ${defaultTheme.font.size.normal};
@@ -64,10 +62,10 @@ class Input extends React.PureComponent {
             position: relative;
             width: 100%;
 
-            .drui-input-label,
-            .drui-input-sublabel,
-            .drui-input-info,
-            .drui-input-error {
+            .drui-inputLabel,
+            .drui-inputSublabel,
+            .drui-inputInfo,
+            .drui-inputError {
               display: block;
               font-size: ${defaultTheme.font.size.normal};
               font-weight: ${defaultTheme.font.weight.bold};
@@ -76,19 +74,19 @@ class Input extends React.PureComponent {
               text-overflow: ellipsis;
             }
 
-            .drui-input-sublabel {
+            .drui-inputSublabel {
               font-size: ${defaultTheme.font.size.small};
               font-weight: ${defaultTheme.font.weight.normal};
             }
 
-            .drui-input-info,
-            .drui-input-error {
+            .drui-inputInfo,
+            .drui-inputError {
               font-size: ${defaultTheme.font.size.small};
               margin-bottom: 0;
               margin-top: 10px;
             }
 
-            .drui-input-error {
+            .drui-inputError {
               color: ${defaultTheme.input.errorColor};
             }
 
@@ -139,7 +137,7 @@ class Input extends React.PureComponent {
             .drui-inputIconContainer {
               position: relative;
 
-              .drui-input-error__errorIcon {
+              .drui-inputError__errorIcon {
                 position: absolute;
                 top: 10px;
                 right: 16px;
@@ -171,9 +169,9 @@ class Input extends React.PureComponent {
               }
             }
 
-            .drui-input-label,
-            .drui-input-sublabel,
-            .drui-input-info {
+            .drui-inputLabel,
+            .drui-inputSublabel,
+            .drui-inputInfo {
               color: ${darkTheme.input.label.textColor};
             }
 
@@ -205,6 +203,7 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
+  onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyPress: PropTypes.func,
   onChange: PropTypes.func,
@@ -222,6 +221,7 @@ Input.defaultProps = {
   autoFocus: false,
   readOnly: false,
   disabled: false,
+  onBlur() {},
   onFocus() {},
   onKeyPress() {},
   onChange() {},

@@ -24,14 +24,6 @@ const gradients = {
 };
 
 export default {
-  window: {
-    backgroundColor: colors.shark,
-  },
-
-  inputWindow: {
-    backgroundColor: colors.tuna,
-  },
-
   input: {
     // background
     backgroundColor: colors.shark,

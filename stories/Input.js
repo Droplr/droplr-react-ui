@@ -8,7 +8,7 @@ const InputDecorator = (storyFn) => (
     {storyFn()}
     <style jsx global>{`
       .storyWrapperDark {
-        background: ${darkTheme.inputWindow.backgroundColor} !important;
+        background: #3A3A43 !important;
       }
     `}</style>
   </>
@@ -45,4 +45,7 @@ storiesOf('Input', module)
   ))
   .addWithJSX('error', () => (
     <Input name="Name" error="Sample error text..." />
+  ))
+  .addWithJSX('label + sublabel + error', () => (
+    <Input name="Name" label="Label" sublabel="Sublabel" error="Sample error text..." />
   ))

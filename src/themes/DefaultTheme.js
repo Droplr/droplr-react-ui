@@ -63,10 +63,6 @@ export default {
     errorColor: colors.sunsetOrange,
   },
 
-  window: {
-    backgroundColor: colors.whiteLilac,
-  },
-
   button: {
     primary: {
       backgroundColor: gradients.purple,
