@@ -52,7 +52,7 @@ class Input extends React.PureComponent {
           />
           {error && <ErrorIcon className="drui-inputError__errorIcon" />}
         </div>
-        {info && !error && <div className="drui-inputInfo"><span>{info}</span></div>}
+        {info && <div className="drui-inputInfo"><span>{info}</span></div>}
         {error && <div className="drui-inputError"><span>{error}</span></div>}
         <style jsx global>{`
           .drui-inputContainer {

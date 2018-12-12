@@ -55,6 +55,7 @@ export default {
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
       backgroundColorDisabled: colors.brandLight,
+      borderColor: colors.tuna,
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
