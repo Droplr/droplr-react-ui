@@ -1,8 +1,6 @@
 import React from 'react';
 import { configure, setAddon, addDecorator } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
-import defaultTheme from '../src/themes/DefaultTheme';
-import darkTheme from '../src/themes/DarkTheme';
 
 setAddon(JSXAddon);
 

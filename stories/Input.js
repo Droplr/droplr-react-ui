@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Input from '../src/components/Input';
-import darkTheme from '../src/themes/DarkTheme';
 
 const InputDecorator = (storyFn) => (
   <>
