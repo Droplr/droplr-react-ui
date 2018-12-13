@@ -121,8 +121,14 @@ class Input extends React.PureComponent {
               }
             }
 
-            .drui-input--readOnly:focus {
+            .drui-input--readOnly:hover,
+            .drui-input--readOnly:focus,
+            .drui-input--disabled:hover {
               border-color: ${defaultTheme.input.borderColor};
+            }
+
+            .drui-input--readOnly:focus {
+              color: ${defaultTheme.input.textColor};
             }
 
             .drui-input--disabled {
@@ -131,6 +137,11 @@ class Input extends React.PureComponent {
 
             .drui-input--error {
               padding-right: 54px;
+              border-color: ${defaultTheme.input.errorColor};
+            }
+
+            .drui-input--error:hover,
+            .drui-input--error:focus {
               border-color: ${defaultTheme.input.errorColor};
             }
 
@@ -180,8 +191,19 @@ class Input extends React.PureComponent {
               border-color: ${defaultTheme.input.errorColor};
             }
 
-            .drui-input--readOnly:focus {
+            .drui-input--error:hover,
+            .drui-input--error:focus {
+              border-color: ${defaultTheme.input.errorColor};
+            }
+
+            .drui-input--readOnly:hover,
+            .drui-input--readOnly:focus,
+            .drui-input--disabled:hover {
               border-color: ${darkTheme.input.borderColor};
+            }
+
+            .drui-input--readOnly:focus {
+              color: ${darkTheme.input.textColor};
             }
           }
         `}</style>
