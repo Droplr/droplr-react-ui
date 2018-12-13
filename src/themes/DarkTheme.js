@@ -43,6 +43,7 @@ export default {
 
     // other
     placeholderColor: colors.mako,
+    iconColor: colors.waterloo,
 
     label: {
       textColor: colors.white,

@@ -45,6 +45,6 @@ storiesOf('Input', module)
   .addWithJSX('error', () => (
     <Input name="Name" error="Sample error text..." />
   ))
-  .addWithJSX('label + sublabel + info + error', () => (
+  .addWithJSX('label sublabel info error', () => (
     <Input name="Name" label="Label" sublabel="Sublabel" info="Sample info text..." error="Sample error text..." />
   ))

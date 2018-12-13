@@ -61,6 +61,11 @@ export default {
     // other
     placeholderColor: colors.mystic,
     errorColor: colors.sunsetOrange,
+    iconColor: colors.grayChateau,
+
+    label: {
+      textColor: colors.shuttleGray,
+    }
   },
 
   button: {
