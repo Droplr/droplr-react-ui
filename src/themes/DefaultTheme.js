@@ -26,8 +26,9 @@ const gradients = {
 };
 
 const shadows = {
-  shadowColor: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
-}
+  grayChateau: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
+  brand: `rgba(${convertToRgb(colors.brand)}, 0.1)`,
+};
 
 export default {
   font: {
@@ -62,6 +63,7 @@ export default {
     placeholderColor: colors.mystic,
     errorColor: colors.sunsetOrange,
     iconColor: colors.grayChateau,
+    shadowColor: shadows.brand,
 
     label: {
       textColor: colors.shuttleGray,
@@ -111,7 +113,7 @@ export default {
 
   dropdown: {
     backgroundColor: colors.white,
-    shadowColor: shadows.shadowColor,
+    shadowColor: shadows.grayChateau,
     borderColor: colors.mystic,
     headerTextColor: colors.shuttleGray,
     headerBorderColor: colors.whiteLilac,

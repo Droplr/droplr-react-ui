@@ -10,21 +10,14 @@ class Input extends React.PureComponent {
     super(props);
 
     this.state = {
-      type: props.type,
+      passwordVisible: props.passwordVisible,
     };
 
-    this.passwordVisibilityToggleButton = props.type === 'password' && props.passwordVisibilityToggleButton;
     this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
   }
 
-  componentDidMount() {
-    if (this.state.type === 'password' && this.props.defaultPasswordVisibility) {
-      this.setState({ type: 'text' });
-    }
-  }
-
   togglePasswordVisibility() {
-    this.setState({ type: this.state.type === 'text' ? 'password' : 'text' });
+    this.setState({ passwordVisible: !this.state.passwordVisible });
     this.input.focus();
   }
 
@@ -45,9 +38,10 @@ class Input extends React.PureComponent {
       onFocus,
       onKeyPress,
       onChange,
+      type,
+      passwordVisibilityToggle,
     } = this.props;
-
-    const { type } = this.state;
+    const { passwordVisible } = this.state;
 
     return (
       <div className="drui-inputContainer">
@@ -58,13 +52,13 @@ class Input extends React.PureComponent {
             name={name}
             className={classnames('drui-input', {
               'drui-input--disabled': disabled,
-              'drui-input--hasOneIcon': this.passwordVisibilityToggleButton || error,
-              'drui-input--hasTwoIcons': this.passwordVisibilityToggleButton && error,
+              'drui-input--hasOneIcon': (type === 'password' && passwordVisibilityToggle) || error,
+              'drui-input--hasTwoIcons': (type === 'password' && passwordVisibilityToggle) && error,
               'drui-input--error': error,
               'drui-input--readOnly': readOnly,
               [className]: className,
             })}
-            type={type}
+            type={type === 'password' && passwordVisible ? 'text' : type}
             value={value || undefined}
             placeholder={placeholder}
             autoFocus={autoFocus}
@@ -77,8 +71,8 @@ class Input extends React.PureComponent {
             ref={(input) => { this.input = input; }}
           />
           <div className="drui-iconsContainer">
-            {this.passwordVisibilityToggleButton && (
-                type === 'text'
+            {type === 'password' && passwordVisibilityToggle && (
+                passwordVisible
                   ? <PublicIcon
                       className="drui-input__icon drui-input__passwordVisibilityIcon"
                       onClick={this.togglePasswordVisibility}
@@ -158,8 +152,8 @@ class Input extends React.PureComponent {
 
               &:focus {
                 color: ${defaultTheme.input.textColorFocus};
-                border-color: ${defaultTheme.input.borderColor};
-                box-shadow: 0 0 0 1px ${defaultTheme.input.borderColorFocus};
+                border-color: ${defaultTheme.input.borderColorFocus};
+                box-shadow: inset 0 0 0 2px ${defaultTheme.input.shadowColor};
               }
             }
 
@@ -239,8 +233,8 @@ class Input extends React.PureComponent {
 
               &:focus {
                 color: ${darkTheme.input.textColorFocus};
-                border-color: ${darkTheme.input.borderColorHover};
-                box-shadow: 0 0 0 1px ${defaultTheme.input.borderColorFocus};
+                border-color: ${darkTheme.input.borderColorFocus};
+                box-shadow: none;
               }
             }
 
@@ -304,8 +298,8 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
-  passwordVisibilityToggleButton: PropTypes.bool,
-  defaultPasswordVisibility: PropTypes.bool,
+  passwordVisibilityToggle: PropTypes.bool,
+  passwordVisible: PropTypes.bool,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyPress: PropTypes.func,
@@ -324,8 +318,8 @@ Input.defaultProps = {
   autoFocus: false,
   readOnly: false,
   disabled: false,
-  passwordVisibilityToggleButton: false,
-  defaultPasswordVisibility: false,
+  passwordVisibilityToggle: false,
+  passwordVisible: false,
   onBlur() {},
   onFocus() {},
   onKeyPress() {},

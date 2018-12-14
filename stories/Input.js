@@ -28,16 +28,16 @@ storiesOf('Input', module)
     <Input name="Name" type="password" />
   ))
   .addWithJSX('password visible', () => (
-    <Input name="Name" type="password" defaultPasswordVisibility />
+    <Input name="Name" type="password" passwordVisible />
   ))
   .addWithJSX('password toggle', () => (
-    <Input name="Name" type="password" passwordVisibilityToggleButton />
+    <Input name="Name" type="password" passwordVisibilityToggle />
   ))
   .addWithJSX('password toggle visible', () => (
-    <Input name="Name" type="password" passwordVisibilityToggleButton defaultPasswordVisibility />
+    <Input name="Name" type="password" passwordVisibilityToggle passwordVisible />
   ))
   .addWithJSX('password toggle error', () => (
-    <Input name="Name" type="password" passwordVisibilityToggleButton error="Sample error text..." />
+    <Input name="Name" type="password" passwordVisibilityToggle error="Sample error text..." />
   ))
   .addWithJSX('auto focus', () => (
     <Input name="Name" autoFocus />

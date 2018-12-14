@@ -15,7 +15,7 @@ const colors = {
 };
 
 const shadows = {
-  shadowColor: `rgba(${convertToRgb(colors.black)}, 0.5)`,
+  black: `rgba(${convertToRgb(colors.black)}, 0.5)`,
 }
 
 const gradients = {
@@ -35,7 +35,7 @@ export default {
     // text
     textColor: colors.athensGray,
     textColorFocus: colors.white,
-    
+
     // border
     borderColor: colors.shark,
     borderColorHover: colors.mako,
@@ -93,7 +93,7 @@ export default {
 
   dropdown: {
     backgroundColor: colors.tuna,
-    shadowColor: shadows.shadowColor,
+    shadowColor: shadows.black,
     borderColor: colors.shark,
     headerTextColor: colors.white,
     headerBorderColor: colors.mako,
