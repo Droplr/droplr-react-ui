@@ -13,8 +13,14 @@ class Input extends React.PureComponent {
       type: props.type,
     };
 
-    this.initialType = props.type;
+    this.passwordVisibilityToggleButton = props.type === 'password' && props.passwordVisibilityToggleButton;
     this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.state.type === 'password' && this.props.defaultPasswordVisibility) {
+      this.setState({ type: 'text' });
+    }
   }
 
   togglePasswordVisibility() {
@@ -41,19 +47,19 @@ class Input extends React.PureComponent {
       onChange,
     } = this.props;
 
-    const { initialType } = this;
     const { type } = this.state;
 
     return (
       <div className="drui-inputContainer">
         {label && <span className="drui-inputLabel">{label}</span>}
         {sublabel && <span className="drui-inputSublabel">{sublabel}</span>}
-        <div className="drui-inputIconContainer">
+        <div className="drui-inputIconsContainer">
           <input
             name={name}
             className={classnames('drui-input', {
               'drui-input--disabled': disabled,
-              'drui-input--hasIcon': error || type === 'password',
+              'drui-input--hasOneIcon': this.passwordVisibilityToggleButton || error,
+              'drui-input--hasTwoIcons': this.passwordVisibilityToggleButton && error,
               'drui-input--error': error,
               'drui-input--readOnly': readOnly,
               [className]: className,
@@ -70,20 +76,27 @@ class Input extends React.PureComponent {
             onChange={onChange}
             ref={(input) => { this.input = input; }}
           />
-          {initialType === 'password' && !error && (
-              type === 'text'
-                ? <PublicIcon className="drui-input__icon drui-input__passwordVisibilityIcon" onClick={this.togglePasswordVisibility} />
-                : <PrivateIcon className="drui-input__icon drui-input__passwordVisibilityIcon" onClick={this.togglePasswordVisibility} />
-            )
-          }
-          {error && <ErrorIcon className="drui-input__icon drui-input__errorIcon" />}
+          <div className="drui-iconsContainer">
+            {this.passwordVisibilityToggleButton && (
+                type === 'text'
+                  ? <PublicIcon
+                      className="drui-input__icon drui-input__passwordVisibilityIcon"
+                      onClick={this.togglePasswordVisibility}
+                    />
+                  : <PrivateIcon
+                      className="drui-input__icon drui-input__passwordVisibilityIcon"
+                      onClick={this.togglePasswordVisibility}
+                    />
+              )
+            }
+            {error && <ErrorIcon className="drui-input__icon drui-input__errorIcon" />}
+          </div>
         </div>
         {error && <div className="drui-inputError"><span>{error}</span></div>}
         {info && <div className="drui-inputInfo"><span>{info}</span></div>}
         <style jsx global>{`
           .drui-inputContainer {
             font-size: ${defaultTheme.font.size.normal};
-            font-weight: ${defaultTheme.font.weight.normal};
             font-family: ${defaultTheme.font.family.primary};
             position: relative;
             width: 100%;
@@ -165,8 +178,12 @@ class Input extends React.PureComponent {
               cursor: not-allowed;
             }
 
-            .drui-input--hasIcon {
+            .drui-input--hasOneIcon {
               padding-right: 44px;
+            }
+
+            .drui-input--hasTwoIcons {
+              padding-right: 68px;
             }
 
             .drui-input--error {
@@ -179,14 +196,16 @@ class Input extends React.PureComponent {
               box-shadow: none;
             }
 
-            .drui-inputIconContainer {
+            .drui-inputIconsContainer {
               position: relative;
 
-              .drui-input__icon {
+              .drui-iconsContainer {
                 position: absolute;
                 top: 8px;
                 right: 12px;
+              }
 
+              .drui-input__icon {
                 path {
                   fill: ${defaultTheme.input.iconColor};
                 }
@@ -252,7 +271,7 @@ class Input extends React.PureComponent {
               color: ${darkTheme.input.textColor};
             }
 
-            .drui-inputIconContainer {
+            .drui-inputIconsContainer {
               .drui-input__icon {
                 path {
                   fill: ${darkTheme.input.iconColor};
@@ -285,6 +304,8 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
+  passwordVisibilityToggleButton: PropTypes.bool,
+  defaultPasswordVisibility: PropTypes.bool,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyPress: PropTypes.func,
@@ -303,6 +324,8 @@ Input.defaultProps = {
   autoFocus: false,
   readOnly: false,
   disabled: false,
+  passwordVisibilityToggleButton: false,
+  defaultPasswordVisibility: false,
   onBlur() {},
   onFocus() {},
   onKeyPress() {},
