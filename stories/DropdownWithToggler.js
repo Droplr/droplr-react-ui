@@ -11,9 +11,9 @@ storiesOf('DropdownWithToggler', module)
       <DropdownWithToggler
         Toggler={<Button type="secondary" Icon={DotsIcon} />}
       >
-        <DropdownItem title="Item 1" />
-        <DropdownItem title="Item 2" />
-        <DropdownItem title="Item 3" />
+        <DropdownItem title="Item 1 lorem ipsum lorem ipsum" />
+        <DropdownItem title="Item 2 lorem ipsum lorem ipsum" />
+        <DropdownItem title="Item 3 lorem ipsum lorem ipsum" />
       </DropdownWithToggler>
       <style jsx global>{`
         .storyWrapperLight,

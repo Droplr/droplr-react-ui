@@ -10,19 +10,24 @@ class DropdownWithToggler extends React.Component {
   constructor(props) {
     super(props);
 
+    this.dropdownInitialState = {
+      dropdownPosition: ['center', 'bottom'],
+      dropdownArrowStyles: {},
+    }
+    this.togglerElemRef = undefined;
+    this.dropdownElemRef = undefined;
+
     this.state = {
       isActive: props.isActive || false,
-      toggler: {
+      wrapperStyles: {
         width: 0,
         height: 0,
       },
-      dropdownPosition: ['center', 'bottom'],
-      dropdownArrowStyles: {},
+      ...this.dropdownInitialState,
     }
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
 
-    this.togglerElemRef = undefined;
     this.TogglerElem = React.cloneElement(
       props.Toggler,
       {
@@ -35,62 +40,74 @@ class DropdownWithToggler extends React.Component {
 
   componentDidMount() {
     this.setState({
-      toggler: {
+      wrapperStyles: {
         width: this.togglerElemRef.offsetWidth,
         height: this.togglerElemRef.offsetHeight,
       }
     });
   }
 
-  getDropdownPosition(rectBounds, container) {
+  getCurrentDropdownPosition(container) {
     const containerHeight = container ? container.innerHeight : window.innerHeight;
     const containerWidth = container ? container.innerWidth : window.innerWidth;
+    const { top, right, bottom, left } = this.dropdownElemRef.getBoundingClientRect();
 
-    const { top, right, bottom, left } = rectBounds;
-    const horizontalPosition = {
+    const verticalPosition = {
       top: bottom > containerHeight && containerHeight > top,
       bottom: top > containerHeight && containerHeight > bottom,
     };
-    const verticalPosition = {
+    const horizontalPosition = {
       right: right > containerWidth && containerWidth > left,
-      left: left > containerWidth && containerWidth > right,
+      left: left < 0 && containerWidth > right,
     };
 
     return [
-      Object.keys(horizontalPosition).find((key) => horizontalPosition[key]) || 'bottom',
-      Object.keys(verticalPosition).find((key) => verticalPosition[key]) || 'center'
+      Object.keys(verticalPosition).find((key) => verticalPosition[key]) || 'bottom',
+      Object.keys(horizontalPosition).find((key) => horizontalPosition[key]) || 'center',
     ];
   }
 
-  handleDropdownPosition() {
-    const dropdownRectBounds = this.dropdownElemRef.getBoundingClientRect();
-    const dropdownPosition = this.getDropdownPosition(dropdownRectBounds);
+  getDropdownArrowStyles(positionsArray) {
+    if (!positionsArray.includes('right') && !positionsArray.includes('left')) return null;
+
+    const dropdownPosition = positionsArray.includes('right') ? 'right' : 'left';
+    const arrowPosition = this.togglerElemRef.offsetWidth / 2;
+    const arrowPositionStyles = {
+      left: {
+        left: `${arrowPosition}px`,
+        right: 'auto',
+      },
+      right: {
+        right: `${arrowPosition}px`,
+        left: 'auto',
+      }
+    }
+
+    return arrowPositionStyles[dropdownPosition];
+  }
+
+  setDropdownPosition() {
+    const dropdownPosition = this.getCurrentDropdownPosition();
 
     this.setState({
-      dropdownArrowStyles: {
-        right: 0,
-        left: 'auto',
-      },
+      dropdownArrowStyles: this.getDropdownArrowStyles(dropdownPosition),
       dropdownPosition,
     });
   }
 
   toggleDropdown() {
-    this.setState({ isActive: !this.state.isActive }, this.handleDropdownPosition);
+    let state = { isActive: !this.state.isActive };
+    if (this.state.isActive) state = { ...state, ...this.dropdownInitialState };
+
+    this.setState(
+      { ...state },
+      this.setDropdownPosition
+    );
   }
 
   // Method is needed for react-click-outside. Naming must stay the same.
   handleClickOutside() {
-    this.setState({ isActive: false });
-  }
-
-  isElementInViewport(rect) {
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
-    );
+    this.setState({ isActive: false, ...this.dropdownInitialState });
   }
 
   render() {
@@ -102,7 +119,7 @@ class DropdownWithToggler extends React.Component {
           'drui-dropdown__wrapper',
           { [className]: className }
         )}
-        style={this.state.style}
+        style={this.state.wrapperStyles}
       >
         {this.TogglerElem}
 

@@ -50,7 +50,7 @@ class DropdownItem extends React.PureComponent {
         }
       >
         <ActionElem
-          href={href}
+          href={href || null}
           type={!href ? 'button' : null}
           className="drui-dropdownItem__action"
           target={target}

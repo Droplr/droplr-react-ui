@@ -57,10 +57,7 @@ class Dropdown extends React.Component {
         )}
         ref={(node) => { this.myRef = node; }}
       >
-        <div
-          className="drui-dropdown__inner"
-          data-arrow-position="left: 50%"
-        >
+        <div className="drui-dropdown__inner">
           <span
             className="drui-dropdown__arrow"
             style={dropdownArrowStyles}
@@ -126,7 +123,14 @@ class Dropdown extends React.Component {
             .drui-dropdown__arrow {
               top: auto;
               bottom: -4px;
-              box-shadow: -2px 2px 1px -2px ${defaultTheme.dropdown.shadowColor};
+              transform: translate(-50%, -20%) rotate(45deg);
+              box-shadow: 2px 2px 1px -2px ${defaultTheme.dropdown.shadowColor};
+            }
+
+            &.drui-dropdown--right {
+              .drui-dropdown__arrow {
+                transform: translate(50%, -20%) rotate(45deg);
+              }
             }
           }
 
@@ -137,6 +141,12 @@ class Dropdown extends React.Component {
               top: 4px;
               bottom: 0;
             };
+
+            &.drui-dropdown--right {
+              .drui-dropdown__arrow {
+                transform: translate(50%, 20%) rotate(45deg);
+              }
+            }
           }
 
           .drui-dropdown--right {
@@ -229,17 +239,23 @@ class Dropdown extends React.Component {
           }
 
           .theme--dark {
+            .drui-dropdown--top {
+              .drui-dropdown__arrow {
+                box-shadow: 2px 2px 1px -2px ${darkTheme.dropdown.shadowColor};
+              }
+            }
+
             .drui-dropdown__inner {
               background-color: ${darkTheme.dropdown.backgroundColor};
-
-              &::before {
-                background: ${darkTheme.dropdown.backgroundColor};
-                box-shadow: -2px -2px 1px -2px ${darkTheme.dropdown.shadowColor};
-              }
 
               &::after {
                 box-shadow: 0 2px 12px -1px  ${darkTheme.dropdown.shadowColor};
               }
+            }
+
+            .drui-dropdown__arrow {
+              background: ${darkTheme.dropdown.backgroundColor};
+              box-shadow: -2px -2px 1px -2px ${darkTheme.dropdown.shadowColor};
             }
 
             .drui-dropdown__header {
