@@ -1,8 +1,6 @@
 import React from 'react';
 import { configure, setAddon, addDecorator } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
-import defaultTheme from '../src/themes/DefaultTheme';
-import darkTheme from '../src/themes/DarkTheme';
 
 setAddon(JSXAddon);
 
@@ -14,7 +12,7 @@ const ThemesDecorator = (storyFn) => (
         .storyWrapperLight {
           width: 400px;
           padding: 40px;
-          background: ${defaultTheme.window.backgroundColor};
+          background: #F8F9FC;
         }
       `}</style>
     </div>
@@ -26,7 +24,7 @@ const ThemesDecorator = (storyFn) => (
         .storyWrapperDark {
           width: 400px;
           padding: 40px;
-          background: ${darkTheme.window.backgroundColor};
+          background: #2D2E33;
         }
       `}</style>
     </div>
@@ -41,6 +39,7 @@ function loadStories() {
   require('../stories/Dropdown');
   require('../stories/DropdownItem');
   require('../stories/DualButton');
+  require('../stories/Input');
   require('../stories/Icons');
 }
 

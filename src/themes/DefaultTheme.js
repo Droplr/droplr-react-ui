@@ -6,6 +6,7 @@ const colors = {
   brand: '#7A50C7',
   brandLight: '#A28FC6',
   brandDark: '#542D9B',
+  sunsetOrange: '#F94C4C',
   lima: '#50BF17',
   sushi: '#70C843',
   blueRibbon: '#0B68FF',
@@ -25,8 +26,9 @@ const gradients = {
 };
 
 const shadows = {
-  shadowColor: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
-}
+  grayChateau: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
+  brand: `rgba(${convertToRgb(colors.brand)}, 0.1)`,
+};
 
 export default {
   font: {
@@ -44,8 +46,28 @@ export default {
     },
   },
 
-  window: {
-    backgroundColor: colors.whiteLilac,
+  input: {
+    // background
+    backgroundColor: colors.white,
+
+    // text
+    textColor: colors.shuttleGray,
+    textColorFocus: colors.black,
+
+    // border
+    borderColor: colors.mystic,
+    borderColorHover: colors.grayChateau,
+    borderColorFocus: colors.brand,
+
+    // other
+    placeholderColor: colors.mystic,
+    errorColor: colors.sunsetOrange,
+    iconColor: colors.grayChateau,
+    shadowColor: shadows.brand,
+
+    label: {
+      textColor: colors.shuttleGray,
+    }
   },
 
   button: {
@@ -91,7 +113,7 @@ export default {
 
   dropdown: {
     backgroundColor: colors.white,
-    shadowColor: shadows.shadowColor,
+    shadowColor: shadows.grayChateau,
     borderColor: colors.mystic,
     headerTextColor: colors.shuttleGray,
     headerBorderColor: colors.whiteLilac,
