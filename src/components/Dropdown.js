@@ -95,6 +95,7 @@ class Dropdown extends React.Component {
             padding: 4px 0 0;
             width: auto;
             max-width: 320px;
+            max-height: 80vh;
             box-sizing: border-box;
 
             *,

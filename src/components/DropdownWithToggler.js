@@ -52,15 +52,17 @@ class DropdownWithToggler extends React.Component {
     const containerWidth = container ? container.innerWidth : window.innerWidth;
     const { top, right, bottom, left } = this.dropdownElemRef.getBoundingClientRect();
 
+    
     const verticalPosition = {
-      top: bottom > containerHeight && containerHeight > top,
+      top: bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top,
       bottom: top > containerHeight && containerHeight > bottom,
     };
     const horizontalPosition = {
       right: right > containerWidth && containerWidth > left,
       left: left < 0 && containerWidth > right,
     };
-
+    
+    console.log(containerHeight, top);
     return [
       Object.keys(verticalPosition).find((key) => verticalPosition[key]) || 'bottom',
       Object.keys(horizontalPosition).find((key) => horizontalPosition[key]) || 'center',
