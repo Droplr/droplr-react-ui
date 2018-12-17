@@ -91,6 +91,7 @@ class Dropdown extends React.Component {
           .drui-dropdown {
             display: table;
             position: relative;
+            z-index: 9;
             font-family: ${defaultTheme.font.family.primary};
             padding: 4px 0 0;
             width: auto;

@@ -61,8 +61,7 @@ class DropdownWithToggler extends React.Component {
       right: right > containerWidth && containerWidth > left,
       left: left < 0 && containerWidth > right,
     };
-    
-    console.log(containerHeight, top);
+
     return [
       Object.keys(verticalPosition).find((key) => verticalPosition[key]) || 'bottom',
       Object.keys(horizontalPosition).find((key) => horizontalPosition[key]) || 'center',
