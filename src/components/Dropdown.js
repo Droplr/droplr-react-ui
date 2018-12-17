@@ -106,14 +106,6 @@ class Dropdown extends React.Component {
             }
           }
 
-          .drui-dropdown--top
-          .drui-dropdown--bottom,
-          .drui-dropdown--right,
-          .drui-dropdown--left,
-          .drui-dropdown--center {
-            position: absolute;
-          }
-
           .drui-dropdown--top {
             top: auto;
             bottom: 100%;

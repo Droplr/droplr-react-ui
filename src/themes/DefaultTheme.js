@@ -16,24 +16,6 @@ const colors = {
   mako: '#44484F',
 };
 
-const theme = {
-  colors: {
-    brand: colors.purple,
-    brandShadow: colors.purpleShadow,
-    brandDisabled: colors.purpleDisabled,
-    brandBorder: colors.purpleBorder,
-    danger: colors.red,
-    success: colors.green,
-    link: colors.blue,
-    info: colors.blue,
-    background: colors.bright,
-    uiLight: colors.lightGrey,
-    uiDark: colors.greyDarker,
-    text: colors.grey,
-    textDark: colors.greyDark,
-  },
-};
-
 const gradients = {
   purple: 'linear-gradient(0deg, #6B3CC1 0%, #7A50C7 100%)',
   purpleHover: 'linear-gradient(0deg, #7A50C7 0%, #6B3CC1 100%)',
@@ -47,8 +29,6 @@ const shadows = {
 }
 
 export default {
-  convertToRgb,
-
   font: {
     family: {
       primary: '"Source Sans Pro", sans-serif',

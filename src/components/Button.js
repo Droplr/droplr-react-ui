@@ -63,6 +63,12 @@ class Button extends React.PureComponent {
             font-family: ${defaultTheme.font.family.primary};
             cursor: pointer;
 
+            *,
+            *::before,
+            *::after {
+              box-sizing: inherit;
+            }
+
             &:hover {
               background: ${defaultTheme.button.primary.backgroundColorHover};
             }
@@ -122,7 +128,6 @@ class Button extends React.PureComponent {
           .drui-button--disabled:hover {
             background: ${defaultTheme.button.primary.backgroundColorDisabled};
             box-shadow: none;
-            border: none;
             cursor: not-allowed;
             border: none;
           }

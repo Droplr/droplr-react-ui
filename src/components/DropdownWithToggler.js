@@ -47,9 +47,9 @@ class DropdownWithToggler extends React.Component {
     });
   }
 
-  getCurrentDropdownPosition(container) {
-    const containerHeight = container ? container.innerHeight : window.innerHeight;
-    const containerWidth = container ? container.innerWidth : window.innerWidth;
+  getCurrentDropdownPosition() {
+    const containerHeight = typeof window !== 'undefined' ? window.innerHeight : document.documentElement.offsetHeight;
+    const containerWidth = typeof window !== 'undefined' ? window.innerWidth : document.documentElement.offsetWidth;
     const { top, right, bottom, left } = this.dropdownElemRef.getBoundingClientRect();
 
     
@@ -142,6 +142,10 @@ class DropdownWithToggler extends React.Component {
             display: inline-block;
             width: auto;
             font-size: 0; // Needed to remove 4px paddings added by browsers
+
+            .drui-dropdown {
+              position: absolute;
+            }
           }
         `}</style>
       </div>
