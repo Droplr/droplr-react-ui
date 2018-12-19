@@ -6,6 +6,7 @@ const colors = {
   brand: '#8D61DF',
   brandLight: '#624F86',
   brandDark: '#542D9B',
+  sunsetOrange: '#F94C4C',
   tuna: '#3A3A43',
   shark: '#2D2E33',
   mako: '#464651',

@@ -10,10 +10,14 @@ class Input extends React.PureComponent {
     super(props);
 
     this.state = {
-      passwordVisible: props.passwordVisible,
+      passwordVisible: false,
     };
 
     this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ passwordVisible: this.props.passwordVisible });
   }
 
   togglePasswordVisibility() {

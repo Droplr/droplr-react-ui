@@ -8,6 +8,17 @@ import defaultTheme from '../themes/DefaultTheme';
 import darkTheme from '../themes/DarkTheme';
 
 class DropdownItem extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.onItemElemClick = this.onItemElemClick.bind(this);
+  }
+
+  onItemElemClick(e) {
+    this.props.onClick(e);
+    if (this.props.closeOnItemClick) this.props.closeDropdown();
+  }
+
   render() {
     const {
       title,
@@ -16,7 +27,6 @@ class DropdownItem extends React.PureComponent {
       Icon,
       className,
       active,
-      onClick,
       href,
       target,
       disabled,
@@ -38,15 +48,15 @@ class DropdownItem extends React.PureComponent {
             ['drui-dropdownItem--withIcon']: Icon,
           })
         }
-        onClick={onClick}
       >
         <ActionElem
-          href={href}
+          href={href || null}
           type={!href ? 'button' : null}
           className="drui-dropdownItem__action"
           target={target}
           rel={target === '_blank' ? 'noopener nofollow' : null}
           disabled={disabled}
+          onClick={this.onItemElemClick}
         >
           <div className="drui-dropdownItem__iconWrapper">
             {/* Custom icon for dropdown item */}
@@ -353,8 +363,10 @@ DropdownItem.defaultProps = {
   children: null,
   href: '',
   trarget: '',
-  showItemStatus: false,
   disabled: false,
+  closeOnItemClick: false,
+  showItemStatus: false,
+  closeDropdown() {},
   onClick() {},
 };
 

@@ -42,7 +42,7 @@ export default {
     },
     weight: {
       normal: '400',
-      bold: '700',
+      bold: '600',
     },
   },
 
