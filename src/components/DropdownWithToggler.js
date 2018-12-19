@@ -11,14 +11,15 @@ class DropdownWithToggler extends React.PureComponent {
     super(props);
 
     this.dropdownInitialState = {
-      dropdownPosition: ['center', 'bottom'],
+      positionY: 'center',
+      positionX: 'bottom',
       arrowStyles: {},
     }
     this.togglerElemRef = undefined;
     this.dropdownElemRef = undefined;
 
     this.state = {
-      isActive: props.isActive || false,
+      isActive: props.isActive,
       wrapperStyles: {
         width: 0,
         height: 0,
@@ -48,31 +49,28 @@ class DropdownWithToggler extends React.PureComponent {
   }
 
   getCurrentDropdownPosition() {
-    const containerHeight = typeof window !== 'undefined' ? window.innerHeight : document.documentElement.offsetHeight;
-    const containerWidth = typeof window !== 'undefined' ? window.innerWidth : document.documentElement.offsetWidth;
+    const containerHeight = window.innerHeight || document.documentElement.offsetHeight;
+    const containerWidth = window.innerWidth || document.documentElement.offsetWidth;
     const { top, right, bottom, left, height } = this.dropdownElemRef.getBoundingClientRect();
 
-    const verticalPosition = {
+    const positionY = {
       top: bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top && height < containerHeight,
       bottom: top > containerHeight && containerHeight > bottom && containerHeight < containerHeight,
     };
-    const horizontalPosition = {
+    const positionX = {
       right: right > containerWidth && containerWidth > left,
       left: left < 0 && containerWidth > right,
     };
 
-    console.log(verticalPosition)
-
-    return [
-      Object.keys(verticalPosition).find((key) => verticalPosition[key]) || 'bottom',
-      Object.keys(horizontalPosition).find((key) => horizontalPosition[key]) || 'center',
-    ];
+    return {
+      positionY: Object.keys(positionY).find((key) => positionY[key]) || 'bottom',
+      positionX: Object.keys(positionX).find((key) => positionX[key]) || 'center',
+    };
   }
 
-  getArrowStyles(positionsArray) {
-    if (!positionsArray.includes('right') && !positionsArray.includes('left')) return null;
+  getArrowStyles(dropdownPosition) {
+    if (!dropdownPosition) return;
 
-    const dropdownPosition = positionsArray.includes('right') ? 'right' : 'left';
     const arrowPosition = this.togglerElemRef.offsetWidth / 2;
     const arrowPositionStyles = {
       left: {
@@ -92,8 +90,8 @@ class DropdownWithToggler extends React.PureComponent {
     const dropdownPosition = this.getCurrentDropdownPosition();
 
     this.setState({
-      arrowStyles: this.getArrowStyles(dropdownPosition),
-      dropdownPosition,
+      arrowStyles: this.getArrowStyles(dropdownPosition.positionX),
+      ...dropdownPosition,
     });
   }
 
@@ -114,6 +112,7 @@ class DropdownWithToggler extends React.PureComponent {
 
   render() {
     const { className, children } = this.props;
+    const { positionX, positionY, wrapperStyles, arrowStyles, isActive } = this.state;
 
     return (
       <div
@@ -121,16 +120,17 @@ class DropdownWithToggler extends React.PureComponent {
           'drui-dropdown__wrapper',
           { [className]: className }
         )}
-        style={this.state.wrapperStyles}
+        style={wrapperStyles}
       >
         {this.TogglerElem}
 
         <Dropdown
-          isActive={this.state.isActive}
+          isActive={isActive}
           close={this.toggleDropdown}
           onRef={(node) => { this.dropdownElemRef = node; }}
-          arrowStyles={this.state.arrowStyles}
-          position={this.state.dropdownPosition}
+          arrowStyles={arrowStyles}
+          positionX={positionX}
+          positionY={positionY}
           closeOnItemClick
         >
           {children || null}

@@ -20,15 +20,6 @@ class Dropdown extends React.Component {
     this.state = { position: props.position }
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (!props.position.length) return null;
-    console.log('derived state');
-    return {
-      ...state,
-      position: props.position.map(position => `drui-dropdown--${position}`),
-    }
-  }
-
   componentDidUpdate() {
     if (this.props.isActive) {
       this.props.onRef(this.dropdownRef);
@@ -44,7 +35,9 @@ class Dropdown extends React.Component {
       closeOnItemClick,
       close,
       showItemStatus,
-      arrowStyles
+      arrowStyles,
+      positionX,
+      positionY,
     } = this.props;
 
     if (!isActive || !children) return null;
@@ -53,8 +46,11 @@ class Dropdown extends React.Component {
       <div
         className={classnames(
           'drui-dropdown',
-          ...this.state.position,
-          { [className]: className }
+          {
+            [className]: className,
+            [`drui-dropdown--${positionX}`]: positionX,
+            [`drui-dropdown--${positionY}`]: positionY,
+          }
         )}
         ref={(node) => { this.dropdownRef = node; }}
       >
@@ -284,7 +280,8 @@ Dropdown.defaultProps = {
   className: '',
   showItemStatus: false,
   closeOnItemClick: false,
-  position: [positionEnums.bottom, positionEnums.center],
+  positionY: positionEnums.bottom,
+  positionX: positionEnums.center,
   arrowStyles: {},
   close() {},
   onRef() {},
