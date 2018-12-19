@@ -185,6 +185,7 @@ class Button extends React.PureComponent {
             &.drui-button--loading,
             &.drui-button--loading:hover {
               background: ${defaultTheme.button.secondary.backgroundColor};
+              border: 1px solid ${defaultTheme.button.secondary.borderColor};
             }
           }
 
@@ -226,6 +227,7 @@ class Button extends React.PureComponent {
 
               &:hover {
                 background: ${darkTheme.button.secondary.backgroundColorHover};
+                border: 1px solid ${darkTheme.button.secondary.borderColor};
               }
 
               &:active {
@@ -266,6 +268,7 @@ class Button extends React.PureComponent {
               &.drui-button--loading,
               &.drui-button--loading:hover {
                 background: ${darkTheme.button.secondary.backgroundColor};
+                border: 1px solid ${darkTheme.button.secondary.borderColor};
               }
             }
           }

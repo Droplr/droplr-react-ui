@@ -201,7 +201,7 @@ class Dropdown extends React.PureComponent {
             font-size: ${defaultTheme.font.size.small};
             text-transform: uppercase;
             color: ${defaultTheme.dropdown.headerTextColor};
-            font-weight: 600;
+            font-weight: ${defaultTheme.font.weight.bold};
           }
 
           .drui-dropdown__itemsList {

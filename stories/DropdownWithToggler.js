@@ -6,7 +6,7 @@ import DropdownItem from '../src/components/DropdownItem';
 import { DotsIcon } from '../src/components/icons';
 
 storiesOf('DropdownWithToggler', module)
-  .addWithJSX('Default', () => (
+  .addWithJSX('Button with icon as a toggler', () => (
     <>
       <DropdownWithToggler
         Toggler={<Button type="secondary" Icon={DotsIcon} />}
