@@ -52,19 +52,20 @@ class DropdownWithToggler extends React.PureComponent {
     const containerHeight = window.innerHeight || document.documentElement.offsetHeight;
     const containerWidth = window.innerWidth || document.documentElement.offsetWidth;
     const { top, right, bottom, left, height } = this.dropdownElemRef.getBoundingClientRect();
+    const positionY = (
+      bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top && height < containerHeight
+    ) ? 'top' : 'bottom';
+    let positionX = 'center';
 
-    const positionY = {
-      top: bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top && height < containerHeight,
-      bottom: top > containerHeight && containerHeight > bottom && containerHeight < containerHeight,
-    };
-    const positionX = {
-      right: right > containerWidth && containerWidth > left,
-      left: left < 0 && containerWidth > right,
-    };
+    if (right > containerWidth && containerWidth) {
+      positionX = 'right';
+    } else if (left < 0 && containerWidth > right) {
+      positionX = 'left';
+    }
 
     return {
-      positionY: Object.keys(positionY).find((key) => positionY[key]) || 'bottom',
-      positionX: Object.keys(positionX).find((key) => positionX[key]) || 'center',
+      positionY,
+      positionX,
     };
   }
 
@@ -159,8 +160,12 @@ DropdownWithToggler.propTypes = {
   isActive: PropTypes.bool,
   closeOnItemClick: PropTypes.bool,
   children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.func,
+    ])),
     PropTypes.node,
+    PropTypes.func,
   ]).isRequired,
 };
 

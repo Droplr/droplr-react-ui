@@ -13,7 +13,7 @@ const positionEnums = {
   center: 'center',
 }
 
-class Dropdown extends React.Component {
+class Dropdown extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -268,9 +268,8 @@ Dropdown.propTypes = {
   showItemStatus: PropTypes.bool,
   close: PropTypes.func,
   closeOnItemClick: PropTypes.bool,
-  position: PropTypes.arrayOf(
-    PropTypes.oneOf(Object.keys(positionEnums))
-  ),
+  positionY: PropTypes.string,
+  positionX: PropTypes.string,
   arrowStyles: PropTypes.shape(),
   onRef: PropTypes.func,
 };
