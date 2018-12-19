@@ -6,13 +6,13 @@ import enhanceWithClickOutside from 'react-click-outside';
 
 import Dropdown from './Dropdown';
 
-class DropdownWithToggler extends React.Component {
+class DropdownWithToggler extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.dropdownInitialState = {
       dropdownPosition: ['center', 'bottom'],
-      dropdownArrowStyles: {},
+      arrowStyles: {},
     }
     this.togglerElemRef = undefined;
     this.dropdownElemRef = undefined;
@@ -50,17 +50,18 @@ class DropdownWithToggler extends React.Component {
   getCurrentDropdownPosition() {
     const containerHeight = typeof window !== 'undefined' ? window.innerHeight : document.documentElement.offsetHeight;
     const containerWidth = typeof window !== 'undefined' ? window.innerWidth : document.documentElement.offsetWidth;
-    const { top, right, bottom, left } = this.dropdownElemRef.getBoundingClientRect();
+    const { top, right, bottom, left, height } = this.dropdownElemRef.getBoundingClientRect();
 
-    
     const verticalPosition = {
-      top: bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top,
-      bottom: top > containerHeight && containerHeight > bottom,
+      top: bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top && height < containerHeight,
+      bottom: top > containerHeight && containerHeight > bottom && containerHeight < containerHeight,
     };
     const horizontalPosition = {
       right: right > containerWidth && containerWidth > left,
       left: left < 0 && containerWidth > right,
     };
+
+    console.log(verticalPosition)
 
     return [
       Object.keys(verticalPosition).find((key) => verticalPosition[key]) || 'bottom',
@@ -68,7 +69,7 @@ class DropdownWithToggler extends React.Component {
     ];
   }
 
-  getDropdownArrowStyles(positionsArray) {
+  getArrowStyles(positionsArray) {
     if (!positionsArray.includes('right') && !positionsArray.includes('left')) return null;
 
     const dropdownPosition = positionsArray.includes('right') ? 'right' : 'left';
@@ -91,7 +92,7 @@ class DropdownWithToggler extends React.Component {
     const dropdownPosition = this.getCurrentDropdownPosition();
 
     this.setState({
-      dropdownArrowStyles: this.getDropdownArrowStyles(dropdownPosition),
+      arrowStyles: this.getArrowStyles(dropdownPosition),
       dropdownPosition,
     });
   }
@@ -127,10 +128,9 @@ class DropdownWithToggler extends React.Component {
         <Dropdown
           isActive={this.state.isActive}
           close={this.toggleDropdown}
-          dropdownStyles={this.state.dropdownStyles}
           onRef={(node) => { this.dropdownElemRef = node; }}
-          dropdownArrowStyles={this.state.dropdownArrowStyles}
-          dropdownPosition={this.state.dropdownPosition}
+          arrowStyles={this.state.arrowStyles}
+          position={this.state.dropdownPosition}
           closeOnItemClick
         >
           {children || null}

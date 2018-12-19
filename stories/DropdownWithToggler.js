@@ -11,18 +11,51 @@ storiesOf('DropdownWithToggler', module)
       <DropdownWithToggler
         Toggler={<Button type="secondary" Icon={DotsIcon} />}
       >
-        <DropdownItem title="Item 1 lorem ipsum lorem ipsum" />
-        <DropdownItem title="Item 2 lorem ipsum lorem ipsum" />
-        <DropdownItem title="Item 3 lorem ipsum lorem ipsum" />
+        <DropdownItem title="Item 1 lorem ipsum dolor" />
+        <DropdownItem title="Item 2 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
       </DropdownWithToggler>
       <style jsx global>{`
         .storyWrapperLight,
         .storyWrapperDark {
+          display: flex;
+          justify-content: center;
           text-align: center;
           height: 200px;
-        }
-        .drui-dropdown__wrapper {
-          margin: 0 auto;
         }
       `}</style>
     </>

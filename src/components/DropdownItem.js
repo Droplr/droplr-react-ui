@@ -364,9 +364,8 @@ DropdownItem.defaultProps = {
   href: '',
   trarget: '',
   disabled: false,
-  closeOnItemClick: PropTypes.bool,
+  closeOnItemClick: false,
   showItemStatus: false,
-  disabled: false,
   closeDropdown() {},
   onClick() {},
 };

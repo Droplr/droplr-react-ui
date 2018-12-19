@@ -17,20 +17,21 @@ class Dropdown extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { dropdownPosition: props.dropdownPosition }
+    this.state = { position: props.position }
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (!props.dropdownPosition.length) return null;
+    if (!props.position.length) return null;
+    console.log('derived state');
     return {
       ...state,
-      dropdownPosition: props.dropdownPosition.map(position => `drui-dropdown--${position}`),
+      position: props.position.map(position => `drui-dropdown--${position}`),
     }
   }
 
   componentDidUpdate() {
     if (this.props.isActive) {
-      this.props.onRef(this.myRef);
+      this.props.onRef(this.dropdownRef);
     }
   }
 
@@ -43,7 +44,7 @@ class Dropdown extends React.Component {
       closeOnItemClick,
       close,
       showItemStatus,
-      dropdownArrowStyles
+      arrowStyles
     } = this.props;
 
     if (!isActive || !children) return null;
@@ -52,16 +53,16 @@ class Dropdown extends React.Component {
       <div
         className={classnames(
           'drui-dropdown',
-          ...this.state.dropdownPosition,
+          ...this.state.position,
           { [className]: className }
         )}
-        ref={(node) => { this.myRef = node; }}
+        ref={(node) => { this.dropdownRef = node; }}
       >
+        <span
+          className="drui-dropdown__arrow"
+          style={arrowStyles}
+        />
         <div className="drui-dropdown__inner">
-          <span
-            className="drui-dropdown__arrow"
-            style={dropdownArrowStyles}
-          />
           {header &&
             <div className="drui-dropdown__header">
               <span className="drui-dropdown__title">{header}</span>
@@ -93,11 +94,14 @@ class Dropdown extends React.Component {
             position: relative;
             z-index: 9;
             font-family: ${defaultTheme.font.family.primary};
-            padding: 4px 0 0;
+            padding: 12px 0;
+            margin-top: 4px;
             width: auto;
             max-width: 320px;
-            max-height: 80vh;
             box-sizing: border-box;
+            border-radius: 4px;
+            background: ${defaultTheme.dropdown.backgroundColor};
+            box-shadow: 0 2px 12px -1px ${defaultTheme.dropdown.shadowColor};
 
             *,
             *::before,
@@ -109,10 +113,10 @@ class Dropdown extends React.Component {
           .drui-dropdown--top {
             top: auto;
             bottom: 100%;
-            padding: {
-              top: 0;
+            margin: {
+              top: auto;
               bottom: 4px;
-            };
+            }
 
             .drui-dropdown__arrow {
               top: auto;
@@ -131,10 +135,10 @@ class Dropdown extends React.Component {
           .drui-dropdown--bottom {
             top: 100%;
             bottom: auto;
-            padding: {
+            margin: {
               top: 4px;
-              bottom: 0;
-            };
+              bottom: auto;
+            }
 
             &.drui-dropdown--right {
               .drui-dropdown__arrow {
@@ -162,36 +166,22 @@ class Dropdown extends React.Component {
           }
 
           .drui-dropdown__inner {
-            display: flex;
+            display: block;
             position: relative;
             z-index: 1;
             flex-direction: column;
             width: auto;
             height: auto;
-            padding: 12px 0;
+            max-height: 420px;
+            overflow-y: auto;
+            padding: 0;
             border-radius: 4px;
-            background-color: ${defaultTheme.dropdown.backgroundColor};
-
-            &:after {
-              content: '';
-              display: block;
-              position: absolute;
-              z-index: 1;
-              left: 0;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              border-radius: 4px;
-              background-color: transparent;
-              box-shadow: 0 2px 12px -1px ${defaultTheme.dropdown.shadowColor};
-              pointer-events: none;
-            }
           }
 
           .drui-dropdown__arrow {
             display: block;
             position: absolute;
-            z-index: 2;
+            z-index: 0;
             top: -4px;
             left: 50%;
             transform: translate(-50%, 20%) rotate(45deg);
@@ -224,6 +214,8 @@ class Dropdown extends React.Component {
             list-style: none;
             padding: 0;
             margin: 0;
+            height: 100%;
+            overflow-y: auto;
           }
 
           .drui-dropdown__listItemWrapper {
@@ -233,6 +225,11 @@ class Dropdown extends React.Component {
           }
 
           .theme--dark {
+            .drui-dropdown {
+              background: ${darkTheme.dropdown.backgroundColor};
+                box-shadow: 0 2px 12px -1px  ${darkTheme.dropdown.shadowColor};
+            }
+
             .drui-dropdown--top {
               .drui-dropdown__arrow {
                 box-shadow: 2px 2px 1px -2px ${darkTheme.dropdown.shadowColor};
@@ -241,10 +238,6 @@ class Dropdown extends React.Component {
 
             .drui-dropdown__inner {
               background-color: ${darkTheme.dropdown.backgroundColor};
-
-              &::after {
-                box-shadow: 0 2px 12px -1px  ${darkTheme.dropdown.shadowColor};
-              }
             }
 
             .drui-dropdown__arrow {
@@ -278,10 +271,11 @@ Dropdown.propTypes = {
   className: PropTypes.string,
   showItemStatus: PropTypes.bool,
   close: PropTypes.func,
-  dropdownPosition: PropTypes.arrayOf(
+  closeOnItemClick: PropTypes.bool,
+  position: PropTypes.arrayOf(
     PropTypes.oneOf(Object.keys(positionEnums))
   ),
-  dropdownArrowStyles: PropTypes.shape(),
+  arrowStyles: PropTypes.shape(),
   onRef: PropTypes.func,
 };
 
@@ -290,8 +284,8 @@ Dropdown.defaultProps = {
   className: '',
   showItemStatus: false,
   closeOnItemClick: false,
-  dropdownPosition: [positionEnums.bottom, positionEnums.center],
-  dropdownArrowStyles: {},
+  position: [positionEnums.bottom, positionEnums.center],
+  arrowStyles: {},
   close() {},
   onRef() {},
 }
