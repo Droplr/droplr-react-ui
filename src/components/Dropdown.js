@@ -5,20 +5,59 @@ import classnames from 'classnames';
 import defaultTheme from '../themes/DefaultTheme';
 import darkTheme from '../themes/DarkTheme';
 
+const positionEnums = {
+  top: 'top',
+  right: 'right',
+  bottom: 'bottom',
+  left: 'left',
+  center: 'center',
+}
+
 class Dropdown extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = { position: props.position }
+  }
+
+  componentDidUpdate() {
+    if (this.props.isActive) {
+      this.props.onRef(this.dropdownRef);
+    }
+  }
+
   render() {
     const {
       header,
       isActive,
       className,
       children,
+      closeOnItemClick,
+      close,
       showItemStatus,
+      arrowStyles,
+      positionX,
+      positionY,
     } = this.props;
 
     if (!isActive || !children) return null;
 
     return (
-      <div className={classnames('drui-dropdown', { [className]: className })}>
+      <div
+        className={classnames(
+          'drui-dropdown',
+          {
+            [className]: className,
+            [`drui-dropdown--${positionX}`]: positionX,
+            [`drui-dropdown--${positionY}`]: positionY,
+          }
+        )}
+        ref={(node) => { this.dropdownRef = node; }}
+      >
+        <span
+          className="drui-dropdown__arrow"
+          style={arrowStyles}
+        />
         <div className="drui-dropdown__inner">
           {header &&
             <div className="drui-dropdown__header">
@@ -31,7 +70,14 @@ class Dropdown extends React.PureComponent {
               children,
               child => (
                 <li className="drui-dropdown__listItemWrapper">
-                  {React.cloneElement(child, { ...child.props, showItemStatus })}
+                  {React.cloneElement(
+                    child,
+                    {
+                      ...child.props,
+                      showItemStatus,
+                      closeOnItemClick,
+                      closeDropdown: close,
+                    })}
                 </li>
               )
             )}
@@ -42,11 +88,16 @@ class Dropdown extends React.PureComponent {
           .drui-dropdown {
             display: table;
             position: relative;
+            z-index: 9;
             font-family: ${defaultTheme.font.family.primary};
-            padding: 4px 0 0;
+            padding: 12px 0;
+            margin-top: 4px;
             width: auto;
             max-width: 320px;
             box-sizing: border-box;
+            border-radius: 4px;
+            background: ${defaultTheme.dropdown.backgroundColor};
+            box-shadow: 0 2px 12px -1px ${defaultTheme.dropdown.shadowColor};
 
             *,
             *::before,
@@ -55,45 +106,85 @@ class Dropdown extends React.PureComponent {
             }
           }
 
+          .drui-dropdown--top {
+            top: auto;
+            bottom: 100%;
+            margin: {
+              top: auto;
+              bottom: 4px;
+            }
+
+            .drui-dropdown__arrow {
+              top: auto;
+              bottom: -4px;
+              transform: translate(-50%, -20%) rotate(45deg);
+              box-shadow: 2px 2px 1px -2px ${defaultTheme.dropdown.shadowColor};
+            }
+
+            &.drui-dropdown--right {
+              .drui-dropdown__arrow {
+                transform: translate(50%, -20%) rotate(45deg);
+              }
+            }
+          }
+
+          .drui-dropdown--bottom {
+            top: 100%;
+            bottom: auto;
+            margin: {
+              top: 4px;
+              bottom: auto;
+            }
+
+            &.drui-dropdown--right {
+              .drui-dropdown__arrow {
+                transform: translate(50%, 20%) rotate(45deg);
+              }
+            }
+          }
+
+          .drui-dropdown--right {
+            right: 0;
+            left: auto;
+            transform: translate(0, 0);
+          }
+
+          .drui-dropdown--left {
+            right: auto;
+            left: 0;
+            transform: translate(0, 0);
+          }
+
+          .drui-dropdown--center {
+            right: auto;
+            left: 50%;
+            transform: translate(-50%, 0);
+          }
+
           .drui-dropdown__inner {
-            display: flex;
+            display: block;
             position: relative;
             z-index: 1;
             flex-direction: column;
             width: auto;
             height: auto;
-            padding: 12px 0;
+            max-height: 420px;
+            overflow-y: auto;
+            padding: 0;
             border-radius: 4px;
-            background-color: ${defaultTheme.dropdown.backgroundColor};
+          }
 
-            &::before {
-              content: '';
-              display: block;
-              position: absolute;
-              z-index: 2;
-              top: -4px;
-              left: 50%;
-              transform: translate(-50%, 20%) rotate(45deg);
-              width: 10px;
-              height: 10px;
-              background: ${defaultTheme.dropdown.backgroundColor};
-              box-shadow: -2px -2px 1px -2px ${defaultTheme.dropdown.shadowColor};
-            }
-
-            &:after {
-              content: '';
-              display: block;
-              position: absolute;
-              z-index: 1;
-              left: 0;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              border-radius: 4px;
-              background-color: transparent;
-              box-shadow: 0 2px 12px -1px ${defaultTheme.dropdown.shadowColor};
-              pointer-events: none;
-            }
+          .drui-dropdown__arrow {
+            display: block;
+            position: absolute;
+            z-index: 0;
+            top: -4px;
+            left: 50%;
+            transform: translate(-50%, 20%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: ${defaultTheme.dropdown.backgroundColor};
+            box-shadow: -2px -2px 1px -2px ${defaultTheme.dropdown.shadowColor};
           }
 
           .drui-dropdown__header {
@@ -110,7 +201,7 @@ class Dropdown extends React.PureComponent {
             font-size: ${defaultTheme.font.size.small};
             text-transform: uppercase;
             color: ${defaultTheme.dropdown.headerTextColor};
-            font-weight: 600;
+            font-weight: ${defaultTheme.font.weight.bold};
           }
 
           .drui-dropdown__itemsList {
@@ -119,6 +210,8 @@ class Dropdown extends React.PureComponent {
             list-style: none;
             padding: 0;
             margin: 0;
+            height: 100%;
+            overflow-y: auto;
           }
 
           .drui-dropdown__listItemWrapper {
@@ -128,17 +221,24 @@ class Dropdown extends React.PureComponent {
           }
 
           .theme--dark {
+            .drui-dropdown {
+              background: ${darkTheme.dropdown.backgroundColor};
+                box-shadow: 0 2px 12px -1px  ${darkTheme.dropdown.shadowColor};
+            }
+
+            .drui-dropdown--top {
+              .drui-dropdown__arrow {
+                box-shadow: 2px 2px 1px -2px ${darkTheme.dropdown.shadowColor};
+              }
+            }
+
             .drui-dropdown__inner {
               background-color: ${darkTheme.dropdown.backgroundColor};
+            }
 
-              &::before {
-                background: ${darkTheme.dropdown.backgroundColor};
-                box-shadow: -2px -2px 1px -2px ${darkTheme.dropdown.shadowColor};
-              }
-
-              &::after {
-                box-shadow: 0 2px 12px -1px  ${darkTheme.dropdown.shadowColor};
-              }
+            .drui-dropdown__arrow {
+              background: ${darkTheme.dropdown.backgroundColor};
+              box-shadow: -2px -2px 1px -2px ${darkTheme.dropdown.shadowColor};
             }
 
             .drui-dropdown__header {
@@ -166,12 +266,24 @@ Dropdown.propTypes = {
   header: PropTypes.string,
   className: PropTypes.string,
   showItemStatus: PropTypes.bool,
+  close: PropTypes.func,
+  closeOnItemClick: PropTypes.bool,
+  positionY: PropTypes.string,
+  positionX: PropTypes.string,
+  arrowStyles: PropTypes.shape(),
+  onRef: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
   header: '',
   className: '',
   showItemStatus: false,
+  closeOnItemClick: false,
+  positionY: positionEnums.bottom,
+  positionX: positionEnums.center,
+  arrowStyles: {},
+  close() {},
+  onRef() {},
 }
 
 export default Dropdown;

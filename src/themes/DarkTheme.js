@@ -6,6 +6,7 @@ const colors = {
   brand: '#8D61DF',
   brandLight: '#624F86',
   brandDark: '#542D9B',
+  sunsetOrange: '#F94C4C',
   tuna: '#3A3A43',
   shark: '#2D2E33',
   mako: '#464651',
@@ -15,7 +16,7 @@ const colors = {
 };
 
 const shadows = {
-  shadowColor: `rgba(${convertToRgb(colors.black)}, 0.5)`,
+  black: `rgba(${convertToRgb(colors.black)}, 0.5)`,
 }
 
 const gradients = {
@@ -28,8 +29,26 @@ const gradients = {
 };
 
 export default {
-  window: {
+  input: {
+    // background
     backgroundColor: colors.shark,
+
+    // text
+    textColor: colors.athensGray,
+    textColorFocus: colors.white,
+
+    // border
+    borderColor: colors.shark,
+    borderColorHover: colors.mako,
+    borderColorFocus: colors.brand,
+
+    // other
+    placeholderColor: colors.mako,
+    iconColor: colors.waterloo,
+
+    label: {
+      textColor: colors.white,
+    }
   },
 
   button: {
@@ -38,6 +57,7 @@ export default {
       backgroundColorHover: gradients.purpleHover,
       backgroundColorActive: gradients.purpleActive,
       backgroundColorDisabled: colors.brandLight,
+      borderColor: colors.tuna,
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
@@ -74,7 +94,7 @@ export default {
 
   dropdown: {
     backgroundColor: colors.tuna,
-    shadowColor: shadows.shadowColor,
+    shadowColor: shadows.black,
     borderColor: colors.shark,
     headerTextColor: colors.white,
     headerBorderColor: colors.mako,

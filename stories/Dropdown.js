@@ -1,11 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import defaultTheme from '../src/themes/DefaultTheme';
-import darkTheme from '../src/themes/DarkTheme';
-
 import Dropdown from '../src/components/Dropdown';
 import DropdownItem from '../src/components/DropdownItem';
+
 import {
   PadlockLockIcon,
   PadlockUnlockIcon,

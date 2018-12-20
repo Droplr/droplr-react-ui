@@ -12,7 +12,7 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { children, type, Icon, onClick, className, disabled, loading, maxWidth, dropdown } = this.props;
+    const { children, type, Icon, onClick, className, disabled, loading, maxWidth, dropdown, buttonType } = this.props;
 
     return (
       <button
@@ -28,6 +28,7 @@ class Button extends React.PureComponent {
           [className]: className,
         })}
         onClick={onClick}
+        type={buttonType}
         disabled={disabled || loading}
       >
         <>
@@ -61,6 +62,12 @@ class Button extends React.PureComponent {
             font-weight: ${defaultTheme.font.weight.bold};
             font-family: ${defaultTheme.font.family.primary};
             cursor: pointer;
+
+            *,
+            *::before,
+            *::after {
+              box-sizing: inherit;
+            }
 
             &:hover {
               background: ${defaultTheme.button.primary.backgroundColorHover};
@@ -178,6 +185,7 @@ class Button extends React.PureComponent {
             &.drui-button--loading,
             &.drui-button--loading:hover {
               background: ${defaultTheme.button.secondary.backgroundColor};
+              border: 1px solid ${defaultTheme.button.secondary.borderColor};
             }
           }
 
@@ -219,6 +227,7 @@ class Button extends React.PureComponent {
 
               &:hover {
                 background: ${darkTheme.button.secondary.backgroundColorHover};
+                border: 1px solid ${darkTheme.button.secondary.borderColor};
               }
 
               &:active {
@@ -259,6 +268,7 @@ class Button extends React.PureComponent {
               &.drui-button--loading,
               &.drui-button--loading:hover {
                 background: ${darkTheme.button.secondary.backgroundColor};
+                border: 1px solid ${darkTheme.button.secondary.borderColor};
               }
             }
           }
@@ -271,6 +281,7 @@ class Button extends React.PureComponent {
 Button.propTypes = {
   children: PropTypes.string,
   type: PropTypes.string.isRequired,
+  buttonType: PropTypes.string,
   Icon: PropTypes.func,
   onClick: PropTypes.func,
   className: PropTypes.string,
@@ -282,6 +293,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   children: '',
+  buttonType: 'button',
   Icon: null,
   onClick() {},
   className: '',
