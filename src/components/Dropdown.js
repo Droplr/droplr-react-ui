@@ -200,6 +200,11 @@ class Dropdown extends React.PureComponent {
             padding: 8px 0;
             margin: 0 20px 10px;
             border-bottom: 1px solid ${defaultTheme.dropdown.headerBorderColor};
+            white-space: nowrap;
+
+            &:hover {
+              cursor: text;
+            }
           }
 
           .drui-dropdown__title {
