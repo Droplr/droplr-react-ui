@@ -110,6 +110,8 @@ class DropdownWithToggler extends React.PureComponent {
   }
 
   toggleDropdown() {
+    this.props.onClick();
+
     let state = { isActive: !this.state.isActive };
     if (this.state.isActive) state = { ...state, ...this.dropdownInitialState };
 
@@ -129,6 +131,7 @@ class DropdownWithToggler extends React.PureComponent {
       className,
       children,
       closeOnItemClick,
+      showItemStatus,
       header,
       id
     } = this.props;
@@ -165,6 +168,8 @@ class DropdownWithToggler extends React.PureComponent {
           positionY={positionY}
           closeOnItemClick
           header={header}
+          closeOnItemClick={closeOnItemClick}
+          showItemStatus={showItemStatus}
         >
           {children || null}
         </Dropdown>
@@ -195,6 +200,7 @@ class DropdownWithToggler extends React.PureComponent {
 
 DropdownWithToggler.propTypes = {
   Toggler: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
   className: PropTypes.string,
   isActive: PropTypes.bool,
   closeOnItemClick: PropTypes.bool,
@@ -216,6 +222,7 @@ DropdownWithToggler.defaultProps = {
   closeOnItemClick: true,
   id: Math.random().toString(36).substring(0, 10),
   header: '',
+  onClick() {},
 };
 
 export default enhanceWithClickOutside(DropdownWithToggler);
