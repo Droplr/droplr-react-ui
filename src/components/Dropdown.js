@@ -38,7 +38,6 @@ class Dropdown extends React.PureComponent {
       arrowStyles,
       positionX,
       positionY,
-      id,
     } = this.props;
 
     if (!isActive || !children) return null;
@@ -70,7 +69,7 @@ class Dropdown extends React.PureComponent {
             className="drui-dropdown__itemsList"
             tabIndex="-1"
             role="listbox"
-            aria-labelledby={`dropdown-${id}`}
+            aria-labelledby={header || null}
           >
             {React.Children.map(
               children,
@@ -201,10 +200,6 @@ class Dropdown extends React.PureComponent {
             margin: 0 20px 10px;
             border-bottom: 1px solid ${defaultTheme.dropdown.headerBorderColor};
             white-space: nowrap;
-
-            &:hover {
-              cursor: text;
-            }
           }
 
           .drui-dropdown__title {
@@ -266,7 +261,6 @@ class Dropdown extends React.PureComponent {
 }
 
 Dropdown.propTypes = {
-  id: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.node,

@@ -28,6 +28,7 @@ class DropdownWithToggler extends React.PureComponent {
     }
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.setDropdownElemRef = this.setDropdownElemRef.bind(this);
 
     this.setToggler();
   }
@@ -109,6 +110,10 @@ class DropdownWithToggler extends React.PureComponent {
     });
   }
 
+  setDropdownElemRef(node) {
+    this.dropdownElemRef = node;
+  }
+
   toggleDropdown() {
     this.props.onClick();
 
@@ -152,21 +157,19 @@ class DropdownWithToggler extends React.PureComponent {
           style={wrapperStyles}
           role="button"
           aria-haspopup="true"
-          aria-labelledby={`dropdown-toggler-${id}`}
+          aria-labelledby={header || null}
           aria-expanded={isActive}
         >
           {this.TogglerElem}
         </div>
 
         <Dropdown
-          id={id}
           isActive={isActive}
           close={this.toggleDropdown}
-          onRef={(node) => { this.dropdownElemRef = node; }}
+          onRef={this.setDropdownElemRef}
           arrowStyles={arrowStyles}
           positionX={positionX}
           positionY={positionY}
-          closeOnItemClick
           header={header}
           closeOnItemClick={closeOnItemClick}
           showItemStatus={showItemStatus}
@@ -204,6 +207,7 @@ DropdownWithToggler.propTypes = {
   className: PropTypes.string,
   isActive: PropTypes.bool,
   closeOnItemClick: PropTypes.bool,
+  showItemStatus: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.node,
@@ -212,15 +216,14 @@ DropdownWithToggler.propTypes = {
     PropTypes.node,
     PropTypes.func,
   ]).isRequired,
-  id: PropTypes.string,
   header: PropTypes.string,
 };
 
 DropdownWithToggler.defaultProps = {
   className: '',
   isActive: false,
-  closeOnItemClick: true,
-  id: Math.random().toString(36).substring(0, 10),
+  closeOnItemClick: false,
+  showItemStatus: false,
   header: '',
   onClick() {},
 };
