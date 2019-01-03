@@ -15,7 +15,7 @@ class DropdownWithToggler extends React.PureComponent {
       positionX: 'bottom',
       arrowStyles: {},
     }
-    this.togglerElemRef = undefined;
+    this.togglerElemRef = React.createRef();
     this.dropdownElemRef = undefined;
 
     this.state = {
@@ -28,22 +28,19 @@ class DropdownWithToggler extends React.PureComponent {
     }
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.setDropdownElemRef = this.setDropdownElemRef.bind(this);
 
-    this.TogglerElem = React.cloneElement(
-      props.Toggler,
-      {
-        ...props.Toggler.props,
-        onClick: this.toggleDropdown,
-        ref: node => this.togglerElemRef = ReactDOM.findDOMNode(node),
-      }
-    );
+    this.setToggler();
   }
 
   componentDidMount() {
+    this.togglerElemRef.current = this.togglerElemRef.current.firstElementChild;
+
+    const { current } = this.togglerElemRef;
     this.setState({
       wrapperStyles: {
-        width: this.togglerElemRef.offsetWidth,
-        height: this.togglerElemRef.offsetHeight,
+        width: current.offsetWidth || current.clientWidth,
+        height: current.offsetHeight || current.clientHeight,
       }
     });
   }
@@ -52,8 +49,10 @@ class DropdownWithToggler extends React.PureComponent {
     const containerHeight = window.innerHeight || document.documentElement.offsetHeight;
     const containerWidth = window.innerWidth || document.documentElement.offsetWidth;
     const { top, right, bottom, left, height } = this.dropdownElemRef.getBoundingClientRect();
+    const togglerHeight = this.togglerElemRef.current.offsetHeight || this.togglerElemRef.current.clientHeight;
+
     const positionY = (
-      bottom > containerHeight && containerHeight + this.togglerElemRef.offsetHeight > top && height < containerHeight
+      bottom > containerHeight && containerHeight + togglerHeight > top && height < containerHeight
     ) ? 'top' : 'bottom';
     let positionX = 'center';
 
@@ -72,7 +71,8 @@ class DropdownWithToggler extends React.PureComponent {
   getArrowStyles(dropdownPosition) {
     if (!dropdownPosition) return;
 
-    const arrowPosition = this.togglerElemRef.offsetWidth / 2;
+    const togglerWidth = this.togglerElemRef.current.offsetWidth || this.togglerElemRef.current.clientWidth;
+    const arrowPosition = togglerWidth / 2;
     const arrowPositionStyles = {
       left: {
         left: `${arrowPosition}px`,
@@ -87,6 +87,20 @@ class DropdownWithToggler extends React.PureComponent {
     return arrowPositionStyles[dropdownPosition];
   }
 
+  setToggler() {
+    const { Toggler } = this.props;
+    let localTogglerElem = Toggler;
+
+    if (typeof localTogglerElem === 'function') {
+      localTogglerElem = localTogglerElem();
+    }
+
+    this.TogglerElem = React.cloneElement(
+      localTogglerElem,
+      { ...Toggler.props }
+    );
+  }
+
   setDropdownPosition() {
     const dropdownPosition = this.getCurrentDropdownPosition();
 
@@ -96,7 +110,13 @@ class DropdownWithToggler extends React.PureComponent {
     });
   }
 
+  setDropdownElemRef(node) {
+    this.dropdownElemRef = node;
+  }
+
   toggleDropdown() {
+    this.props.onClick();
+
     let state = { isActive: !this.state.isActive };
     if (this.state.isActive) state = { ...state, ...this.dropdownInitialState };
 
@@ -112,7 +132,14 @@ class DropdownWithToggler extends React.PureComponent {
   }
 
   render() {
-    const { className, children } = this.props;
+    const {
+      className,
+      children,
+      closeOnItemClick,
+      showItemStatus,
+      header,
+      id
+    } = this.props;
     const { positionX, positionY, wrapperStyles, arrowStyles, isActive } = this.state;
 
     return (
@@ -123,16 +150,29 @@ class DropdownWithToggler extends React.PureComponent {
         )}
         style={wrapperStyles}
       >
-        {this.TogglerElem}
+        <div
+          className="drui-dropdown__togglerWrapper"
+          ref={this.togglerElemRef}
+          onClick={this.toggleDropdown}
+          style={wrapperStyles}
+          role="button"
+          aria-haspopup="true"
+          aria-labelledby={header || null}
+          aria-expanded={isActive}
+        >
+          {this.TogglerElem}
+        </div>
 
         <Dropdown
           isActive={isActive}
           close={this.toggleDropdown}
-          onRef={(node) => { this.dropdownElemRef = node; }}
+          onRef={this.setDropdownElemRef}
           arrowStyles={arrowStyles}
           positionX={positionX}
           positionY={positionY}
-          closeOnItemClick
+          header={header}
+          closeOnItemClick={closeOnItemClick}
+          showItemStatus={showItemStatus}
         >
           {children || null}
         </Dropdown>
@@ -142,10 +182,17 @@ class DropdownWithToggler extends React.PureComponent {
             position: relative; // Dropdown is positioned relatively to this wrapper
             display: inline-block;
             width: auto;
-            font-size: 0; // Needed to remove 4px paddings added by browsers
 
             .drui-dropdown {
               position: absolute;
+            }
+          }
+
+          .drui-dropdown__togglerWrapper {
+            cursor: pointer;
+            &:hover,
+            > * {
+              cursor: pointer;
             }
           }
         `}</style>
@@ -156,9 +203,11 @@ class DropdownWithToggler extends React.PureComponent {
 
 DropdownWithToggler.propTypes = {
   Toggler: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
   className: PropTypes.string,
   isActive: PropTypes.bool,
   closeOnItemClick: PropTypes.bool,
+  showItemStatus: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.node,
@@ -167,12 +216,16 @@ DropdownWithToggler.propTypes = {
     PropTypes.node,
     PropTypes.func,
   ]).isRequired,
+  header: PropTypes.string,
 };
 
 DropdownWithToggler.defaultProps = {
   className: '',
   isActive: false,
-  closeOnItemClick: true,
+  closeOnItemClick: false,
+  showItemStatus: false,
+  header: '',
+  onClick() {},
 };
 
 export default enhanceWithClickOutside(DropdownWithToggler);

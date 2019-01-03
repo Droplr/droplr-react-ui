@@ -65,7 +65,12 @@ class Dropdown extends React.PureComponent {
             </div>
           }
 
-          <ul className="drui-dropdown__itemsList">
+          <ul
+            className="drui-dropdown__itemsList"
+            tabIndex="-1"
+            role="listbox"
+            aria-labelledby={header || null}
+          >
             {React.Children.map(
               children,
               child => (
@@ -171,7 +176,6 @@ class Dropdown extends React.PureComponent {
             max-height: 420px;
             overflow-y: auto;
             padding: 0;
-            border-radius: 4px;
           }
 
           .drui-dropdown__arrow {
@@ -195,6 +199,7 @@ class Dropdown extends React.PureComponent {
             padding: 8px 0;
             margin: 0 20px 10px;
             border-bottom: 1px solid ${defaultTheme.dropdown.headerBorderColor};
+            white-space: nowrap;
           }
 
           .drui-dropdown__title {
