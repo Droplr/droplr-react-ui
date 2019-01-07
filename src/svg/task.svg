@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>task</title>
+    <desc>Created with Sketch.</desc>
+    <g id="task" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/toolkit-copy-2" fill="#5E646E" fill-rule="nonzero">
+            <path d="M11.1363636,6.90909091 L12.5363636,8.33051305 L10.4363636,10.4626463 L15.6363636,15.7422142 L14.2363636,17.1636364 L7.63636364,10.4626463 L11.1363636,6.90909091 Z M11.1111111,5.77777778 L5.77777778,5.77777778 L5.77777778,9.33333333 L5.77777778,18.2222222 L18.2222222,18.2222222 L18.2222222,5.77777778 L11.1111111,5.77777778 Z M11.1111111,4 L18.2222222,4 C19.2,4 20,4.8 20,5.77777778 L20,18.2222222 C20,19.2 19.2,20 18.2222222,20 L5.77777778,20 C4.8,20 4,19.2 4,18.2222222 L4,9.33333333 L4,5.77777778 C4,4.8 4.8,4 5.77777778,4 L11.1111111,4 Z" id="Combined-Shape" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) "></path>
+        </g>
+    </g>
+</svg>

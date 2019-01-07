@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/codeBlock</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/codeBlock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16.7,15.7147008 L15.3,14.3209375 L17.6,12.0311836 L15.3,9.7414296 L16.7,8.34766632 L19.7,11.3343019 C20.1,11.73252 20.1,12.3298471 19.7,12.7280652 L16.7,15.7147008 Z M7.3,15.7147008 L4.3,12.7280652 C3.9,12.3298471 3.9,11.73252 4.3,11.3343019 L7.3,8.34766632 L8.7,9.7414296 L6.4,12.0311836 L8.7,14.3209375 L7.3,15.7147008 Z" id="others" fill="#5E646E" fill-rule="nonzero"></path>
+        <circle id="Oval" fill="#5E646E" cx="12" cy="12" r="2.25"></circle>
+    </g>
+</svg>
