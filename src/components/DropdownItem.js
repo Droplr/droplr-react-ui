@@ -16,6 +16,7 @@ class DropdownItem extends React.PureComponent {
 
   onItemElemClick(e) {
     this.props.onClick(e);
+
     if (this.props.closeOnItemClick) this.props.closeDropdown();
   }
 
@@ -35,6 +36,7 @@ class DropdownItem extends React.PureComponent {
 
     const ActionElem = href ? 'a' : 'button';
 
+    console.log(defaultTheme.dropdownItem, defaultTheme.dropdownItem.iconColor);
     return (
       <div
         className={classnames(
@@ -176,7 +178,7 @@ class DropdownItem extends React.PureComponent {
               }
 
               .drui-dropdownItem__icon {
-                fill: ${defaultTheme.dropdownItem.textColorHover};
+                fill: ${defaultTheme.dropdownItem.iconColorHover};
               }
 
               .drui-dropdownItem__titleIcon {
