@@ -26,7 +26,8 @@ To use components you can import them like this (e.g. Button component):
 import { Button } from 'droplr-react-ui';
 ```
 
-#### Button
+Button
+------
 | Props                                    | Default        | Props notes |
 |:-----------------------------------------|:---------------|:------------|
 | **children** - String                    | empty string   | The text that will appear as a button's content. |
@@ -41,7 +42,8 @@ import { Button } from 'droplr-react-ui';
 | **dropdown** - Boolean                   | `false`        | If `true`, the button will appear with the dropdown icon on the right side. |
 
 
-#### DualButton
+DualButton
+----------
 | Props                                    | Default        | Props notes |
 |:-----------------------------------------|:---------------|:------------|
 | **type** - String                        | `'primary'`    | The button's visual type. Accepts `primary` and `secondary`. |
@@ -69,7 +71,8 @@ import { Button } from 'droplr-react-ui';
 | }                                        |                | |
 
 
-#### DualButton
+DropdownItem
+------------
 | Props                                    | Default        | Props notes |
 |:-----------------------------------------|:---------------|:------------|
 | **title** - String *required*            |                | The text displayed in the dropdown item. |
@@ -87,7 +90,8 @@ import { Button } from 'droplr-react-ui';
 | **closeOnItemClick** - Boolean           | `false`        | If `true`, will trigger the function from the `closeDropdown` prop after clicking on the item. |
 
 
-#### Dropdown
+Dropdown
+--------
 | Props                                    | Default        | Props notes |
 |:-----------------------------------------|:---------------|:------------|
 | **isActive** - Boolean *required*        |                | If `true`, it shows up itself. Hidden when `false`. |
@@ -100,9 +104,11 @@ import { Button } from 'droplr-react-ui';
 | **showItemStatus** - Boolean             | `false`        | If `true`, will display the check mark inside the dropdown item that has a prop `active` set to `true`. |
 | **close** - Function                     | empty function | A function that will close the dropdown. |
 | **closeOnItemClick** - Boolean           | `false`        | If `true`, will trigger the function from the `close` prop after clicking on the item. |
+| **onMouseLeave** - Function              | empty function | Function that will be executed when mouse leaves the dropdown component |
 
 
-#### Dropdown
+DropdownWithToggler
+-------------------
 | Props                                    | Default        | Props notes |
 |:-----------------------------------------|:---------------|:------------|
 | **Toggler** - React Component *required* |                | A component that will display as dropdown toggler, e.g. a button. |
@@ -111,6 +117,7 @@ import { Button } from 'droplr-react-ui';
 | **isActive** - Boolean                   | `false`        | If `true`, the dropdown will be open after the component mounts. |
 | **closeOnItemClick** - Boolean           | `false`        | If `true`, the dropdown will close after clicking on a dropdown item. |
 | **showItemStatus** - Boolean             | `false`        | If `true`, the dropdown will display the check mark inside the dropdown item that has a prop `active` set to `true`. |
+| **closeOnMouseLeave** - Boolean          | `false`        | Dropdown will be closed when mouse leaves it. |
 | **header** - String                      | empty string   | The text displayed at the top of the dropdown. |
 | **children** - Node Element *required*   |                | Elements or components that will be displayed as dropdown items. |
 | or array of Node Elements                |                | |
@@ -118,7 +125,8 @@ import { Button } from 'droplr-react-ui';
 | or array of Functions                    |                | |
 
 
-#### Input
+Input
+-----
 | Props                                    | Default        | Props notes |
 |:-----------------------------------------|:---------------|:------------|
 | **name** - String *required*             |                | Input's name attribute. |
