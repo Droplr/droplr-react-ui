@@ -2,6 +2,20 @@
 
 A responsive UI library for React web applications.
 
+## Table of Contents
+### Buttons
+- [Button](#button)
+- [DualButton](#dual-button)
+
+### Dropdown
+- [Dropdown](#dropdown)
+- [DropdownItem](#dropdown-item)
+- [DropdownWithToggler](#dropdown-with-toggler)
+
+### Forms
+- [Input](#input)
+
+
 ## Library
 
 ### Components
@@ -15,7 +29,7 @@ import { Button } from 'droplr-react-ui';
 | Name                    | Props                                    | Default        | Props notes |
 |:------------------------|:-----------------------------------------|:---------------|:------------|
 | **Button**              | **children** - String                    | empty string   | The text that will appear as a button's content. |
-|                         | **type** - String *required*             |                | The button's visual type. Accepts `primary` and `secondary`. |
+|<span id="button"></span>| **type** - String *required*             |                | The button's visual type. Accepts `primary` and `secondary`. |
 |                         | **buttonType** - String                  | `button`       | The HTML button's type attribute. Accepts `button`, `submit` and `reset`. |
 |                         | **Icon** - React Component               | `null`         | A React Component that will render a SVG icon. |
 |                         | **onClick** - Function                   | empty function | The button's callback. A function that will be executed after a click event. |
@@ -25,7 +39,7 @@ import { Button } from 'droplr-react-ui';
 |                         | **maxWidth** - Boolean                   | `false`        | If `true`, the button's width will increase to the 100% of it's container's width. |
 |                         | **dropdown** - Boolean                   | `false`        | If `true`, the button will appear with the dropdown icon on the right side. |
 | **DualButton**          | **type** - String                        | `'primary'`    | The button's visual type. Accepts `primary` and `secondary`. |
-|                         | **className** - String                   | empty string   | The button's additional class name. |
+|<span id="dual-button"></span>| **className** - String                   | empty string   | The button's additional class name. |
 |                         | **maxWidth** - Boolean                   | `false`        | If `true`, the button's width will increase to the 100% of it's container's width. |
 |                         | **left** - Object *required* {           |                | An object containing properties for the left button. |
 |                         | **Icon** - React Component               | `null`         | A React Component that will render a SVG icon. |
@@ -48,7 +62,7 @@ import { Button } from 'droplr-react-ui';
 |                         | **text** - String                        | empty string   | The text that will appear as a button's content. |
 |                         | }                                        |                | |
 | **DropdownItem**        | **title** - String *required*            |                | The text displayed in the dropdown item. |
-|                         | **TitleIcon** - React Component          | `null`         | An icon displayed after the title. |
+|<span id="dropdown-item"></span>| **TitleIcon** - React Component          | `null`         | An icon displayed after the title. |
 |                         | **description** - Node element           | empty string   | Description displayed under the title. |
 |                         | **Icon** - React Component               | `null`         | An icon displayed before the title. |
 |                         | **className** - String                   | empty string   | Dropdown item's additional class name. |
@@ -61,7 +75,7 @@ import { Button } from 'droplr-react-ui';
 |                         | **closeDropdown** - Function             | empty function | A function that will close the dropdown. |
 |                         | **closeOnItemClick** - Boolean           | `false`        | If `true`, will trigger the function from the `closeDropdown` prop after clicking on the item. |
 | **Dropdown**            | **isActive** - Boolean *required*        |                | If `true`, it shows up itself. Hidden when `false`. |
-|                         | **children** - Node Element              |                | Elements or components that will be displayed as dropdown items. |
+|<span id="dropdown"></span>| **children** - Node Element              |                | Elements or components that will be displayed as dropdown items. |
 |                         | or array of Node Elements                |                | |
 |                         | or Function                              |                | |
 |                         | or array of Functions                    |                | |
@@ -71,7 +85,7 @@ import { Button } from 'droplr-react-ui';
 |                         | **close** - Function                     | empty function | A function that will close the dropdown. |
 |                         | **closeOnItemClick** - Boolean           | `false`        | If `true`, will trigger the function from the `close` prop after clicking on the item. |
 | **DropdownWithToggler** | **Toggler** - React Component *required* |                | A component that will display as dropdown toggler, e.g. a button. |
-|                         | **onClick** - Function                   | empty function | A function that will be executed after a click event is fired on the toggler. |
+|<span id="dropdown-with-toggler"></span>| **onClick** - Function                   | empty function | A function that will be executed after a click event is fired on the toggler. |
 |                         | **className** - String                   | empty string   | DropdownWithToggler's additional class name. |
 |                         | **isActive** - Boolean                   | `false`        | If `true`, the dropdown will be open after the component mounts. |
 |                         | **closeOnItemClick** - Boolean           | `false`        | If `true`, the dropdown will close after clicking on a dropdown item. |
@@ -82,7 +96,7 @@ import { Button } from 'droplr-react-ui';
 |                         | or Function                              |                | |
 |                         | or array of Functions                    |                | |
 | **Input**               | **name** - String *required*             |                | Input's name attribute. |
-|                         | **className** - String                   | empty string   | Input's additional class name. |
+|<span id="input"></span>| **className** - String                   | empty string   | Input's additional class name. |
 |                         | **type** - String                        | `'text'`       | Input's type attribute. |
 |                         | **value** - String                       | empty string   | Input's value attribute. |
 |                         | **placeholder** - String                 | empty string   | Input's placeholder attribute. |
