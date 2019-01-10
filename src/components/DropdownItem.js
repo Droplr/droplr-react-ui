@@ -36,7 +36,6 @@ class DropdownItem extends React.PureComponent {
 
     const ActionElem = href ? 'a' : 'button';
 
-    console.log(defaultTheme.dropdownItem, defaultTheme.dropdownItem.iconColor);
     return (
       <div
         className={classnames(

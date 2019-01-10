@@ -138,7 +138,7 @@ class DropdownWithToggler extends React.PureComponent {
       closeOnItemClick,
       showItemStatus,
       header,
-      id
+      closeOnMouseLeave,
     } = this.props;
     const { positionX, positionY, wrapperStyles, arrowStyles, isActive } = this.state;
 
@@ -173,6 +173,7 @@ class DropdownWithToggler extends React.PureComponent {
           header={header}
           closeOnItemClick={closeOnItemClick}
           showItemStatus={showItemStatus}
+          onMouseLeave={closeOnMouseLeave ? this.toggleDropdown : () => {}}
         >
           {children || null}
         </Dropdown>
