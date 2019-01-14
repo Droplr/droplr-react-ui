@@ -113,12 +113,13 @@ DropdownWithToggler
 |:-----------------------------------------|:---------------|:------------|
 | **Toggler** - React Component *required* |                | A component that will display as dropdown toggler, e.g. a button. |
 | **onClick** - Function                   | empty function | A function that will be executed after a click event is fired on the toggler. |
+| **header** - String                      | empty function | Callback function on `onMouseLeave` event. |
 | **className** - String                   | empty string   | DropdownWithToggler's additional class name. |
 | **isActive** - Boolean                   | `false`        | If `true`, the dropdown will be open after the component mounts. |
 | **closeOnItemClick** - Boolean           | `false`        | If `true`, the dropdown will close after clicking on a dropdown item. |
 | **showItemStatus** - Boolean             | `false`        | If `true`, the dropdown will display the check mark inside the dropdown item that has a prop `active` set to `true`. |
 | **closeOnMouseLeave** - Boolean          | `false`        | Dropdown will be closed when mouse leaves it. |
-| **header** - String                      | empty string   | The text displayed at the top of the dropdown. |
+| **onMouseLeave** - Function              | `false`        | Dropdown will be closed when mouse leaves it. |
 | **children** - Node Element *required*   |                | Elements or components that will be displayed as dropdown items. |
 | or array of Node Elements                |                | |
 | or Function                              |                | |
