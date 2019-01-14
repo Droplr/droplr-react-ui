@@ -85,6 +85,8 @@ import WatchFolderIcon from '../../svg/watchFolder.svg';
 import ZoomInIcon from '../../svg/zoomIn.svg';
 import ZoomOutIcon from '../../svg/zoomOut.svg';
 import ZoomResetIcon from '../../svg/zoomReset.svg';
+import CancelIcon from '../../svg/cancel.svg';
+import SortIcon from '../../svg/sort.svg';
 
 export {
   AddPeopleIcon,
@@ -174,4 +176,6 @@ export {
   ZoomInIcon,
   ZoomOutIcon,
   ZoomResetIcon,
+  CancelIcon,
+  SortIcon,
 };
