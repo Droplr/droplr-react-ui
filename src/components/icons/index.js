@@ -85,6 +85,19 @@ import WatchFolderIcon from '../../svg/watchFolder.svg';
 import ZoomInIcon from '../../svg/zoomIn.svg';
 import ZoomOutIcon from '../../svg/zoomOut.svg';
 import ZoomResetIcon from '../../svg/zoomReset.svg';
+import BrowserIcon from '../../svg/browser.svg';
+import BrowserTabIcon from '../../svg/browserTab.svg';
+import ChromeIcon from '../../svg/chrome.svg';
+import DashboardIcon from '../../svg/dashboard.svg';
+import EntirePageIcon from '../../svg/entirePage.svg';
+import FullDesktopIcon from '../../svg/fullDesktop.svg';
+import HeartIcon from '../../svg/heart.svg';
+import NotificationIcon from '../../svg/notification.svg';
+import PhotoCameraIcon from '../../svg/photoCamera.svg';
+import SelectedAreaIcon from '../../svg/selectedArea.svg';
+import UploadFileIcon from '../../svg/uploadFile.svg';
+import VideoCamIcon from '../../svg/videoCam.svg';
+import WindowIcon from '../../svg/window.svg';
 
 export {
   AddPeopleIcon,
@@ -98,9 +111,12 @@ export {
   BinocularsIcon,
   BoardIcon,
   BoldIcon,
+  BrowserIcon,
+  BrowserTabIcon,
   CameraIcon,
   CheckIcon,
   ChevronLeftIcon,
+  ChromeIcon,
   ClipboardIcon,
   CloudUploadIcon,
   CodeIcon,
@@ -109,6 +125,7 @@ export {
   CopyIcon,
   CreateBoardIcon,
   CrossIcon,
+  DashboardIcon,
   DestructIcon,
   DisableIcon,
   DotsIcon,
@@ -117,12 +134,15 @@ export {
   DropdownIcon,
   DropdownArrowIcon,
   EnableIcon,
+  EntirePageIcon,
   ErrorIcon,
   ExpireTimeIcon,
   FolderIcon,
+  FullDesktopIcon,
   GearIcon,
   HeadlineFirstIcon,
   HeadlineSecondIcon,
+  HeartIcon,
   ImageIcon,
   InfoIcon,
   ItalicIcon,
@@ -134,6 +154,7 @@ export {
   NibIcon,
   NotesIcon,
   NotesBoldIcon,
+  NotificationIcon,
   OrderedListIcon,
   OthersIcon,
   PadlockLockIcon,
@@ -141,6 +162,7 @@ export {
   ParagraphIcon,
   PenIcon,
   PhotoIcon,
+  PhotoCameraIcon,
   PrivateIcon,
   ProfileIcon,
   PublicIcon,
@@ -150,6 +172,7 @@ export {
   RemoveTagIcon,
   SearchIcon,
   SearchBoldIcon,
+  SelectedAreaIcon,
   SendIcon,
   SeparatorIcon,
   ShareIcon,
@@ -164,13 +187,16 @@ export {
   UnorderedListIcon,
   UpIcon,
   UploadIcon,
+  UploadFileIcon,
   UrlIcon,
   VerticalDotsIcon,
+  VideoCamIcon,
   ViewGridIcon,
   ViewListIcon,
   WalletIcon,
   WarningIcon,
   WatchFolderIcon,
+  WindowIcon,
   ZoomInIcon,
   ZoomOutIcon,
   ZoomResetIcon,
