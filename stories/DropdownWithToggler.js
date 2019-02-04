@@ -30,3 +30,30 @@ storiesOf('DropdownWithToggler', module)
       </DropdownWithToggler>
     </>
   ))
+  .addWithJSX('Close on item click', () => (
+    <>
+      <DropdownWithToggler
+        Toggler={<Button type="secondary" Icon={DotsIcon} />}
+        closeOnItemClick
+      >
+        <DropdownItem title="Item 1 lorem ipsum dolor" />
+        <DropdownItem title="Item 2 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 4 lorem ipsum dolor" />
+      </DropdownWithToggler>
+    </>
+  ))
+  .addWithJSX('Close on mouse leave', () => (
+    <>
+      <DropdownWithToggler
+        Toggler={<Button type="secondary" Icon={DotsIcon} />}
+        closeOnItemClick
+        closeOnMouseLeave
+      >
+        <DropdownItem title="Item 1 lorem ipsum dolor" />
+        <DropdownItem title="Item 2 lorem ipsum dolor" />
+        <DropdownItem title="Item 3 lorem ipsum dolor" />
+        <DropdownItem title="Item 4 lorem ipsum dolor" />
+      </DropdownWithToggler>
+    </>
+  ))

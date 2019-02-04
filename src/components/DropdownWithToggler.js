@@ -29,6 +29,7 @@ class DropdownWithToggler extends React.PureComponent {
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.setDropdownElemRef = this.setDropdownElemRef.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
 
     this.setToggler();
   }
@@ -131,6 +132,16 @@ class DropdownWithToggler extends React.PureComponent {
     this.setState({ isActive: false, ...this.dropdownInitialState });
   }
 
+  onMouseLeave(e) {
+    e.stopPropagation();
+
+    if (this.props.closeOnMouseLeave) {
+      this.toggleDropdown();
+    }
+
+    this.props.onMouseLeave();
+  }
+
   render() {
     const {
       className,
@@ -138,7 +149,6 @@ class DropdownWithToggler extends React.PureComponent {
       closeOnItemClick,
       showItemStatus,
       header,
-      id
     } = this.props;
     const { positionX, positionY, wrapperStyles, arrowStyles, isActive } = this.state;
 
@@ -173,6 +183,7 @@ class DropdownWithToggler extends React.PureComponent {
           header={header}
           closeOnItemClick={closeOnItemClick}
           showItemStatus={showItemStatus}
+          onMouseLeave={this.onMouseLeave}
         >
           {children || null}
         </Dropdown>
@@ -217,6 +228,8 @@ DropdownWithToggler.propTypes = {
     PropTypes.func,
   ]).isRequired,
   header: PropTypes.string,
+  closeOnMouseLeave: PropTypes.bool,
+  onMouseLeave: PropTypes.func,
 };
 
 DropdownWithToggler.defaultProps = {
@@ -224,8 +237,10 @@ DropdownWithToggler.defaultProps = {
   isActive: false,
   closeOnItemClick: false,
   showItemStatus: false,
+  closeOnMouseLeave: false,
   header: '',
   onClick() {},
+  onMouseLeave() {},
 };
 
 export default enhanceWithClickOutside(DropdownWithToggler);

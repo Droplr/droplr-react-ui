@@ -127,6 +127,7 @@ export default {
     backgroundColorHover: colors.whiteLilac,
     backgroundColorActive: lightenDarkenColor(colors.whiteLilac, -2),
     iconColor: colors.shuttleGray,
+    iconColorHover: lightenDarkenColor(colors.shuttleGray, -20),
     titleIconColor: colors.grayChateau,
     titleIconColorHover: lightenDarkenColor(colors.grayChateau, -16),
     disabledColor: colors.grayChateau,

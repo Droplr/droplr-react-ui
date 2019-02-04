@@ -38,6 +38,7 @@ class Dropdown extends React.PureComponent {
       arrowStyles,
       positionX,
       positionY,
+      onMouseLeave,
     } = this.props;
 
     if (!isActive || !children) return null;
@@ -53,6 +54,7 @@ class Dropdown extends React.PureComponent {
           }
         )}
         ref={(node) => { this.dropdownRef = node; }}
+        onMouseLeave={onMouseLeave}
       >
         <span
           className="drui-dropdown__arrow"
@@ -73,18 +75,22 @@ class Dropdown extends React.PureComponent {
           >
             {React.Children.map(
               children,
-              child => (
-                <li className="drui-dropdown__listItemWrapper">
-                  {React.cloneElement(
-                    child,
-                    {
-                      ...child.props,
-                      showItemStatus,
-                      closeOnItemClick,
-                      closeDropdown: close,
-                    })}
-                </li>
-              )
+              (child) => {
+                if (!child) return null;
+
+                return (
+                  <li className="drui-dropdown__listItemWrapper">
+                    {React.cloneElement(
+                      child,
+                      {
+                        ...child.props,
+                        showItemStatus,
+                        closeOnItemClick,
+                        closeDropdown: close,
+                      })}
+                  </li>
+                )
+              }
             )}
           </ul>
         </div>
@@ -277,6 +283,7 @@ Dropdown.propTypes = {
   positionX: PropTypes.string,
   arrowStyles: PropTypes.shape(),
   onRef: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
@@ -289,6 +296,7 @@ Dropdown.defaultProps = {
   arrowStyles: {},
   close() {},
   onRef() {},
+  onMouseLeave() {},
 }
 
 export default Dropdown;

@@ -98,6 +98,8 @@ import SelectedAreaIcon from '../../svg/selectedArea.svg';
 import UploadFileIcon from '../../svg/uploadFile.svg';
 import VideoCamIcon from '../../svg/videoCam.svg';
 import WindowIcon from '../../svg/window.svg';
+import CancelIcon from '../../svg/cancel.svg';
+import SortIcon from '../../svg/sort.svg';
 
 export {
   AddPeopleIcon,
@@ -200,4 +202,6 @@ export {
   ZoomInIcon,
   ZoomOutIcon,
   ZoomResetIcon,
+  CancelIcon,
+  SortIcon,
 };
