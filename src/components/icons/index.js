@@ -4,7 +4,6 @@ import AlignCenterIcon from '../../svg/alignCenter.svg';
 import AlignLeftIcon from '../../svg/alignLeft.svg';
 import AlignRightIcon from '../../svg/alignRight.svg';
 import AllItemsIcon from '../../svg/allItems.svg';
-import ArrowIcon from '../../svg/arrow.svg';
 import BellIcon from '../../svg/bell.svg';
 import BinocularsIcon from '../../svg/binoculars.svg';
 import BoardIcon from '../../svg/board.svg';
@@ -14,12 +13,13 @@ import BrowserTabIcon from '../../svg/browserTab.svg';
 import CameraIcon from '../../svg/camera.svg';
 import CancelIcon from '../../svg/cancel.svg';
 import CheckIcon from '../../svg/check.svg';
+import ChevronDownIcon from '../../svg/chevronDown.svg';
 import ChevronLeftIcon from '../../svg/chevronLeft.svg';
 import ChromeIcon from '../../svg/chrome.svg';
 import ClipboardIcon from '../../svg/clipboard.svg';
 import CloudUploadIcon from '../../svg/cloudUpload.svg';
-import CodeBlockIcon from '../../svg/codeBlock.svg';
 import CodeIcon from '../../svg/code.svg';
+import CodeBlockIcon from '../../svg/codeBlock.svg';
 import CommentIcon from '../../svg/comment.svg';
 import CopyIcon from '../../svg/copy.svg';
 import CreateBoardIcon from '../../svg/createBoard.svg';
@@ -30,8 +30,6 @@ import DisableIcon from '../../svg/disable.svg';
 import DotsIcon from '../../svg/dots.svg';
 import DownIcon from '../../svg/down.svg';
 import DownloadIcon from '../../svg/download.svg';
-import DropdownArrowIcon from '../../svg/dropdownArrow.svg';
-import DropdownIcon from '../../svg/dropdown.svg';
 import EnableIcon from '../../svg/enable.svg';
 import EntirePageIcon from '../../svg/entirePage.svg';
 import ErrorIcon from '../../svg/error.svg';
@@ -51,26 +49,25 @@ import MailIcon from '../../svg/mail.svg';
 import MoveIcon from '../../svg/move.svg';
 import NewWindowIcon from '../../svg/newWindow.svg';
 import NibIcon from '../../svg/nib.svg';
-import NotesBoldIcon from '../../svg/notesBold.svg';
 import NotesIcon from '../../svg/notes.svg';
+import NotesBoldIcon from '../../svg/notesBold.svg';
 import NotificationIcon from '../../svg/notification.svg';
 import OrderedListIcon from '../../svg/orderedList.svg';
-import OthersIcon from '../../svg/others.svg';
 import PadlockLockIcon from '../../svg/padlockLock.svg';
 import PadlockUnlockIcon from '../../svg/padlockUnlock.svg';
 import ParagraphIcon from '../../svg/paragraph.svg';
 import PenIcon from '../../svg/pen.svg';
-import PhotoCameraIcon from '../../svg/photoCamera.svg';
 import PhotoIcon from '../../svg/photo.svg';
+import PhotoCameraIcon from '../../svg/photoCamera.svg';
 import PrivateIcon from '../../svg/private.svg';
 import ProfileIcon from '../../svg/profile.svg';
-import PublicFolderIcon from '../../svg/publicFolder.svg';
 import PublicIcon from '../../svg/public.svg';
+import PublicFolderIcon from '../../svg/publicFolder.svg';
 import QuestionMarkIcon from '../../svg/questionMark.svg';
 import QuoteIcon from '../../svg/quote.svg';
 import RemoveTagIcon from '../../svg/removeTag.svg';
-import SearchBoldIcon from '../../svg/searchBold.svg';
 import SearchIcon from '../../svg/search.svg';
+import SearchBoldIcon from '../../svg/searchBold.svg';
 import SelectedAreaIcon from '../../svg/selectedArea.svg';
 import SendIcon from '../../svg/send.svg';
 import SeparatorIcon from '../../svg/separator.svg';
@@ -86,8 +83,8 @@ import TrashBinIcon from '../../svg/trashBin.svg';
 import UnderlineIcon from '../../svg/underline.svg';
 import UnorderedListIcon from '../../svg/unorderedList.svg';
 import UpIcon from '../../svg/up.svg';
-import UploadFileIcon from '../../svg/uploadFile.svg';
 import UploadIcon from '../../svg/upload.svg';
+import UploadFileIcon from '../../svg/uploadFile.svg';
 import UrlIcon from '../../svg/url.svg';
 import VerticalDotsIcon from '../../svg/verticalDots.svg';
 import VideoCamIcon from '../../svg/videoCam.svg';
@@ -108,7 +105,6 @@ export {
   AlignLeftIcon,
   AlignRightIcon,
   AllItemsIcon,
-  ArrowIcon,
   BellIcon,
   BinocularsIcon,
   BoardIcon,
@@ -116,7 +112,9 @@ export {
   BrowserIcon,
   BrowserTabIcon,
   CameraIcon,
+  CancelIcon,
   CheckIcon,
+  ChevronDownIcon,
   ChevronLeftIcon,
   ChromeIcon,
   ClipboardIcon,
@@ -133,8 +131,6 @@ export {
   DotsIcon,
   DownIcon,
   DownloadIcon,
-  DropdownIcon,
-  DropdownArrowIcon,
   EnableIcon,
   EntirePageIcon,
   ErrorIcon,
@@ -158,7 +154,6 @@ export {
   NotesBoldIcon,
   NotificationIcon,
   OrderedListIcon,
-  OthersIcon,
   PadlockLockIcon,
   PadlockUnlockIcon,
   ParagraphIcon,
@@ -179,6 +174,7 @@ export {
   SeparatorIcon,
   ShareIcon,
   SharedIcon,
+  SortIcon,
   StarIcon,
   TagFilledIcon,
   TagsIcon,
@@ -202,6 +198,4 @@ export {
   ZoomInIcon,
   ZoomOutIcon,
   ZoomResetIcon,
-  CancelIcon,
-  SortIcon,
 };
