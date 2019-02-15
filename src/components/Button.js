@@ -51,7 +51,7 @@ class Button extends React.PureComponent {
             box-sizing: border-box;
             height: 40px;
             width: auto;
-            padding: 0 16px;
+            padding: 0 12px;
             border-radius: 4px;
             background: ${defaultTheme.button.primary.backgroundColor};
             box-shadow: 0 1px 0 0 ${defaultTheme.button.primary.shadowColor};
@@ -118,6 +118,10 @@ class Button extends React.PureComponent {
             .drui-button__dropdownIcon {
               margin-left: 8px;
             }
+          }
+
+          .drui-button--withText, .drui-button--withIcon {
+            padding: 0 16px;
           }
 
           .drui-button--maxWidth {
