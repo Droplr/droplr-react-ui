@@ -37,3 +37,33 @@ storiesOf('Button Primary', module)
   .addWithJSX('primary with icon no-text', () => (
     <Button type="primary" Icon={DownloadIcon} />
   ))
+  .addWithJSX('primary promo', () => (
+    <Button type="primary" stage="promo">Primary Promo Button</Button>
+  ))
+  .addWithJSX('primary promo loading', () => (
+    <Button type="primary" stage="promo" loading>Primary Promo Button</Button>
+  ))
+  .addWithJSX('primary promo disabled', () => (
+    <Button type="primary" stage="promo" disabled>Primary Promo Button</Button>
+  ))
+  .addWithJSX('primary promo with icon', () => (
+    <Button type="primary" stage="promo" Icon={DownloadIcon}>Primary Promo Button with Icon</Button>
+  ))
+  .addWithJSX('primary promo with icon max-width', () => (
+    <Button type="primary" stage="promo" Icon={DownloadIcon} maxWidth>Primary Promo Button with Icon</Button>
+  ))
+  .addWithJSX('primary danger', () => (
+    <Button type="primary" stage="danger">Primary Danger Button</Button>
+  ))
+  .addWithJSX('primary danger loading', () => (
+    <Button type="primary" stage="danger" loading>Primary Danger Button</Button>
+  ))
+  .addWithJSX('primary danger disabled', () => (
+    <Button type="primary" stage="danger" disabled>Primary Danger Button</Button>
+  ))
+  .addWithJSX('primary danger with icon', () => (
+    <Button type="primary" stage="danger" Icon={DownloadIcon}>Primary Danger Button with Icon</Button>
+  ))
+  .addWithJSX('primary danger with icon max-width', () => (
+    <Button type="primary" stage="danger" Icon={DownloadIcon} maxWidth>Primary Danger Button with Icon</Button>
+  ))

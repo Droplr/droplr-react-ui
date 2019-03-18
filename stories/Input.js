@@ -13,50 +13,75 @@ const InputDecorator = (storyFn) => (
   </>
 );
 
+class InputWrapper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+    }
+
+    this.handleOnChange = this.handleOnChange.bind(this);
+  }
+
+  handleOnChange(e) {
+    this.setState({ value: e.target.value })
+  }
+
+  render() {
+    return (
+      <Input
+        value={this.state.value}
+        onChange={this.handleOnChange}
+        {...this.props}
+      />
+    );
+  };
+}
+
 storiesOf('Input', module)
   .addDecorator(InputDecorator)
   .addWithJSX('normal', () => (
-    <Input name="Name" />
+    <InputWrapper name="Name" />
   ))
   .addWithJSX('disabled', () => (
-    <Input name="Name" disabled />
+    <InputWrapper name="Name" disabled />
   ))
   .addWithJSX('placeholder', () => (
-    <Input name="Name" placeholder="Type something..." />
+    <InputWrapper name="Name" placeholder="Type something..." />
   ))
   .addWithJSX('password', () => (
-    <Input name="Name" type="password" />
+    <InputWrapper name="Name" type="password" />
   ))
   .addWithJSX('password visible', () => (
-    <Input name="Name" type="password" passwordVisible />
+    <InputWrapper name="Name" type="password" passwordVisible />
   ))
   .addWithJSX('password toggle', () => (
-    <Input name="Name" type="password" passwordVisibilityToggle />
+    <InputWrapper name="Name" type="password" passwordVisibilityToggle />
   ))
   .addWithJSX('password toggle visible', () => (
-    <Input name="Name" type="password" passwordVisibilityToggle passwordVisible />
+    <InputWrapper name="Name" type="password" passwordVisibilityToggle passwordVisible />
   ))
   .addWithJSX('password toggle error', () => (
-    <Input name="Name" type="password" passwordVisibilityToggle error="Sample error text..." />
+    <InputWrapper name="Name" type="password" passwordVisibilityToggle error="Sample error text..." />
   ))
   .addWithJSX('auto focus', () => (
-    <Input name="Name" autoFocus />
+    <InputWrapper name="Name" autoFocus />
   ))
   .addWithJSX('read only', () => (
-    <Input name="Name" readOnly value="Sample text..." />
+    <InputWrapper name="Name" readOnly value="Sample text..." />
   ))
   .addWithJSX('label', () => (
-    <Input name="Name" label="Label" />
+    <InputWrapper name="Name" label="Label" />
   ))
   .addWithJSX('sublabel', () => (
-    <Input name="Name" sublabel="Sublabel" />
+    <InputWrapper name="Name" sublabel="Sublabel" />
   ))
   .addWithJSX('info', () => (
-    <Input name="Name" info="Sample info text..." />
+    <InputWrapper name="Name" info="Sample info text..." />
   ))
   .addWithJSX('error', () => (
-    <Input name="Name" error="Sample error text..." />
+    <InputWrapper name="Name" error="Sample error text..." />
   ))
   .addWithJSX('label sublabel info error', () => (
-    <Input name="Name" label="Label" sublabel="Sublabel" info="Sample info text..." error="Sample error text..." />
+    <InputWrapper name="Name" label="Label" sublabel="Sublabel" info="Sample info text..." error="Sample error text..." />
   ))

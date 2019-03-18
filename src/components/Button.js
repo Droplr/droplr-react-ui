@@ -12,12 +12,13 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { children, type, Icon, onClick, className, disabled, loading, maxWidth, dropdown, buttonType } = this.props;
+    const { children, type, stage, Icon, onClick, className, disabled, loading, maxWidth, dropdown, buttonType } = this.props;
 
     return (
       <button
         className={classnames('drui-button', {
           [`drui-button--${type}`]: type,
+          [`drui-button--${stage}`]: stage,
           'drui-button--maxWidth': maxWidth,
           'drui-button--withText': children,
           'drui-button--withIcon': Icon,
@@ -49,12 +50,11 @@ class Button extends React.PureComponent {
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            height: 40px;
             width: auto;
+            height: 40px;
             padding: 0 12px;
             border-radius: 4px;
             background: ${defaultTheme.button.primary.backgroundColor};
-            box-shadow: 0 1px 0 0 ${defaultTheme.button.primary.shadowColor};
             color: ${defaultTheme.button.primary.textColor};
             border: none;
             outline: none;
@@ -92,6 +92,8 @@ class Button extends React.PureComponent {
           }
 
           .drui-button--withTextAndIcon {
+            min-width: 124px;
+
             .drui-button__icon {
               margin-right: 12px;
             }
@@ -115,6 +117,8 @@ class Button extends React.PureComponent {
           }
 
           .drui-button--withText {
+            min-width: 124px;
+
             .drui-button__dropdownIcon {
               margin-left: 8px;
             }
@@ -139,6 +143,56 @@ class Button extends React.PureComponent {
           .drui-button--loading,
           .drui-button--loading:hover {
             background: ${defaultTheme.button.primary.backgroundColor};
+
+            .drui-button__content {
+              z-index: -1;
+            }
+          }
+
+          .drui-button--promo {
+            background: ${defaultTheme.button.primary.promo.backgroundColor};
+
+            &:hover {
+              background: ${defaultTheme.button.primary.promo.backgroundColorHover};
+            }
+
+            &:active {
+              background: ${defaultTheme.button.primary.promo.backgroundColorActive};
+            }
+          }
+
+          .drui-button--promo.drui-button--disabled {
+            background: ${defaultTheme.button.primary.promo.backgroundColorDisabled};
+            color: ${defaultTheme.button.primary.promo.textColorDisabled};
+          }
+
+          .drui-button--promo.drui-button--loading {
+            background: ${defaultTheme.button.primary.promo.backgroundColor};
+
+            .drui-button__content {
+              z-index: -1;
+            }
+          }
+
+          .drui-button--danger {
+            background: ${defaultTheme.button.primary.danger.backgroundColor};
+
+            &:hover {
+              background: ${defaultTheme.button.primary.danger.backgroundColorHover};
+            }
+
+            &:active {
+              background: ${defaultTheme.button.primary.danger.backgroundColorActive};
+            }
+          }
+
+          .drui-button--danger.drui-button--disabled {
+            background: ${defaultTheme.button.primary.danger.backgroundColorDisabled};
+            color: ${defaultTheme.button.primary.danger.textColorDisabled};
+          }
+
+          .drui-button--danger.drui-button--loading {
+            background: ${defaultTheme.button.primary.danger.backgroundColor};
 
             .drui-button__content {
               z-index: -1;
@@ -191,6 +245,46 @@ class Button extends React.PureComponent {
               background: ${defaultTheme.button.secondary.backgroundColor};
               border: 1px solid ${defaultTheme.button.secondary.borderColor};
             }
+
+            &.drui-button--danger {
+              background: none;
+              border: 1px solid ${defaultTheme.button.secondary.danger.borderColor};
+              color: ${defaultTheme.button.secondary.danger.textColor};
+  
+              &:hover {
+                border-color: ${defaultTheme.button.secondary.danger.borderColorHover};
+                color: ${defaultTheme.button.secondary.danger.textColorHover};
+              }
+  
+              &:active {
+                border-color: ${defaultTheme.button.secondary.danger.borderColorActive};
+                color: ${defaultTheme.button.secondary.danger.textColorActive};
+              }
+
+              .drui-button__icon {
+                path {
+                  fill: ${defaultTheme.button.secondary.danger.borderColor};
+                }
+              }
+            }
+  
+            &.drui-button--danger.drui-button--disabled {
+              color: ${defaultTheme.button.secondary.danger.textColor};
+              border-color: ${defaultTheme.button.secondary.danger.borderColorDisabled};
+              opacity: 0.3;
+            }
+  
+            &.drui-button--danger.drui-button--loading {
+              background: none;
+
+              .drui-loader {
+                border-color: ${defaultTheme.button.secondary.danger.borderColor};
+              }
+  
+              .drui-button__content {
+                z-index: -1;
+              }
+            }
           }
 
           .theme--dark {
@@ -222,6 +316,56 @@ class Button extends React.PureComponent {
             .drui-button--loading,
             .drui-button--loading:hover {
               background: ${darkTheme.button.primary.backgroundColor};
+            }
+
+            .drui-button--promo {
+              background: ${darkTheme.button.primary.promo.backgroundColor};
+  
+              &:hover {
+                background: ${darkTheme.button.primary.promo.backgroundColorHover};
+              }
+  
+              &:active {
+                background: ${darkTheme.button.primary.promo.backgroundColorActive};
+              }
+            }
+  
+            .drui-button--promo.drui-button--disabled {
+              background: ${darkTheme.button.primary.promo.backgroundColorDisabled};
+              color: ${darkTheme.button.primary.promo.textColorDisabled};
+            }
+  
+            .drui-button--promo.drui-button--loading {
+              background: ${darkTheme.button.primary.promo.backgroundColor};
+  
+              .drui-button__content {
+                z-index: -1;
+              }
+            }
+
+            .drui-button--danger {
+              background: ${darkTheme.button.primary.danger.backgroundColor};
+  
+              &:hover {
+                background: ${darkTheme.button.primary.danger.backgroundColorHover};
+              }
+  
+              &:active {
+                background: ${darkTheme.button.primary.danger.backgroundColorActive};
+              }
+            }
+  
+            .drui-button--danger.drui-button--disabled {
+              background: ${darkTheme.button.primary.danger.backgroundColorDisabled};
+              color: ${darkTheme.button.primary.danger.textColorDisabled};
+            }
+  
+            .drui-button--danger.drui-button--loading {
+              background: ${darkTheme.button.primary.danger.backgroundColor};
+  
+              .drui-button__content {
+                z-index: -1;
+              }
             }
 
             .drui-button--secondary {
@@ -273,6 +417,59 @@ class Button extends React.PureComponent {
               &.drui-button--loading:hover {
                 background: ${darkTheme.button.secondary.backgroundColor};
                 border: 1px solid ${darkTheme.button.secondary.borderColor};
+              }
+
+              &.drui-button--danger {
+                background: none;
+                border: 1px solid ${darkTheme.button.secondary.danger.borderColor};
+                color: ${darkTheme.button.secondary.danger.textColor};
+
+                .drui-button__icon {
+                  path {
+                    fill: ${darkTheme.button.secondary.danger.borderColor};
+                  }
+                }
+    
+                &:hover {
+                  border-color: ${darkTheme.button.secondary.danger.borderColorHover};
+                  color: ${darkTheme.button.secondary.danger.textColorHover};
+
+                  .drui-button__icon {
+                    path {
+                      fill: ${darkTheme.button.secondary.danger.borderColorHover};
+                    }
+                  }
+                }
+    
+                &:active {
+                  border-color: ${darkTheme.button.secondary.danger.borderColorActive};
+                  color: ${darkTheme.button.secondary.danger.textColorActive};
+
+                  .drui-button__icon {
+                    path {
+                      fill: ${darkTheme.button.secondary.danger.borderColorActive};
+                    }
+                  }
+                }
+              }
+    
+              &.drui-button--danger.drui-button--disabled {
+                background: none;
+                color: ${darkTheme.button.secondary.danger.textColor};
+                border-color: ${darkTheme.button.secondary.danger.borderColorDisabled};
+                opacity: 0.3;
+              }
+    
+              &.drui-button--danger.drui-button--loading {
+                background: none;
+  
+                .drui-loader {
+                  border-color: ${darkTheme.button.secondary.danger.borderColor};
+                }
+    
+                .drui-button__content {
+                  z-index: -1;
+                }
               }
             }
           }

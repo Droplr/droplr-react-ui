@@ -63,7 +63,7 @@ class Input extends React.PureComponent {
               [className]: className,
             })}
             type={type === 'password' && passwordVisible ? 'text' : type}
-            value={value || undefined}
+            value={value}
             placeholder={placeholder}
             autoFocus={autoFocus}
             readOnly={readOnly}
