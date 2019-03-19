@@ -16,22 +16,20 @@ const InputDecorator = (storyFn) => (
 class InputWrapper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: '',
-    }
+    this.state = { value: '' };
 
-    this.handleOnChange = this.handleOnChange.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  handleOnChange(e) {
-    this.setState({ value: e.target.value })
+  onChange(e) {
+    this.setState({ value: e.target.value });
   }
 
   render() {
     return (
       <Input
         value={this.state.value}
-        onChange={this.handleOnChange}
+        onChange={this.onChange}
         {...this.props}
       />
     );

@@ -12,7 +12,19 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { children, type, stage, Icon, onClick, className, disabled, loading, maxWidth, dropdown, buttonType } = this.props;
+    const {
+      children,
+      type,
+      stage,
+      Icon,
+      onClick,
+      className,
+      disabled,
+      loading,
+      maxWidth,
+      dropdown,
+      buttonType,
+    } = this.props;
 
     return (
       <button
@@ -250,37 +262,49 @@ class Button extends React.PureComponent {
               background: none;
               border: 1px solid ${defaultTheme.button.secondary.danger.borderColor};
               color: ${defaultTheme.button.secondary.danger.textColor};
-  
-              &:hover {
-                border-color: ${defaultTheme.button.secondary.danger.borderColorHover};
-                color: ${defaultTheme.button.secondary.danger.textColorHover};
-              }
-  
-              &:active {
-                border-color: ${defaultTheme.button.secondary.danger.borderColorActive};
-                color: ${defaultTheme.button.secondary.danger.textColorActive};
-              }
 
               .drui-button__icon {
                 path {
-                  fill: ${defaultTheme.button.secondary.danger.borderColor};
+                  fill: ${darkTheme.button.secondary.danger.borderColor};
+                }
+              }
+
+              &:hover {
+                border-color: ${defaultTheme.button.secondary.danger.borderColorHover};
+                color: ${defaultTheme.button.secondary.danger.textColorHover};
+
+                .drui-button__icon {
+                  path {
+                    fill: ${darkTheme.button.secondary.danger.borderColorHover};
+                  }
+                }
+              }
+
+              &:active {
+                border-color: ${defaultTheme.button.secondary.danger.borderColorActive};
+                color: ${defaultTheme.button.secondary.danger.textColorActive};
+
+                .drui-button__icon {
+                  path {
+                    fill: ${darkTheme.button.secondary.danger.borderColorActive};
+                  }
                 }
               }
             }
-  
+
             &.drui-button--danger.drui-button--disabled {
               color: ${defaultTheme.button.secondary.danger.textColor};
               border-color: ${defaultTheme.button.secondary.danger.borderColorDisabled};
               opacity: 0.3;
             }
-  
+
             &.drui-button--danger.drui-button--loading {
               background: none;
 
               .drui-loader {
                 border-color: ${defaultTheme.button.secondary.danger.borderColor};
               }
-  
+
               .drui-button__content {
                 z-index: -1;
               }

@@ -7,7 +7,6 @@ const colors = {
   brandLight: '#624F86',
   brandDark: '#542D9B',
   sunsetOrange: '#F94C4C',
-  lima: '#50BF17',
   sushi: '#70C843',
   tuna: '#3A3A43',
   shark: '#2D2E33',
@@ -16,10 +15,7 @@ const colors = {
   athensGray: '#E9EAED',
   waterloo: '#878891',
   asparagus: '#6DA450',
-  cinnabar: '#E14848',
-  coralTree: '#A96868',
-  redOrange: '#F83333',
-  monza: '#D80707',
+  seaPink: '#EB8888',
 };
 
 const shadows = {
@@ -33,10 +29,10 @@ const gradients = {
   dark: 'linear-gradient(0deg, #464651 0%, #60606D 100%)',
   darkHover: 'linear-gradient(0deg, #43434D 0%, #60606D 100%)',
   darkActive: 'linear-gradient(0deg, #3D3D46 0%, #60606D 100%)',
-  green: `linear-gradient(180deg, ${colors.sushi} 0%, ${colors.lima} 100%)`,
-  greenHover: `linear-gradient(180deg, ${colors.lima} 0%, ${colors.sushi} 100%)`,
-  red: `linear-gradient(180deg, ${colors.sunsetOrange} 0%, ${colors.cinnabar} 100%)`,
-  redHover: `linear-gradient(180deg, ${colors.cinnabar} 0%, ${colors.sunsetOrange} 100%);`,
+  green: `linear-gradient(180deg, ${colors.sushi} 0%, ${lightenDarkenColor(colors.sushi, -10)} 100%)`,
+  greenHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sushi, -10)} 0%, ${colors.sushi} 100%)`,
+  red: `linear-gradient(180deg, ${colors.sunsetOrange} 0%, ${lightenDarkenColor(colors.sunsetOrange, -10)} 100%)`,
+  redHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sunsetOrange, -10)} 0%, ${colors.sunsetOrange} 100%);`,
 };
 
 export default {
@@ -75,15 +71,15 @@ export default {
       promo: {
         backgroundColor: gradients.green,
         backgroundColorHover: gradients.greenHover,
-        backgroundColorActive: colors.lima,
+        backgroundColorActive: lightenDarkenColor(colors.sushi, -10),
         backgroundColorDisabled: colors.asparagus,
         textColorDisabled: colors.mystic,
       },
       danger: {
         backgroundColor: gradients.red,
         backgroundColorHover: gradients.redHover,
-        backgroundColorActive: colors.cinnabar,
-        backgroundColorDisabled: colors.coralTree,
+        backgroundColorActive: lightenDarkenColor(colors.sunsetOrange, -10),
+        backgroundColorDisabled: colors.seaPink,
         textColorDisabled: colors.white,
       }
     },
@@ -101,12 +97,12 @@ export default {
       loaderColor: colors.blueHaze,
       danger: {
         borderColor: colors.sunsetOrange,
-        borderColorHover: colors.redOrange,
-        borderColorActive: colors.monza,
+        borderColorHover: lightenDarkenColor(colors.sunsetOrange, -10),
+        borderColorActive: lightenDarkenColor(colors.sunsetOrange, -40),
         borderColorDisabled: colors.sunsetOrange,
         textColor: colors.sunsetOrange,
-        textColorHover: colors.redOrange,
-        textColorActive: colors.monza,
+        textColorHover: lightenDarkenColor(colors.sunsetOrange, -10),
+        textColorActive: lightenDarkenColor(colors.sunsetOrange, -40),
       }
     },
   },
