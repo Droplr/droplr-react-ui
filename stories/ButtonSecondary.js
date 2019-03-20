@@ -37,3 +37,18 @@ storiesOf('Button Secondary', module)
   .addWithJSX('secondary with icon no-text', () => (
     <Button type="secondary" Icon={DownloadIcon} />
   ))
+  .addWithJSX('secondary danger', () => (
+    <Button type="secondary" stage="danger">Secondary Danger Button</Button>
+  ))
+  .addWithJSX('secondary danger loading', () => (
+    <Button type="secondary" stage="danger" loading>Secondary Danger Button</Button>
+  ))
+  .addWithJSX('secondary danger disabled', () => (
+    <Button type="secondary" stage="danger" disabled>Secondary Danger Button</Button>
+  ))
+  .addWithJSX('secondary danger with icon', () => (
+    <Button type="secondary" stage="danger" Icon={DownloadIcon}>Secondary Danger Button with Icon</Button>
+  ))
+  .addWithJSX('secondary danger with icon max-width', () => (
+    <Button type="secondary" stage="danger" Icon={DownloadIcon} maxWidth>Secondary Danger Button with Icon</Button>
+  ))
