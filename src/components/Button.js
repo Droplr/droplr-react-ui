@@ -104,8 +104,6 @@ class Button extends React.PureComponent {
           }
 
           .drui-button--withTextAndIcon {
-            min-width: 124px;
-
             .drui-button__icon {
               margin-right: 12px;
             }
@@ -129,8 +127,6 @@ class Button extends React.PureComponent {
           }
 
           .drui-button--withText {
-            min-width: 124px;
-
             .drui-button__dropdownIcon {
               margin-left: 8px;
             }
@@ -293,9 +289,8 @@ class Button extends React.PureComponent {
             }
 
             &.drui-button--danger.drui-button--disabled {
-              color: ${defaultTheme.button.secondary.danger.textColor};
+              color: ${defaultTheme.button.secondary.danger.textColorDisabled};
               border-color: ${defaultTheme.button.secondary.danger.borderColorDisabled};
-              opacity: 0.3;
             }
 
             &.drui-button--danger.drui-button--loading {
@@ -479,9 +474,8 @@ class Button extends React.PureComponent {
     
               &.drui-button--danger.drui-button--disabled {
                 background: none;
-                color: ${darkTheme.button.secondary.danger.textColor};
+                color: ${darkTheme.button.secondary.danger.textColorDisabled};
                 border-color: ${darkTheme.button.secondary.danger.borderColorDisabled};
-                opacity: 0.3;
               }
     
               &.drui-button--danger.drui-button--loading {

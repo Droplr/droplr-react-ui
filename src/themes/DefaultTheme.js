@@ -114,10 +114,11 @@ export default {
         borderColor: colors.sunsetOrange,
         borderColorHover: lightenDarkenColor(colors.sunsetOrange, -10),
         borderColorActive: lightenDarkenColor(colors.sunsetOrange, -40),
-        borderColorDisabled: colors.sunsetOrange,
+        borderColorDisabled: lightenDarkenColor(colors.sunsetOrange, 125),
         textColor: colors.sunsetOrange,
         textColorHover: lightenDarkenColor(colors.sunsetOrange, -10),
         textColorActive: lightenDarkenColor(colors.sunsetOrange, -40),
+        textColorDisabled: lightenDarkenColor(colors.sunsetOrange, 125),
       }
     },
   },
