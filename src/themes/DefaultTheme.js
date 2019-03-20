@@ -7,14 +7,14 @@ const colors = {
   brandLight: '#A28FC6',
   brandDark: '#542D9B',
   sunsetOrange: '#F94C4C',
-  lima: '#50BF17',
   sushi: '#70C843',
-  blueRibbon: '#0B68FF',
   whiteLilac: '#F8F9FC',
   mystic: '#DEE3EB',
   grayChateau: '#A1AAB7',
   shuttleGray: '#5E646E',
   mako: '#44484F',
+  asparagus: '#6DA450',
+  seaPink: '#EB8888',
 };
 
 const gradients = {
@@ -23,6 +23,10 @@ const gradients = {
   purpleActive: 'linear-gradient(0deg, #5E34AA 0%, #6F49B5 100%)',
   bright: 'linear-gradient(0deg, #F8F9FC 0%, #FFF 100%)',
   brightActive: 'linear-gradient(0deg, #FFF 0%, #F8F9FC 100%)',
+  green: `linear-gradient(180deg, ${colors.sushi} 0%, ${lightenDarkenColor(colors.sushi, -10)} 100%)`,
+  greenHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sushi, -10)} 0%, ${colors.sushi} 100%)`,
+  red: `linear-gradient(180deg, ${colors.sunsetOrange} 0%, ${lightenDarkenColor(colors.sunsetOrange, -10)} 100%)`,
+  redHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sunsetOrange, -10)} 0%, ${colors.sunsetOrange} 100%);`,
 };
 
 const shadows = {
@@ -80,6 +84,20 @@ export default {
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
+      promo: {
+        backgroundColor: gradients.green,
+        backgroundColorHover: gradients.greenHover,
+        backgroundColorActive: lightenDarkenColor(colors.sushi, -10),
+        backgroundColorDisabled: colors.asparagus,
+        textColorDisabled: colors.mystic,
+      },
+      danger: {
+        backgroundColor: gradients.red,
+        backgroundColorHover: gradients.redHover,
+        backgroundColorActive: lightenDarkenColor(colors.sunsetOrange, -10),
+        backgroundColorDisabled: colors.seaPink,
+        textColorDisabled: colors.white,
+      }
     },
     secondary: {
       backgroundColor: gradients.bright,
@@ -92,6 +110,16 @@ export default {
       textColorDisabled: colors.mystic,
       iconColor: colors.shuttleGray,
       loaderColor: colors.shuttleGray,
+      danger: {
+        borderColor: colors.sunsetOrange,
+        borderColorHover: lightenDarkenColor(colors.sunsetOrange, -10),
+        borderColorActive: lightenDarkenColor(colors.sunsetOrange, -40),
+        borderColorDisabled: lightenDarkenColor(colors.sunsetOrange, 125),
+        textColor: colors.sunsetOrange,
+        textColorHover: lightenDarkenColor(colors.sunsetOrange, -10),
+        textColorActive: lightenDarkenColor(colors.sunsetOrange, -40),
+        textColorDisabled: lightenDarkenColor(colors.sunsetOrange, 125),
+      }
     },
   },
 
