@@ -27,6 +27,7 @@ import CrossIcon from '../../svg/cross.svg';
 import DashboardIcon from '../../svg/dashboard.svg';
 import DestructIcon from '../../svg/destruct.svg';
 import DisableIcon from '../../svg/disable.svg';
+import DocumentsIcon from '../../svg/documents.svg';
 import DotsIcon from '../../svg/dots.svg';
 import DownIcon from '../../svg/down.svg';
 import DownloadIcon from '../../svg/download.svg';
@@ -128,6 +129,7 @@ export {
   DashboardIcon,
   DestructIcon,
   DisableIcon,
+  DocumentsIcon,
   DotsIcon,
   DownIcon,
   DownloadIcon,
