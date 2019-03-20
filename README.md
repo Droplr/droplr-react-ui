@@ -5,12 +5,12 @@ A responsive UI library for React web applications.
 ## Table of Contents
 ### Buttons
 - [Button](#button)
-- [DualButton](#dual-button)
+- [DualButton](#dualButton)
 
-### Dropdown
+### Dropdowns
 - [Dropdown](#dropdown)
-- [DropdownItem](#dropdown-item)
-- [DropdownWithToggler](#dropdown-with-toggler)
+- [DropdownItem](#dropdownItem)
+- [DropdownWithToggler](#dropdownWithToggler)
 
 ### Forms
 - [Input](#input)
