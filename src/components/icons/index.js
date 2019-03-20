@@ -35,6 +35,7 @@ import EnableIcon from '../../svg/enable.svg';
 import EntirePageIcon from '../../svg/entirePage.svg';
 import ErrorIcon from '../../svg/error.svg';
 import ExpireTimeIcon from '../../svg/expireTime.svg';
+import FacebookIcon from '../../svg/facebook.svg';
 import FolderIcon from '../../svg/folder.svg';
 import FullDesktopIcon from '../../svg/fullDesktop.svg';
 import GearIcon from '../../svg/gear.svg';
@@ -47,6 +48,7 @@ import ItalicIcon from '../../svg/italic.svg';
 import KeyIcon from '../../svg/key.svg';
 import LogoutIcon from '../../svg/logout.svg';
 import MailIcon from '../../svg/mail.svg';
+import MoneyIcon from '../../svg/money.svg';
 import MoveIcon from '../../svg/move.svg';
 import NewWindowIcon from '../../svg/newWindow.svg';
 import NibIcon from '../../svg/nib.svg';
@@ -81,6 +83,7 @@ import TagsIcon from '../../svg/tags.svg';
 import TaskIcon from '../../svg/task.svg';
 import TeamIcon from '../../svg/team.svg';
 import TrashBinIcon from '../../svg/trashBin.svg';
+import TwitterIcon from '../../svg/twitter.svg';
 import UnderlineIcon from '../../svg/underline.svg';
 import UnorderedListIcon from '../../svg/unorderedList.svg';
 import UpIcon from '../../svg/up.svg';
@@ -137,6 +140,7 @@ export {
   EntirePageIcon,
   ErrorIcon,
   ExpireTimeIcon,
+  FacebookIcon,
   FolderIcon,
   FullDesktopIcon,
   GearIcon,
@@ -149,6 +153,7 @@ export {
   KeyIcon,
   LogoutIcon,
   MailIcon,
+  MoneyIcon,
   MoveIcon,
   NewWindowIcon,
   NibIcon,
@@ -183,6 +188,7 @@ export {
   TaskIcon,
   TeamIcon,
   TrashBinIcon,
+  TwitterIcon,
   UnderlineIcon,
   UnorderedListIcon,
   UpIcon,
