@@ -48,11 +48,13 @@ class DualButton extends React.PureComponent {
             flex-flow: row nowrap;
 
             .drui-button:first-child {
+              margin: 0;
               border-top-right-radius: 0;
               border-bottom-right-radius: 0;
             }
 
             .drui-button:last-child {
+              margin: 0;
               border-top-left-radius: 0;
               border-bottom-left-radius: 0;
             }
