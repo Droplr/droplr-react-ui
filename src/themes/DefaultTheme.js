@@ -1,21 +1,28 @@
 import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
-  white: '#FFF',
-  black: '#000',
-  brand: '#7A50C7',
-  brandLight: '#A28FC6',
-  brandDark: '#542D9B',
-  sunsetOrange: '#F94C4C',
-  sushi: '#70C843',
-  whiteLilac: '#F8F9FC',
-  mystic: '#DEE3EB',
-  grayChateau: '#A1AAB7',
-  shuttleGray: '#5E646E',
-  mako: '#44484F',
-  asparagus: '#6DA450',
-  seaPink: '#EB8888',
+  white:          '#FFFFFF',
+  whiteLilac:     '#F8F9FC',
+  mystic:         '#DEE3EB',
+  grayChateau:    '#A1AAB7',
+  shuttleGray:    '#5E646E',
+  mako:           '#44484F',
+  brandLight:     '#A28FC6',
+  brand:          '#7A50C7',
+  brandDark:      '#542D9B',
+  goldenTainoi:   '#FFC554',
+  yellowSea:      '#FFAD0C',
+  seaPink:        '#EB8888',
+  sunsetOrange:   '#F94C4C',
+  sushi:          '#70C843',
+  asparagus:      '#6DA450',
+  dodgerBlue:     '#5495FF',
+  blueRibbon:     '#0B68FF',
+  black:          '#000000',
 };
+
+const buttonGradient = (color, invert) =>
+  `linear-gradient(${invert ? '0' : '180'}deg, ${color} 0%, ${lightenDarkenColor(color, -10)} 100%)`;
 
 const gradients = {
   purple: 'linear-gradient(0deg, #6B3CC1 0%, #7A50C7 100%)',
@@ -23,10 +30,14 @@ const gradients = {
   purpleActive: 'linear-gradient(0deg, #5E34AA 0%, #6F49B5 100%)',
   bright: 'linear-gradient(0deg, #F8F9FC 0%, #FFF 100%)',
   brightActive: 'linear-gradient(0deg, #FFF 0%, #F8F9FC 100%)',
-  green: `linear-gradient(180deg, ${colors.sushi} 0%, ${lightenDarkenColor(colors.sushi, -10)} 100%)`,
-  greenHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sushi, -10)} 0%, ${colors.sushi} 100%)`,
-  red: `linear-gradient(180deg, ${colors.sunsetOrange} 0%, ${lightenDarkenColor(colors.sunsetOrange, -10)} 100%)`,
-  redHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sunsetOrange, -10)} 0%, ${colors.sunsetOrange} 100%);`,
+  green: buttonGradient(colors.sushi),
+  greenHover: buttonGradient(colors.sushi, true),
+  red: buttonGradient(colors.sunsetOrange),
+  redHover: buttonGradient(colors.sunsetOrange, true),
+  blue: buttonGradient(colors.blueRibbon),
+  blueHover: buttonGradient(colors.blueRibbon, true),
+  yellow: buttonGradient(colors.yellowSea),
+  yellowHover: buttonGradient(colors.yellowSea, true),
 };
 
 const shadows = {
@@ -97,7 +108,21 @@ export default {
         backgroundColorActive: lightenDarkenColor(colors.sunsetOrange, -10),
         backgroundColorDisabled: colors.seaPink,
         textColorDisabled: colors.white,
-      }
+      },
+      info: {
+        backgroundColor: gradients.blue,
+        backgroundColorHover: gradients.blueHover,
+        backgroundColorActive: lightenDarkenColor(colors.blueRibbon, -10),
+        backgroundColorDisabled: colors.dodgerBlue,
+        textColorDisabled: colors.white,
+      },
+      warning: {
+        backgroundColor: gradients.yellow,
+        backgroundColorHover: gradients.yellowHover,
+        backgroundColorActive: lightenDarkenColor(colors.yellowSea, -10),
+        backgroundColorDisabled: colors.goldenTainoi,
+        textColorDisabled: colors.white,
+      },
     },
     secondary: {
       backgroundColor: gradients.bright,

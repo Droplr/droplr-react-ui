@@ -1,26 +1,33 @@
 import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
-  white: '#FFF',
-  black: '#000',
-  brand: '#8D61DF',
-  brandLight: '#624F86',
-  brandDark: '#542D9B',
-  sunsetOrange: '#F94C4C',
-  sushi: '#70C843',
-  tuna: '#3A3A43',
-  shark: '#2D2E33',
-  mako: '#464651',
-  blueHaze: '#CBCEDE',
-  athensGray: '#E9EAED',
-  waterloo: '#878891',
-  asparagus: '#6DA450',
-  seaPink: '#EB8888',
+  white:          '#FFFFFF',
+  athensGray:     '#E9EAED',
+  blueHaze:       '#CBCEDE',
+  waterloo:       '#878891',
+  mako:           '#464651',
+  tuna:           '#3A3A43',
+  shark:          '#2D2E33',
+  brandLight:     '#624F86',
+  brand:          '#8D61DF',
+  brandDark:      '#542D9B',
+  goldenTainoi:   '#FFC554',
+  yellowSea:      '#FFAD0C',
+  seaPink:        '#EB8888',
+  sunsetOrange:   '#F94C4C',
+  sushi:          '#70C843',
+  asparagus:      '#6DA450',
+  dodgerBlue:     '#5495FF',
+  blueRibbon:     '#0B68FF',
+  black:          '#000000',
 };
 
 const shadows = {
   black: `rgba(${convertToRgb(colors.black)}, 0.5)`,
 }
+
+const buttonGradient = (color, invert) =>
+  `linear-gradient(${invert ? '0' : '180'}deg, ${color} 0%, ${lightenDarkenColor(color, -10)} 100%)`;
 
 const gradients = {
   purple: 'linear-gradient(0deg, #7140CC 0%, #8D61DF 100%)',
@@ -29,10 +36,14 @@ const gradients = {
   dark: 'linear-gradient(0deg, #464651 0%, #60606D 100%)',
   darkHover: 'linear-gradient(0deg, #43434D 0%, #60606D 100%)',
   darkActive: 'linear-gradient(0deg, #3D3D46 0%, #60606D 100%)',
-  green: `linear-gradient(180deg, ${colors.sushi} 0%, ${lightenDarkenColor(colors.sushi, -10)} 100%)`,
-  greenHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sushi, -10)} 0%, ${colors.sushi} 100%)`,
-  red: `linear-gradient(180deg, ${colors.sunsetOrange} 0%, ${lightenDarkenColor(colors.sunsetOrange, -10)} 100%)`,
-  redHover: `linear-gradient(180deg, ${lightenDarkenColor(colors.sunsetOrange, -10)} 0%, ${colors.sunsetOrange} 100%);`,
+  green: buttonGradient(colors.sushi),
+  greenHover: buttonGradient(colors.sushi, true),
+  red: buttonGradient(colors.sunsetOrange),
+  redHover: buttonGradient(colors.sunsetOrange, true),
+  blue: buttonGradient(colors.blueRibbon),
+  blueHover: buttonGradient(colors.blueRibbon, true),
+  yellow: buttonGradient(colors.yellowSea),
+  yellowHover: buttonGradient(colors.yellowSea, true),
 };
 
 export default {
@@ -81,7 +92,21 @@ export default {
         backgroundColorActive: lightenDarkenColor(colors.sunsetOrange, -10),
         backgroundColorDisabled: colors.seaPink,
         textColorDisabled: colors.white,
-      }
+      },
+      info: {
+        backgroundColor: gradients.blue,
+        backgroundColorHover: gradients.blueHover,
+        backgroundColorActive: lightenDarkenColor(colors.blueRibbon, -10),
+        backgroundColorDisabled: colors.dodgerBlue,
+        textColorDisabled: colors.white,
+      },
+      warning: {
+        backgroundColor: gradients.yellow,
+        backgroundColorHover: gradients.yellowHover,
+        backgroundColorActive: lightenDarkenColor(colors.yellowSea, -10),
+        backgroundColorDisabled: colors.goldenTainoi,
+        textColorDisabled: colors.white,
+      },
     },
     secondary: {
       backgroundColor: gradients.dark,

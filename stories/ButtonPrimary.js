@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Button from '../src/components/Button';
 import { DownloadIcon } from '../src/components/icons';
 
-storiesOf('Button Primary', module)
+storiesOf('Button Primary /', module)
   .addWithJSX('primary', () => (
     <Button type="primary">Primary Button</Button>
   ))
@@ -37,6 +37,8 @@ storiesOf('Button Primary', module)
   .addWithJSX('primary with icon no-text', () => (
     <Button type="primary" Icon={DownloadIcon} />
   ))
+
+storiesOf('Button Primary / Promo', module)
   .addWithJSX('primary promo', () => (
     <Button type="primary" stage="promo">Primary Promo Button</Button>
   ))
@@ -49,9 +51,8 @@ storiesOf('Button Primary', module)
   .addWithJSX('primary promo with icon', () => (
     <Button type="primary" stage="promo" Icon={DownloadIcon}>Primary Promo Button with Icon</Button>
   ))
-  .addWithJSX('primary promo with icon max-width', () => (
-    <Button type="primary" stage="promo" Icon={DownloadIcon} maxWidth>Primary Promo Button with Icon</Button>
-  ))
+
+storiesOf('Button Primary / Danger', module)
   .addWithJSX('primary danger', () => (
     <Button type="primary" stage="danger">Primary Danger Button</Button>
   ))
@@ -64,6 +65,31 @@ storiesOf('Button Primary', module)
   .addWithJSX('primary danger with icon', () => (
     <Button type="primary" stage="danger" Icon={DownloadIcon}>Primary Danger Button with Icon</Button>
   ))
-  .addWithJSX('primary danger with icon max-width', () => (
-    <Button type="primary" stage="danger" Icon={DownloadIcon} maxWidth>Primary Danger Button with Icon</Button>
+
+storiesOf('Button Primary / Info', module)
+  .addWithJSX('primary info', () => (
+    <Button type="primary" stage="info">Primary Info Button</Button>
+  ))
+  .addWithJSX('primary info loading', () => (
+    <Button type="primary" stage="info" loading>Primary Info Button</Button>
+  ))
+  .addWithJSX('primary info disabled', () => (
+    <Button type="primary" stage="info" disabled>Primary Info Button</Button>
+  ))
+  .addWithJSX('primary info with icon', () => (
+    <Button type="primary" stage="info" Icon={DownloadIcon}>Primary Info Button with Icon</Button>
+  ))
+
+storiesOf('Button Primary / Warning', module)
+  .addWithJSX('primary warning', () => (
+    <Button type="primary" stage="warning">Primary Warning Button</Button>
+  ))
+  .addWithJSX('primary warning loading', () => (
+    <Button type="primary" stage="warning" loading>Primary Warning Button</Button>
+  ))
+  .addWithJSX('primary warning disabled', () => (
+    <Button type="primary" stage="warning" disabled>Primary Warning Button</Button>
+  ))
+  .addWithJSX('primary warning with icon', () => (
+    <Button type="primary" stage="warning" Icon={DownloadIcon}>Primary Warning Button with Icon</Button>
   ))
