@@ -63,7 +63,7 @@ storiesOf('Input', module)
     <InputWrapper name="Name" type="password" passwordVisibilityToggle error="Sample error text..." />
   ))
   .addWithJSX('autocomplete off', () => (
-    <InputWrapper name="Name" autoComplete="off" />
+    <InputWrapper name="Name" autoComplete={false} />
   ))
   .addWithJSX('auto focus', () => (
     <InputWrapper name="Name" autoFocus />
