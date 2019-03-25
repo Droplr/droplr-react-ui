@@ -1,6 +1,6 @@
 function toHex(value) {
   const hex = value.toString(16);
-  return hex.length === 1 ? '0' + hex : hex;
+  return hex.padStart(2, '0');
 }
 
 function lightenDarkenColor(color, value) {
