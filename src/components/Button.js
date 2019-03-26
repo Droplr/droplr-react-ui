@@ -207,6 +207,56 @@ class Button extends React.PureComponent {
             }
           }
 
+          .drui-button--info {
+            background: ${defaultTheme.button.primary.info.backgroundColor};
+
+            &:hover {
+              background: ${defaultTheme.button.primary.info.backgroundColorHover};
+            }
+
+            &:active {
+              background: ${defaultTheme.button.primary.info.backgroundColorActive};
+            }
+          }
+
+          .drui-button--info.drui-button--disabled {
+            background: ${defaultTheme.button.primary.info.backgroundColorDisabled};
+            color: ${defaultTheme.button.primary.info.textColorDisabled};
+          }
+
+          .drui-button--info.drui-button--loading {
+            background: ${defaultTheme.button.primary.info.backgroundColor};
+
+            .drui-button__content {
+              z-index: -1;
+            }
+          }
+
+          .drui-button--warning {
+            background: ${defaultTheme.button.primary.warning.backgroundColor};
+
+            &:hover {
+              background: ${defaultTheme.button.primary.warning.backgroundColorHover};
+            }
+
+            &:active {
+              background: ${defaultTheme.button.primary.warning.backgroundColorActive};
+            }
+          }
+
+          .drui-button--warning.drui-button--disabled {
+            background: ${defaultTheme.button.primary.warning.backgroundColorDisabled};
+            color: ${defaultTheme.button.primary.warning.textColorDisabled};
+          }
+
+          .drui-button--warning.drui-button--loading {
+            background: ${defaultTheme.button.primary.warning.backgroundColor};
+
+            .drui-button__content {
+              z-index: -1;
+            }
+          }
+
           .drui-button--secondary {
             background: ${defaultTheme.button.secondary.backgroundColor};
             border: 1px solid ${defaultTheme.button.secondary.borderColor};
@@ -381,6 +431,56 @@ class Button extends React.PureComponent {
   
             .drui-button--danger.drui-button--loading {
               background: ${darkTheme.button.primary.danger.backgroundColor};
+  
+              .drui-button__content {
+                z-index: -1;
+              }
+            }
+
+            .drui-button--info {
+              background: ${darkTheme.button.primary.info.backgroundColor};
+  
+              &:hover {
+                background: ${darkTheme.button.primary.info.backgroundColorHover};
+              }
+  
+              &:active {
+                background: ${darkTheme.button.primary.info.backgroundColorActive};
+              }
+            }
+  
+            .drui-button--info.drui-button--disabled {
+              background: ${darkTheme.button.primary.info.backgroundColorDisabled};
+              color: ${darkTheme.button.primary.info.textColorDisabled};
+            }
+  
+            .drui-button--info.drui-button--loading {
+              background: ${darkTheme.button.primary.info.backgroundColor};
+  
+              .drui-button__content {
+                z-index: -1;
+              }
+            }
+
+            .drui-button--warning {
+              background: ${darkTheme.button.primary.warning.backgroundColor};
+  
+              &:hover {
+                background: ${darkTheme.button.primary.warning.backgroundColorHover};
+              }
+  
+              &:active {
+                background: ${darkTheme.button.primary.warning.backgroundColorActive};
+              }
+            }
+  
+            .drui-button--warning.drui-button--disabled {
+              background: ${darkTheme.button.primary.warning.backgroundColorDisabled};
+              color: ${darkTheme.button.primary.warning.textColorDisabled};
+            }
+  
+            .drui-button--warning.drui-button--loading {
+              background: ${darkTheme.button.primary.warning.backgroundColor};
   
               .drui-button__content {
                 z-index: -1;

@@ -1,3 +1,8 @@
+function toHex(value) {
+  const hex = value.toString(16);
+  return hex.padStart(2, '0');
+}
+
 function lightenDarkenColor(color, value) {
   let usePound = false;
 
@@ -14,16 +19,16 @@ function lightenDarkenColor(color, value) {
   else if (red < 0) red = 0;
 
   // Green
-  let green = (num & 0x0000FF) + value;
+  let green = ((num >> 8) & 0x00FF) + value;
   if (green > 255) green = 255;
   else if (green < 0) green = 0;
 
   // Blue
-  let blue = ((num >> 8) & 0x00FF) + value;
+  let blue = (num & 0x0000FF) + value;
   if (blue > 255) blue = 255;
   else if (blue < 0) blue = 0;
 
-  return (usePound ? '#' : '') + (green | (blue << 8) | (red << 16)).toString(16);
+  return `${usePound ? '#' : ''}${toHex(red)}${toHex(green)}${toHex(blue)}`;
 }
 
 function convertToRgb(hexVal) {

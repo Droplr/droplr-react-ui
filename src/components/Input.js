@@ -35,6 +35,7 @@ class Input extends React.PureComponent {
       sublabel,
       info,
       error,
+      autoComplete,
       autoFocus,
       readOnly,
       disabled,
@@ -65,6 +66,7 @@ class Input extends React.PureComponent {
             type={type === 'password' && passwordVisible ? 'text' : type}
             value={value}
             placeholder={placeholder}
+            autoComplete={autoComplete ? 'on' : 'off'}
             autoFocus={autoFocus}
             readOnly={readOnly}
             disabled={disabled}
@@ -299,6 +301,7 @@ Input.propTypes = {
   sublabel: PropTypes.string,
   info: PropTypes.string,
   error: PropTypes.string,
+  autoComplete: PropTypes.bool,
   autoFocus: PropTypes.bool,
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -319,6 +322,7 @@ Input.defaultProps = {
   sublabel: '',
   info: '',
   error: '',
+  autoComplete: true,
   autoFocus: false,
   readOnly: false,
   disabled: false,
