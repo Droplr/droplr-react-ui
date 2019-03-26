@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Button from '../src/components/Button';
 import { DownloadIcon } from '../src/components/icons';
 
-storiesOf('Button Secondary', module)
+storiesOf('Button Secondary /', module)
   .addWithJSX('secondary', () => (
     <Button type="secondary">Secondary Button</Button>
   ))
@@ -37,6 +37,8 @@ storiesOf('Button Secondary', module)
   .addWithJSX('secondary with icon no-text', () => (
     <Button type="secondary" Icon={DownloadIcon} />
   ))
+
+storiesOf('Button Secondary / Danger', module)
   .addWithJSX('secondary danger', () => (
     <Button type="secondary" stage="danger">Secondary Danger Button</Button>
   ))
@@ -48,7 +50,4 @@ storiesOf('Button Secondary', module)
   ))
   .addWithJSX('secondary danger with icon', () => (
     <Button type="secondary" stage="danger" Icon={DownloadIcon}>Secondary Danger Button with Icon</Button>
-  ))
-  .addWithJSX('secondary danger with icon max-width', () => (
-    <Button type="secondary" stage="danger" Icon={DownloadIcon} maxWidth>Secondary Danger Button with Icon</Button>
   ))
