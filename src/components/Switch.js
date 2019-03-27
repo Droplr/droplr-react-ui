@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import defaultTheme from '../themes/DefaultTheme';
+import darkTheme from '../themes/DarkTheme';
 
 const Switch = ({
   label,
+  position,
   checked,
   disabled,
   onChange,
 }) => (
-  <label className="switch-wrapper">
+  <label
+    className={classnames('switch-wrapper', {
+      [`switch-wrapper--${position}`]: label && position,
+    })}
+  >
     {label && <span className="switch-label">{label}</span>}
     <input
       className="switch-input"
@@ -30,6 +37,28 @@ const Switch = ({
         user-select: none;
       }
 
+      .switch-wrapper--right {
+        flex-direction: row-reverse;
+      }
+
+      .switch-wrapper--top {
+        width: max-content;
+        flex-direction: column;
+
+        .switch-label {
+          margin-bottom: 6px;
+        }
+      }
+
+      .switch-wrapper--bottom {
+        width: max-content;
+        flex-direction: column-reverse;
+
+        .switch-label {
+          margin-top: 6px;
+        }
+      }
+
       .switch-button {
         position: relative;
         width: 40px;
@@ -37,7 +66,6 @@ const Switch = ({
         border-radius: 22px;
         background: ${defaultTheme.switch.backgroundColor};
         border: 1px solid ${defaultTheme.switch.borderColor};
-        transition: 0.2s ease all;
         cursor: inherit;
         transition: all 300ms ease;
         box-sizing: border-box;
@@ -77,6 +105,23 @@ const Switch = ({
 
         &::after {
           box-shadow: none;
+        }
+      }
+
+      .theme--dark {
+        .switch-wrapper {
+          color: ${darkTheme.switch.textColor};
+        }
+
+        .switch-button {
+          border-color: ${darkTheme.switch.borderColor};
+        }
+
+        .switch-input {
+          &:checked ~ .switch-button {
+            border-color: ${darkTheme.switch.borderColorChecked};
+            background: ${darkTheme.switch.backgroundColorChecked};
+          }
         }
       }
   `}</style>

@@ -25,7 +25,7 @@ class SwitchWrapper extends React.Component {
   };
 }
 
-storiesOf('Switch', module)
+storiesOf('Switch /', module)
   .addWithJSX('normal', () => (
     <SwitchWrapper />
   ))
@@ -34,4 +34,18 @@ storiesOf('Switch', module)
   ))
   .addWithJSX('disabled', () => (
     <SwitchWrapper disabled />
+  ))
+
+storiesOf('Switch / Label positions', module)
+  .addWithJSX('left (default)', () => (
+    <SwitchWrapper label="Label text..." />
+  ))
+  .addWithJSX('right', () => (
+    <SwitchWrapper label="Label text..." position="right" />
+  ))
+  .addWithJSX('top', () => (
+    <SwitchWrapper label="Label text..." position="top" />
+  ))
+  .addWithJSX('bottom', () => (
+    <SwitchWrapper label="Label text..." position="bottom" />
   ))

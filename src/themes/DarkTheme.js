@@ -3,6 +3,7 @@ import { lightenDarkenColor, convertToRgb } from './helpers';
 const colors = {
   white:          '#FFFFFF',
   athensGray:     '#E9EAED',
+  mystic:         '#DEE3EB',
   blueHaze:       '#CBCEDE',
   waterloo:       '#878891',
   mako:           '#464651',
@@ -36,6 +37,7 @@ const gradients = {
   dark: 'linear-gradient(0deg, #464651 0%, #60606D 100%)',
   darkHover: 'linear-gradient(0deg, #43434D 0%, #60606D 100%)',
   darkActive: 'linear-gradient(0deg, #3D3D46 0%, #60606D 100%)',
+  greenSwitchChecked: `${colors.sushi} linear-gradient(180deg, ${colors.sushi} 0%, ${lightenDarkenColor(colors.sushi, -10)} 100%)`,
   green: buttonGradient(colors.sushi),
   greenHover: buttonGradient(colors.sushi, true),
   red: buttonGradient(colors.sunsetOrange),
@@ -67,6 +69,24 @@ export default {
     label: {
       textColor: colors.white,
     }
+  },
+
+  switch: {
+    // text
+    textColor: colors.white,
+
+    // background
+    backgroundColor: lightenDarkenColor(colors.mystic, 10),
+    backgroundColorAfter: colors.white,
+    backgroundColorChecked: gradients.greenSwitchChecked,
+    backgroundColorDisabled: lightenDarkenColor(colors.mystic, 10),
+
+    // border
+    borderColor: colors.mystic,
+    borderColorChecked: lightenDarkenColor(colors.sushi, -10),
+
+    // other
+    shadowColor: shadows.black,
   },
 
   button: {
