@@ -12,21 +12,21 @@ const Switch = ({
   onChange,
 }) => (
   <label
-    className={classnames('switch-wrapper', {
-      [`switch-wrapper--${position}`]: label && position,
+    className={classnames('switch', {
+      [`switch--${position}`]: label && position,
     })}
   >
-    {label && <span className="switch-label">{label}</span>}
+    {label && <span className="switch__label">{label}</span>}
     <input
-      className="switch-input"
+      className="switch__input"
       type="checkbox"
       checked={checked}
       onChange={onChange}
       disabled={disabled}
     />
-    <div className="switch-button" />
+    <div className="switch__button" />
     <style jsx global>{`
-      .switch-wrapper {
+      .switch {
         font-size: ${defaultTheme.font.size.normal};
         font-family: ${defaultTheme.font.family.primary};
         width: 100%;
@@ -37,29 +37,29 @@ const Switch = ({
         user-select: none;
       }
 
-      .switch-wrapper--right {
+      .switch--right {
         flex-direction: row-reverse;
       }
 
-      .switch-wrapper--top {
+      .switch--top {
         width: max-content;
         flex-direction: column;
 
-        .switch-label {
+        .switch__label {
           margin-bottom: 6px;
         }
       }
 
-      .switch-wrapper--bottom {
+      .switch--bottom {
         width: max-content;
         flex-direction: column-reverse;
 
-        .switch-label {
+        .switch__label {
           margin-top: 6px;
         }
       }
 
-      .switch-button {
+      .switch__button {
         position: relative;
         width: 40px;
         height: 20px;
@@ -87,10 +87,10 @@ const Switch = ({
         }
       }
 
-      .switch-input {
+      .switch__input {
         display: none;
 
-        &:checked ~ .switch-button {
+        &:checked ~ .switch__button {
           border-color: ${defaultTheme.switch.borderColorChecked};
           background: ${defaultTheme.switch.backgroundColorChecked};
 
@@ -100,7 +100,7 @@ const Switch = ({
         }
       }
 
-      .switch-input:disabled ~ .switch-button {
+      .switch__input:disabled ~ .switch__button {
         background-color: ${defaultTheme.switch.backgroundColorDisabled};
 
         &::after {
@@ -109,16 +109,16 @@ const Switch = ({
       }
 
       .theme--dark {
-        .switch-wrapper {
+        .switch {
           color: ${darkTheme.switch.textColor};
         }
 
-        .switch-button {
+        .switch__button {
           border-color: ${darkTheme.switch.borderColor};
         }
 
-        .switch-input {
-          &:checked ~ .switch-button {
+        .switch__input {
+          &:checked ~ .switch__button {
             border-color: ${darkTheme.switch.borderColorChecked};
             background: ${darkTheme.switch.backgroundColorChecked};
           }
