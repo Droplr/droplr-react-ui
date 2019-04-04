@@ -76,13 +76,13 @@ export default {
     textColor: colors.white,
 
     // background
-    backgroundColor: lightenDarkenColor(colors.mystic, 10),
-    backgroundColorAfter: colors.white,
+    backgroundColor: colors.shark,
+    backgroundColorAfter: colors.athensGray,
     backgroundColorChecked: gradients.greenSwitchChecked,
-    backgroundColorDisabled: lightenDarkenColor(colors.mystic, 10),
+    backgroundColorAfterDisabled: lightenDarkenColor(colors.athensGray, -80),
 
     // border
-    borderColor: colors.mystic,
+    borderColor: colors.shark,
     borderColorChecked: lightenDarkenColor(colors.sushi, -10),
 
     // other

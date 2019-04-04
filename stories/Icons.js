@@ -63,7 +63,7 @@ const IconsDecorator = (storyFn) => (
           }
 
           .icon__title {
-            color: lighten(#000, 30%);
+            color: lighten(#000, 40%);
           }
         }
       }

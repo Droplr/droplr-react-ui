@@ -14,6 +14,7 @@ A responsive UI library for React web applications.
 
 ### Forms
 - [Input](#input)
+- [Switch](#switch)
 
 
 ## Library
@@ -148,6 +149,18 @@ Input
 | **onFocus** - Function                   | empty function | A function that will be executed after input's `onFocus` event triggers. |
 | **onKeyPress** - Function                | empty function | A function that will be executed after input's `onKeyPress` event triggers. |
 | **onChange** - Function                  | empty function | A function that will be executed after input's `onChange` event triggers. |
+
+
+Switch
+------
+| Props                                    | Default        | Props notes |
+|:-----------------------------------------|:---------------|:------------|
+| **label** - String                       | empty string   | Switch'es label text. |
+| **labelPosition** - String               | `'left'`       | The switch'es label position. Accepts `top`, `right`, `bottom` and `left`. |
+| **checked** - Boolean                    | `false`        | The switch'es visual state. If true, it will appear as checked / active. |
+| **disabled** - Boolean                   | `false`        | If `true`, the switch will appear in the disabled mode and will be unable to be clicked. |
+| **onChange** - Function                  | empty function | A function that will be executed after input's `onChange` event triggers. |
+| **className** - String                   | empty string   | The switch'es additional class name. |
 
 
 ### Icons

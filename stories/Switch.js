@@ -41,11 +41,11 @@ storiesOf('Switch / Label positions', module)
     <SwitchWrapper label="Label text..." />
   ))
   .addWithJSX('right', () => (
-    <SwitchWrapper label="Label text..." position="right" />
+    <SwitchWrapper label="Label text..." labelPosition="right" />
   ))
   .addWithJSX('top', () => (
-    <SwitchWrapper label="Label text..." position="top" />
+    <SwitchWrapper label="Label text..." labelPosition="top" />
   ))
   .addWithJSX('bottom', () => (
-    <SwitchWrapper label="Label text..." position="bottom" />
+    <SwitchWrapper label="Label text..." labelPosition="bottom" />
   ))

@@ -6,14 +6,17 @@ import darkTheme from '../themes/DarkTheme';
 
 const Switch = ({
   label,
-  position,
+  labelPosition,
   checked,
   disabled,
   onChange,
+  className,
 }) => (
   <label
     className={classnames('switch', {
-      [`switch--${position}`]: label && position,
+      [`switch--${labelPosition}`]: label,
+      ['switch--disabled']: disabled,
+      [className]: className,
     })}
   >
     {label && <span className="switch__label">{label}</span>}
@@ -32,9 +35,12 @@ const Switch = ({
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         cursor: pointer;
         user-select: none;
+      }
+
+      .switch--disabled {
+        cursor: default;
       }
 
       .switch--right {
@@ -114,13 +120,27 @@ const Switch = ({
         }
 
         .switch__button {
+          background: ${darkTheme.switch.backgroundColor};
           border-color: ${darkTheme.switch.borderColor};
+
+          &::after {
+            background: ${darkTheme.switch.backgroundColorAfter};
+          }
         }
 
         .switch__input {
           &:checked ~ .switch__button {
             border-color: ${darkTheme.switch.borderColorChecked};
             background: ${darkTheme.switch.backgroundColorChecked};
+          }
+        }
+
+        .switch__input:disabled ~ .switch__button {
+          background: ${darkTheme.switch.backgroundColor};
+
+          &::after {
+            background-color: ${darkTheme.switch.backgroundColorAfterDisabled};
+            box-shadow: none;
           }
         }
       }
@@ -133,6 +153,8 @@ Switch.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
+  labelPosition: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Switch.defaultProps = {
@@ -140,6 +162,8 @@ Switch.defaultProps = {
   checked: false,
   disabled: false,
   onChange() {},
+  labelPosition: 'left',
+  className: '',
 };
 
 export default Switch;

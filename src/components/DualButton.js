@@ -64,7 +64,6 @@ class DualButton extends React.PureComponent {
             height: 40px;
             width: 1px;
             background: ${defaultTheme.dualButton.primary.separatorColor};
-            box-shadow: 0 1px 0 0 ${defaultTheme.dualButton.primary.shadowColor};
             border-left: 1px solid ${defaultTheme.dualButton.primary.borderColor};
           }
 
@@ -84,7 +83,6 @@ class DualButton extends React.PureComponent {
             .drui-dualButton__separator {
               height: 38px;
               background: ${defaultTheme.dualButton.secondary.separatorColor};
-              box-shadow: none;
               border: 1px solid ${defaultTheme.dualButton.secondary.borderColor};
               border-right: none;
             }
@@ -93,7 +91,6 @@ class DualButton extends React.PureComponent {
           .theme--dark {
             .drui-dualButton__separator {
               background: ${darkTheme.dualButton.primary.separatorColor};
-              box-shadow: none;
               border-left: 1px solid ${darkTheme.dualButton.primary.borderColor};
             }
 
