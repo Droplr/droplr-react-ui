@@ -30,6 +30,7 @@ const gradients = {
   purpleActive: 'linear-gradient(0deg, #5E34AA 0%, #6F49B5 100%)',
   bright: 'linear-gradient(0deg, #F8F9FC 0%, #FFF 100%)',
   brightActive: 'linear-gradient(0deg, #FFF 0%, #F8F9FC 100%)',
+  greenSwitchChecked: `${colors.sushi} linear-gradient(180deg, ${colors.sushi} 0%, ${lightenDarkenColor(colors.sushi, -10)} 100%)`,
   green: buttonGradient(colors.sushi),
   greenHover: buttonGradient(colors.sushi, true),
   red: buttonGradient(colors.sunsetOrange),
@@ -43,6 +44,7 @@ const gradients = {
 const shadows = {
   grayChateau: `rgba(${convertToRgb(colors.grayChateau)}, 0.3)`,
   brand: `rgba(${convertToRgb(colors.brand)}, 0.1)`,
+  black: `rgba(${convertToRgb(colors.black)}, 0.2)`,
 };
 
 export default {
@@ -83,6 +85,21 @@ export default {
     label: {
       textColor: colors.shuttleGray,
     }
+  },
+
+  switch: {
+    // background
+    backgroundColor: lightenDarkenColor(colors.mystic, 10),
+    backgroundColorAfter: colors.white,
+    backgroundColorChecked: gradients.greenSwitchChecked,
+    backgroundColorDisabled: lightenDarkenColor(colors.mystic, 10),
+
+    // border
+    borderColor: colors.mystic,
+    borderColorChecked: lightenDarkenColor(colors.sushi, -10),
+
+    // other
+    shadowColor: shadows.black,
   },
 
   button: {
