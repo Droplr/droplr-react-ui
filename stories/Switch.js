@@ -30,7 +30,7 @@ storiesOf('Switch /', module)
     <SwitchWrapper />
   ))
   .addWithJSX('normal with label', () => (
-    <SwitchWrapper label="Label text..." />
+    <SwitchWrapper labelContent="Label text..." />
   ))
   .addWithJSX('disabled', () => (
     <SwitchWrapper disabled />
@@ -38,14 +38,14 @@ storiesOf('Switch /', module)
 
 storiesOf('Switch / Label positions', module)
   .addWithJSX('left (default)', () => (
-    <SwitchWrapper label="Label text..." />
+    <SwitchWrapper labelContent="Label text..." />
   ))
   .addWithJSX('right', () => (
-    <SwitchWrapper label="Label text..." labelPosition="right" />
+    <SwitchWrapper labelContent="Label text..." labelPosition="right" />
   ))
   .addWithJSX('top', () => (
-    <SwitchWrapper label="Label text..." labelPosition="top" />
+    <SwitchWrapper labelContent="Label text..." labelPosition="top" />
   ))
   .addWithJSX('bottom', () => (
-    <SwitchWrapper label="Label text..." labelPosition="bottom" />
+    <SwitchWrapper labelContent="Label text..." labelPosition="bottom" />
   ))
