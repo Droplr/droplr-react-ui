@@ -5,21 +5,21 @@ import defaultTheme from '../themes/DefaultTheme';
 import darkTheme from '../themes/DarkTheme';
 
 const Switch = ({
-  label,
-  labelPosition,
   checked,
   disabled,
-  onChange,
   className,
+  labelContent,
+  labelPosition,
+  onChange,
 }) => (
   <label
     className={classnames('switch', {
-      [`switch--${labelPosition}`]: label,
+      [`switch--${labelPosition}`]: labelContent,
       ['switch--disabled']: disabled,
       [className]: className,
     })}
   >
-    {label && <span className="switch__label">{label}</span>}
+    {labelContent && <span className="switch__label">{labelContent}</span>}
     <input
       className="switch__input"
       type="checkbox"
@@ -149,21 +149,21 @@ const Switch = ({
 );
 
 Switch.propTypes = {
-  label: PropTypes.string,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  labelPosition: PropTypes.string,
   className: PropTypes.string,
+  labelContent: PropTypes.string,
+  labelPosition: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 Switch.defaultProps = {
-  label: '',
   checked: false,
   disabled: false,
-  onChange() {},
-  labelPosition: 'left',
   className: '',
+  labelContent: '',
+  labelPosition: 'left',
+  onChange() {},
 };
 
 export default Switch;
