@@ -31,24 +31,24 @@ class DropdownWithToggler extends React.PureComponent {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.setDropdownElemRef = this.setDropdownElemRef.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
-
-    this.setToggler();
   }
 
-  componentDidMount() {
-    this.togglerElemRef.current = this.togglerElemRef.current.firstElementChild;
+  static getDerivedStateFromProps(props, state) {
+    const { Toggler } = props;
+    let localTogglerElem = Toggler;
 
-    const { current } = this.togglerElemRef;
-    this.setState({
+    if (typeof localTogglerElem === 'function') {
+      localTogglerElem = localTogglerElem();
+    }
+
+    return {
+      ...state,
+      TogglerElem: React.cloneElement(localTogglerElem, { ...Toggler.props }),
       wrapperStyles: {
-        width: current.offsetWidth || current.clientWidth,
-        height: current.offsetHeight || current.clientHeight,
-      }
-    });
-  }
-
-  componentDidUpdate() {
-    this.setToggler();
+        width: Toggler.offsetWidth || Toggler.clientWidth,
+        height: Toggler.offsetHeight || Toggler.clientHeight,
+      },
+    };
   }
 
   getCurrentDropdownPosition() {
@@ -101,20 +101,6 @@ class DropdownWithToggler extends React.PureComponent {
     return arrowPositionStyles[dropdownPosition];
   }
 
-  setToggler() {
-    const { Toggler } = this.props;
-    let localTogglerElem = Toggler;
-
-    if (typeof localTogglerElem === 'function') {
-      localTogglerElem = localTogglerElem();
-    }
-
-    this.TogglerElem = React.cloneElement(
-      localTogglerElem,
-      { ...Toggler.props }
-    );
-  }
-
   setDropdownPosition() {
     const dropdownPosition = this.getCurrentDropdownPosition();
 
@@ -163,7 +149,7 @@ class DropdownWithToggler extends React.PureComponent {
       showItemStatus,
       header,
     } = this.props;
-    const { positionX, positionY, wrapperStyles, arrowStyles, isActive } = this.state;
+    const { positionX, positionY, wrapperStyles, arrowStyles, isActive, TogglerElem } = this.state;
 
     return (
       <div
@@ -183,7 +169,7 @@ class DropdownWithToggler extends React.PureComponent {
           aria-labelledby={header || null}
           aria-expanded={isActive}
         >
-          {this.TogglerElem}
+          {TogglerElem}
         </div>
 
         <Dropdown
