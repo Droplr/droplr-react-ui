@@ -17,6 +17,7 @@ class DropdownWithToggler extends React.PureComponent {
     }
     this.togglerElemRef = React.createRef();
     this.dropdownElemRef = undefined;
+    this.parentElemRef = props.setRef ? props.setRef() : undefined;
 
     this.state = {
       isActive: props.isActive,
@@ -46,15 +47,27 @@ class DropdownWithToggler extends React.PureComponent {
     });
   }
 
+  componentDidUpdate() {
+    this.setToggler();
+  }
+
   getCurrentDropdownPosition() {
     const containerHeight = window.innerHeight || document.documentElement.offsetHeight;
     const containerWidth = window.innerWidth || document.documentElement.offsetWidth;
     const { top, right, bottom, left, height } = this.dropdownElemRef.getBoundingClientRect();
     const togglerHeight = this.togglerElemRef.current.offsetHeight || this.togglerElemRef.current.clientHeight;
 
-    const positionY = (
-      bottom > containerHeight && containerHeight + togglerHeight > top && height < containerHeight
-    ) ? 'top' : 'bottom';
+    let positionYTop = (
+      bottom > containerHeight &&
+      containerHeight + togglerHeight > top &&
+      height < containerHeight
+    );
+
+    if (this.parentElemRef) {
+      positionYTop = positionYTop || bottom > this.parentElemRef.current.getBoundingClientRect().bottom;
+    }
+
+    const positionY = positionYTop ? 'top' : 'bottom';
     let positionX = 'center';
 
     if (right > containerWidth && containerWidth) {
