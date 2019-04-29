@@ -125,6 +125,7 @@ DropdownWithToggler
 | or array of Node Elements                |                | |
 | or Function                              |                | |
 | or array of Functions                    |                | |
+| **setRef** - Function                    | empty function | A function that should set a reference to a custom container if we want the dropdown to position itself in reference to it instead of the window. |
 
 
 Input

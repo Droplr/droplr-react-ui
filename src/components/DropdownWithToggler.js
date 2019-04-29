@@ -17,6 +17,7 @@ class DropdownWithToggler extends React.PureComponent {
     }
     this.togglerElemRef = React.createRef();
     this.dropdownElemRef = undefined;
+    this.parentElemRef = props.setRef ? props.setRef() : undefined;
 
     this.state = {
       isActive: props.isActive,
@@ -30,20 +31,24 @@ class DropdownWithToggler extends React.PureComponent {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.setDropdownElemRef = this.setDropdownElemRef.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
-
-    this.setToggler();
   }
 
-  componentDidMount() {
-    this.togglerElemRef.current = this.togglerElemRef.current.firstElementChild;
+  static getDerivedStateFromProps(props, state) {
+    const { Toggler } = props;
+    let localTogglerElem = Toggler;
 
-    const { current } = this.togglerElemRef;
-    this.setState({
+    if (typeof localTogglerElem === 'function') {
+      localTogglerElem = localTogglerElem();
+    }
+
+    return {
+      ...state,
+      TogglerElem: React.cloneElement(localTogglerElem, { ...Toggler.props }),
       wrapperStyles: {
-        width: current.offsetWidth || current.clientWidth,
-        height: current.offsetHeight || current.clientHeight,
-      }
-    });
+        width: Toggler.offsetWidth || Toggler.clientWidth,
+        height: Toggler.offsetHeight || Toggler.clientHeight,
+      },
+    };
   }
 
   getCurrentDropdownPosition() {
@@ -52,9 +57,17 @@ class DropdownWithToggler extends React.PureComponent {
     const { top, right, bottom, left, height } = this.dropdownElemRef.getBoundingClientRect();
     const togglerHeight = this.togglerElemRef.current.offsetHeight || this.togglerElemRef.current.clientHeight;
 
-    const positionY = (
-      bottom > containerHeight && containerHeight + togglerHeight > top && height < containerHeight
-    ) ? 'top' : 'bottom';
+    let positionYTop = (
+      bottom > containerHeight &&
+      containerHeight + togglerHeight > top &&
+      height < containerHeight
+    );
+
+    if (this.parentElemRef) {
+      positionYTop = positionYTop || bottom > this.parentElemRef.current.getBoundingClientRect().bottom;
+    }
+
+    const positionY = positionYTop ? 'top' : 'bottom';
     let positionX = 'center';
 
     if (right > containerWidth && containerWidth) {
@@ -86,20 +99,6 @@ class DropdownWithToggler extends React.PureComponent {
     }
 
     return arrowPositionStyles[dropdownPosition];
-  }
-
-  setToggler() {
-    const { Toggler } = this.props;
-    let localTogglerElem = Toggler;
-
-    if (typeof localTogglerElem === 'function') {
-      localTogglerElem = localTogglerElem();
-    }
-
-    this.TogglerElem = React.cloneElement(
-      localTogglerElem,
-      { ...Toggler.props }
-    );
   }
 
   setDropdownPosition() {
@@ -150,7 +149,7 @@ class DropdownWithToggler extends React.PureComponent {
       showItemStatus,
       header,
     } = this.props;
-    const { positionX, positionY, wrapperStyles, arrowStyles, isActive } = this.state;
+    const { positionX, positionY, wrapperStyles, arrowStyles, isActive, TogglerElem } = this.state;
 
     return (
       <div
@@ -170,7 +169,7 @@ class DropdownWithToggler extends React.PureComponent {
           aria-labelledby={header || null}
           aria-expanded={isActive}
         >
-          {this.TogglerElem}
+          {TogglerElem}
         </div>
 
         <Dropdown
@@ -230,6 +229,7 @@ DropdownWithToggler.propTypes = {
   header: PropTypes.string,
   closeOnMouseLeave: PropTypes.bool,
   onMouseLeave: PropTypes.func,
+  setRef: PropTypes.func,
 };
 
 DropdownWithToggler.defaultProps = {
@@ -241,6 +241,7 @@ DropdownWithToggler.defaultProps = {
   header: '',
   onClick() {},
   onMouseLeave() {},
+  setRef() {},
 };
 
 export default enhanceWithClickOutside(DropdownWithToggler);
