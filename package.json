@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",

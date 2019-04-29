@@ -229,6 +229,7 @@ DropdownWithToggler.propTypes = {
   header: PropTypes.string,
   closeOnMouseLeave: PropTypes.bool,
   onMouseLeave: PropTypes.func,
+  setRef: PropTypes.func,
 };
 
 DropdownWithToggler.defaultProps = {
@@ -240,6 +241,7 @@ DropdownWithToggler.defaultProps = {
   header: '',
   onClick() {},
   onMouseLeave() {},
+  setRef() {},
 };
 
 export default enhanceWithClickOutside(DropdownWithToggler);
