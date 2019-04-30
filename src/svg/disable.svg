@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/disable</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/disable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M12,4 C7.6,4 4,7.6 4,12 C4,16.4 7.6,20 12,20 C16.4,20 20,16.4 20,12 C20,7.6 16.4,4 12,4 Z M5.6,12 C5.6,8.48 8.48,5.6 12,5.6 C13.44,5.6 14.8,6.08 15.92,6.96 L6.96,15.92 C6.08,14.8 5.6,13.44 5.6,12 Z M12,18.4 C10.56,18.4 9.2,17.92 8.08,17.04 L17.04,8.08 C17.92,9.2 18.4,10.56 18.4,12 C18.4,15.52 15.52,18.4 12,18.4 Z" id="disable" fill="#5E646E" fill-rule="nonzero"></path>

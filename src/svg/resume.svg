@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+
+    <desc>Created with Sketch.</desc>
+    <g id="icons/resume" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M6,17 L20,17 L20,19 L6,19 L6,17 Z M13,5 L6.33,15 L19.67,15 L13,5 Z" id="resume" fill="#5E646E" fill-rule="nonzero" transform="translate(13.000000, 12.000000) rotate(90.000000) translate(-13.000000, -12.000000) "></path>
+    </g>
+</svg>

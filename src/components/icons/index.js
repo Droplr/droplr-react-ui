@@ -24,6 +24,7 @@ import CommentIcon from '../../svg/comment.svg';
 import CopyIcon from '../../svg/copy.svg';
 import CreateBoardIcon from '../../svg/createBoard.svg';
 import CrossIcon from '../../svg/cross.svg';
+import CrossBoldIcon from '../../svg/crossBold.svg';
 import DashboardIcon from '../../svg/dashboard.svg';
 import DestructIcon from '../../svg/destruct.svg';
 import DisableIcon from '../../svg/disable.svg';
@@ -59,9 +60,11 @@ import OrderedListIcon from '../../svg/orderedList.svg';
 import PadlockLockIcon from '../../svg/padlockLock.svg';
 import PadlockUnlockIcon from '../../svg/padlockUnlock.svg';
 import ParagraphIcon from '../../svg/paragraph.svg';
+import PauseIcon from '../../svg/pause.svg';
 import PenIcon from '../../svg/pen.svg';
 import PhotoIcon from '../../svg/photo.svg';
 import PhotoCameraIcon from '../../svg/photoCamera.svg';
+import PlayIcon from '../../svg/play.svg';
 import PrivateIcon from '../../svg/private.svg';
 import ProfileIcon from '../../svg/profile.svg';
 import PublicIcon from '../../svg/public.svg';
@@ -69,6 +72,7 @@ import PublicFolderIcon from '../../svg/publicFolder.svg';
 import QuestionMarkIcon from '../../svg/questionMark.svg';
 import QuoteIcon from '../../svg/quote.svg';
 import RemoveTagIcon from '../../svg/removeTag.svg';
+import ResumeIcon from '../../svg/resume.svg';
 import SearchIcon from '../../svg/search.svg';
 import SearchBoldIcon from '../../svg/searchBold.svg';
 import SelectedAreaIcon from '../../svg/selectedArea.svg';
@@ -92,6 +96,7 @@ import UploadFileIcon from '../../svg/uploadFile.svg';
 import UrlIcon from '../../svg/url.svg';
 import VerticalDotsIcon from '../../svg/verticalDots.svg';
 import VideoCamIcon from '../../svg/videoCam.svg';
+import VideoCamPlusIcon from '../../svg/videoCamPlus.svg';
 import ViewGridIcon from '../../svg/viewGrid.svg';
 import ViewListIcon from '../../svg/viewList.svg';
 import WalletIcon from '../../svg/wallet.svg';
@@ -129,6 +134,7 @@ export {
   CopyIcon,
   CreateBoardIcon,
   CrossIcon,
+  CrossBoldIcon,
   DashboardIcon,
   DestructIcon,
   DisableIcon,
@@ -164,9 +170,11 @@ export {
   PadlockLockIcon,
   PadlockUnlockIcon,
   ParagraphIcon,
+  PauseIcon,
   PenIcon,
   PhotoIcon,
   PhotoCameraIcon,
+  PlayIcon,
   PrivateIcon,
   ProfileIcon,
   PublicIcon,
@@ -174,6 +182,7 @@ export {
   QuestionMarkIcon,
   QuoteIcon,
   RemoveTagIcon,
+  ResumeIcon,
   SearchIcon,
   SearchBoldIcon,
   SelectedAreaIcon,
@@ -197,6 +206,7 @@ export {
   UrlIcon,
   VerticalDotsIcon,
   VideoCamIcon,
+  VideoCamPlusIcon,
   ViewGridIcon,
   ViewListIcon,
   WalletIcon,

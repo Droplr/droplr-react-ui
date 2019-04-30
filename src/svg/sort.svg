@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/sort</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/sort" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M4,17.3666667 L9.33333333,17.3666667 L9.33333333,15.5888889 L4,15.5888889 L4,17.3666667 Z M4,6.7 L4,8.47777778 L20,8.47777778 L20,6.7 L4,6.7 Z M4,12.9222222 L14.6666667,12.9222222 L14.6666667,11.1444444 L4,11.1444444 L4,12.9222222 Z" id="Shape" fill="#5E646E" fill-rule="nonzero"></path>

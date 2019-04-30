@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/success</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M12,4 C16.4161953,4 20,7.58380474 20,12 C20,16.4161953 16.4161953,20 12,20 C7.58380474,20 4,16.4161953 4,12 C4,7.58380474 7.58380474,4 12,4 Z M12,5.37142857 C8.34122383,5.37142857 5.37142857,8.34122383 5.37142857,12 C5.37142857,15.6587762 8.34122383,18.6285714 12,18.6285714 C15.6587762,18.6285714 18.6285714,15.6587762 18.6285714,12 C18.6285714,8.34122383 15.6587762,5.37142857 12,5.37142857 Z M10.5371429,15.6571429 L6.88,12 L7.91131429,10.9686857 L10.5371429,13.5872 L16.0886857,8.03565714 L17.12,9.07428571 L10.5371429,15.6571429 Z" id="success" fill="#5E646E" fill-rule="nonzero"></path>
