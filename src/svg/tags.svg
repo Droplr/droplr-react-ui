@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/tags</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/tags" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M19.7,12.3 C20.1,12.7 20.1,13.3 19.7,13.7 L13.7,19.7 C13.5,19.9 13.3,20 13,20 C12.7,20 12.5,19.9 12.3,19.7 L4.3,11.7 C4.1,11.5 4,11.3 4,11 L4,5 C4,4.4 4.4,4 5,4 L11,4 C11.3,4 11.5,4.1 11.7,4.3 L19.7,12.3 Z M13,17.6 L17.6,13 L10.6,6 L6,6 L6,10.6 L13,17.6 Z M9.707107,8.29288989 C10.097631,8.68341974 10.097631,9.31657951 9.707107,9.70710936 C9.316582,10.0976302 8.683418,10.0976302 8.292893,9.70710936 C7.902369,9.31657951 7.902369,8.68341974 8.292893,8.29288989 C8.683418,7.90237004 9.316582,7.90237004 9.707107,8.29288989 Z" id="tags" fill="#5E646E" fill-rule="nonzero"></path>

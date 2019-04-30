@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/profile</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M12,13 C9.8,13 8,11.2 8,9 L8,8 C8,5.8 9.8,4 12,4 C14.2,4 16,5.8 16,8 L16,9 C16,11.2 14.2,13 12,13 Z M14,15 C16.8,15 19,17.2 19,20 L5,20 C5,17.2 7.2,15 10,15 L14,15 Z" id="profile" fill="#5E646E" fill-rule="nonzero"></path>

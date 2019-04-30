@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/newWindow</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/newWindow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M18.2222222,18.2222222 L5.77777778,18.2222222 L5.77777778,5.77777778 L12,5.77777778 L12,4 L5.77777778,4 C4.79555556,4 4,4.79555556 4,5.77777778 L4,18.2222222 C4,19.2044444 4.79555556,20 5.77777778,20 L18.2222222,20 C19.2044444,20 20,19.2044444 20,18.2222222 L20,12 L18.2222222,12 L18.2222222,18.2222222 Z M13.7777778,4 L13.7777778,5.77777778 L16.9644444,5.77777778 L8.22666667,14.5155556 L9.48444444,15.7733333 L18.2222222,7.03555556 L18.2222222,10.2222222 L20,10.2222222 L20,4 L13.7777778,4 Z" id="newWindow" fill="#5E646E" fill-rule="nonzero"></path>

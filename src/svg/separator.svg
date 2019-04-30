@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/separator</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/separator" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M8.31648275,6.4 L9.71024603,5 L12,7.3 L14.289754,5 L15.6835173,6.4 L12.6968816,9.4 C12.2986636,9.8 11.7013364,9.8 11.3031184,9.4 L8.31648275,6.4 Z M8.31648275,17.6 L11.3031184,14.6 C11.7013364,14.2 12.2986636,14.2 12.6968816,14.6 L15.6835173,17.6 L14.289754,19 L12,16.7 L9.71024603,19 L8.31648275,17.6 Z M4.5,13 L4.5,11 L19.5,11 L19.5,13 L4.5,13 Z" id="Shape" fill="#5E646E" fill-rule="nonzero"></path>

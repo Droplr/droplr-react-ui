@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/image</title>
+
     <desc>Created with Sketch.</desc>
     <g id="icons/image" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M19,20 L5,20 C4.4,20 4,19.6 4,19 L4,5 C4,4.4 4.4,4 5,4 L19,4 C19.6,4 20,4.4 20,5 L20,19 C20,19.6 19.6,20 19,20 Z M6,18 L18,18 L18,6 L6,6 L6,18 Z M10,8 C10.6,8 11,8.4 11,9 C11,9.6 10.6,10 10,10 C9.4,10 9,9.6 9,9 C9,8.4 9.4,8 10,8 Z M7,16 L9,12 L11,14 L14,10 L17,16 L7,16 Z" id="image" fill="#5E646E" fill-rule="nonzero"></path>
