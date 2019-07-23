@@ -172,6 +172,7 @@ export default {
     backgroundColor: colors.tuna,
     shadowColor: shadows.black,
     borderColor: colors.shark,
+    buttonTextColor: colors.white,
     headerTextColor: colors.white,
     headerBorderColor: colors.mako,
   },
