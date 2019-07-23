@@ -39,6 +39,7 @@ function loadStories() {
   require('../stories/Dropdown');
   require('../stories/DropdownItem');
   require('../stories/DropdownWithToggler');
+  require('../stories/Select');
   require('../stories/DualButton');
   require('../stories/Input');
   require('../stories/Switch');
