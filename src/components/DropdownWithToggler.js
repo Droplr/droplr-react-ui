@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import enhanceWithClickOutside from 'react-click-outside';
@@ -149,7 +148,7 @@ class DropdownWithToggler extends React.PureComponent {
       showItemStatus,
       header,
     } = this.props;
-    const { positionX, positionY, wrapperStyles, arrowStyles, isActive, TogglerElem } = this.state;
+    const { positionX, positionY, wrapperStyles, arrowStyles, isActive,  TogglerElem } = this.state;
 
     return (
       <div
