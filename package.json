@@ -24,12 +24,13 @@
   "homepage": "https://droplr.com",
   "devDependencies": {
     "@babel/core": "^7.1.6",
-    "@storybook/addon-actions": "^4.0.6",
-    "@storybook/react": "^4.0.6",
+    "@storybook/addon-actions": "5.2.8",
+    "@storybook/react": "5.2.8",
     "babel-loader": "^8.0.4",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "babel-preset-airbnb": "^3.0.1",
-    "node-sass": "^4.10.0",
+    "node-sass": "4.13.0",
+    "prop-types": "15.7.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "storybook-addon-jsx": "^5.4.0",
@@ -43,7 +44,6 @@
     "react-dom": "^16.6.0"
   },
   "dependencies": {
-    "prop-types": "^15.6.2",
     "react-click-outside": "^3.0.1"
   }
 }
