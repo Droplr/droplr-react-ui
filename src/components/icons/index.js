@@ -103,6 +103,7 @@ import WalletIcon from '../../svg/wallet.svg';
 import WarningIcon from '../../svg/warning.svg';
 import WatchFolderIcon from '../../svg/watchFolder.svg';
 import WindowIcon from '../../svg/window.svg';
+import ZipIcon from '../../svg/zip.svg';
 import ZoomInIcon from '../../svg/zoomIn.svg';
 import ZoomOutIcon from '../../svg/zoomOut.svg';
 import ZoomResetIcon from '../../svg/zoomReset.svg';
@@ -213,6 +214,7 @@ export {
   WarningIcon,
   WatchFolderIcon,
   WindowIcon,
+  ZipIcon,
   ZoomInIcon,
   ZoomOutIcon,
   ZoomResetIcon,
