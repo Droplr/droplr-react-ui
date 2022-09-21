@@ -11,8 +11,8 @@ class DropdownWithToggler extends React.PureComponent {
     super(props);
 
     this.dropdownInitialState = {
-      positionY: 'center',
-      positionX: 'bottom',
+      positionY: props.positionX ? props.positionX : 'center',
+      positionX: props.positionY ? props.positionY : 'bottom',
       arrowStyles: {},
     }
     this.togglerElemRef = React.createRef();
@@ -227,6 +227,8 @@ DropdownWithToggler.propTypes = {
     PropTypes.func,
   ]).isRequired,
   header: PropTypes.string,
+  positionX: PropTypes.string,
+  positionY: PropTypes.string,
   closeOnMouseLeave: PropTypes.bool,
   onMouseLeave: PropTypes.func,
   setRef: PropTypes.func,
@@ -239,6 +241,8 @@ DropdownWithToggler.defaultProps = {
   showItemStatus: false,
   closeOnMouseLeave: false,
   header: '',
+  positionX: 'center',
+  positionY: 'bottom',
   onClick() {},
   onMouseLeave() {},
   setRef() {},
