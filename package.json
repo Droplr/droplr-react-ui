@@ -24,8 +24,8 @@
   "homepage": "https://droplr.com",
   "devDependencies": {
     "@babel/core": "^7.1.6",
-    "@storybook/addon-actions": "5.2.8",
-    "@storybook/react": "5.2.8",
+    "@storybook/addon-actions": "6.5.12",
+    "@storybook/react": "6.5.12",
     "babel-loader": "^8.0.4",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "babel-preset-airbnb": "^3.0.1",
