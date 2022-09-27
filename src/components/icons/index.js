@@ -47,6 +47,8 @@ import ImageIcon from '../../svg/image.svg';
 import InfoIcon from '../../svg/info.svg';
 import ItalicIcon from '../../svg/italic.svg';
 import KeyIcon from '../../svg/key.svg';
+import LockIcon from '../../svg/lock.svg';
+import LockOpenIcon from '../../svg/lock-open.svg';
 import LogoutIcon from '../../svg/logout.svg';
 import MailIcon from '../../svg/mail.svg';
 import MoneyIcon from '../../svg/money.svg';
@@ -158,6 +160,8 @@ export {
   InfoIcon,
   ItalicIcon,
   KeyIcon,
+  LockIcon,
+  LockOpenIcon,
   LogoutIcon,
   MailIcon,
   MoneyIcon,
