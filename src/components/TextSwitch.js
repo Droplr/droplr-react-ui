@@ -60,6 +60,7 @@ class TextSwitch extends React.Component {
                                     />
                                     <label htmlFor={`text-switch-${i}-${this.props.className}`}
                                         key={`tsl-${item.id}`}>
+                                        {item.icon && <item.icon className="drui-button__icon" />}
                                         {item.label}
                                     </label>
                                 </>
@@ -75,6 +76,8 @@ class TextSwitch extends React.Component {
                         border: 1px solid ${defaultTheme.textSwitch.borderColor};
                         border-radius: 5px;
                         width: max-content;
+                        display: flex;
+                        flex-direction: row;
                     }
                     .text-switch input {
                         position: absolute !important;
@@ -85,7 +88,8 @@ class TextSwitch extends React.Component {
                         overflow: hidden;
                     }
                     .text-switch label { 
-                        display: inline-block;
+                        display: flex;
+                        align-items: center;
                         min-width: 64px;
                         width: max-content;
                         background-color: transparent;
@@ -98,13 +102,28 @@ class TextSwitch extends React.Component {
                         padding: 8px 18px;
                         border-radius: 5px;
                         transition: all 250ms ease-in-out;
+
+                        path {
+                          fill: ${defaultTheme.textSwitch.iconColorDisabled};
+                        }
                     }
                     .text-switch label:hover {
                         cursor: pointer;
                     }
+                    
+                    .text-switch .drui-button__icon {
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 6px;
+                      }
+
                     .text-switch input:checked + label {
                         background-color: ${defaultTheme.textSwitch.backgroundColor};
                         color: ${defaultTheme.textSwitch.textColorActive};
+
+                        path {
+                          fill: ${defaultTheme.textSwitch.iconColorActive};
+                        }
                     }
                     .theme--dark {
                         .text-switch {
@@ -115,10 +134,17 @@ class TextSwitch extends React.Component {
                             font-family: ${defaultTheme.font.family.primary};
                             font-size: ${defaultTheme.font.size.normal};
                             font-weight: ${defaultTheme.font.weight.bold};
+
+                            path {
+                              fill: ${darkTheme.textSwitch.iconColorDisabled};
+                            }
                         }
                         .text-switch input:checked + label {
                             background-color: ${darkTheme.textSwitch.backgroundColor};
                             color: ${darkTheme.textSwitch.textColorActive};
+                            path {
+                              fill: ${darkTheme.textSwitch.iconColorActive};
+                            }
                         }
                     }
                 `}</style>

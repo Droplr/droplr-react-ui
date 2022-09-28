@@ -113,10 +113,14 @@ export default {
     // border
     borderColor: colors.mystic,
 
-    //text
+    // text
     textColorActive: colors.white,
     textColorDisabled: colors.grayChateau,
 
+    // icon
+    iconColorActive: colors.white,
+    iconColorDisabled: colors.grayChateau,
+    
     // other
     shadowColor: shadows.black,
   },

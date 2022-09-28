@@ -103,6 +103,10 @@ export default {
     textColorActive: colors.brandBlue,
     textColorDisabled: colors.grayChateau,
 
+    // icon
+    iconColorActive: colors.brandBlue,
+    iconColorDisabled: colors.grayChateau,
+
     // other
     shadowColor: shadows.black,
   },
