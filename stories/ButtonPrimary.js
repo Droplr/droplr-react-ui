@@ -38,18 +38,18 @@ storiesOf('Button Primary /', module)
     <Button type="primary" Icon={DownloadIcon} />
   ))
 
-storiesOf('Button Primary / Promo', module)
-  .addWithJSX('primary promo', () => (
-    <Button type="primary" stage="promo">Primary Promo Button</Button>
+storiesOf('Button Primary / Success', module)
+  .addWithJSX('primary Success', () => (
+    <Button type="primary" stage="Success">Primary Success Button</Button>
   ))
-  .addWithJSX('primary promo loading', () => (
-    <Button type="primary" stage="promo" loading>Primary Promo Button</Button>
+  .addWithJSX('primary Success loading', () => (
+    <Button type="primary" stage="Success" loading>Primary Success Button</Button>
   ))
-  .addWithJSX('primary promo disabled', () => (
-    <Button type="primary" stage="promo" disabled>Primary Promo Button</Button>
+  .addWithJSX('primary Success disabled', () => (
+    <Button type="primary" stage="Success" disabled>Primary Success Button</Button>
   ))
-  .addWithJSX('primary promo with icon', () => (
-    <Button type="primary" stage="promo" Icon={DownloadIcon}>Primary Promo Button with Icon</Button>
+  .addWithJSX('primary Success with icon', () => (
+    <Button type="primary" stage="Success" Icon={DownloadIcon}>Primary Success Button with Icon</Button>
   ))
 
 storiesOf('Button Primary / Danger', module)

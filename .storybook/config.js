@@ -42,6 +42,7 @@ function loadStories() {
   require('../stories/DualButton');
   require('../stories/Input');
   require('../stories/Switch');
+  require('../stories/TextSwitch');
   require('../stories/Icons');
 }
 

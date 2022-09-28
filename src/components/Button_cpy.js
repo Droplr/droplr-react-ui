@@ -157,25 +157,25 @@ class Button extends React.PureComponent {
             }
           }
 
-          .drui-button--promo {
-            background: ${defaultTheme.button.primary.promo.backgroundColor};
+          .drui-button--Success {
+            background: ${defaultTheme.button.primary.Success.backgroundColor};
 
             &:hover {
-              background: ${defaultTheme.button.primary.promo.backgroundColorHover};
+              background: ${defaultTheme.button.primary.Success.backgroundColorHover};
             }
 
             &:active {
-              background: ${defaultTheme.button.primary.promo.backgroundColorActive};
+              background: ${defaultTheme.button.primary.Success.backgroundColorActive};
             }
           }
 
-          .drui-button--promo.drui-button--disabled {
-            background: ${defaultTheme.button.primary.promo.backgroundColorDisabled};
-            color: ${defaultTheme.button.primary.promo.textColorDisabled};
+          .drui-button--Success.drui-button--disabled {
+            background: ${defaultTheme.button.primary.Success.backgroundColorDisabled};
+            color: ${defaultTheme.button.primary.Success.textColorDisabled};
           }
 
-          .drui-button--promo.drui-button--loading {
-            background: ${defaultTheme.button.primary.promo.backgroundColor};
+          .drui-button--Success.drui-button--loading {
+            background: ${defaultTheme.button.primary.Success.backgroundColor};
 
             .drui-button__content {
               z-index: -1;
@@ -387,25 +387,25 @@ class Button extends React.PureComponent {
               background: ${darkTheme.button.primary.backgroundColor};
             }
 
-            .drui-button--promo {
-              background: ${darkTheme.button.primary.promo.backgroundColor};
+            .drui-button--Success {
+              background: ${darkTheme.button.primary.Success.backgroundColor};
   
               &:hover {
-                background: ${darkTheme.button.primary.promo.backgroundColorHover};
+                background: ${darkTheme.button.primary.Success.backgroundColorHover};
               }
   
               &:active {
-                background: ${darkTheme.button.primary.promo.backgroundColorActive};
+                background: ${darkTheme.button.primary.Success.backgroundColorActive};
               }
             }
   
-            .drui-button--promo.drui-button--disabled {
-              background: ${darkTheme.button.primary.promo.backgroundColorDisabled};
-              color: ${darkTheme.button.primary.promo.textColorDisabled};
+            .drui-button--Success.drui-button--disabled {
+              background: ${darkTheme.button.primary.Success.backgroundColorDisabled};
+              color: ${darkTheme.button.primary.Success.textColorDisabled};
             }
   
-            .drui-button--promo.drui-button--loading {
-              background: ${darkTheme.button.primary.promo.backgroundColor};
+            .drui-button--Success.drui-button--loading {
+              background: ${darkTheme.button.primary.Success.backgroundColor};
   
               .drui-button__content {
                 z-index: -1;

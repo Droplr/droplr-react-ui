@@ -6,3 +6,4 @@ export { default as Dropdown } from './components/Dropdown';
 export { default as DropdownItem } from './components/DropdownItem';
 export { default as DropdownWithToggler } from './components/DropdownWithToggler';
 export { default as Switch } from './components/Switch';
+export { default as TextSwitch } from './components/TextSwitch'

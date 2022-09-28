@@ -11,6 +11,7 @@ const colors = {
   shark:          '#2D2E33',
   brandLight:     '#624F86',
   brand:          '#8D61DF',
+  brandBlue:      '#2B6BF3',
   brandDark:      '#542D9B',
   goldenTainoi:   '#FFC554',
   yellowSea:      '#FFAD0C',
@@ -60,7 +61,7 @@ export default {
     // border
     borderColor: colors.shark,
     borderColorHover: colors.mako,
-    borderColorFocus: colors.brand,
+    borderColorFocus: colors.brandBlue,
 
     // other
     placeholderColor: colors.mako,
@@ -89,6 +90,24 @@ export default {
     shadowColor: shadows.black,
   },
 
+  textSwitch: {
+    // background
+    backgroundColor: colors.white,
+    backgroundColorAfter: colors.white,
+    backgroundColorDisabled: lightenDarkenColor(colors.mystic, 10),
+
+    // border
+    borderColor: colors.white,
+
+    //text
+    textColorActive: colors.brandBlue,
+    textColorDisabled: colors.grayChateau,
+
+    // other
+    shadowColor: shadows.black,
+  },
+
+
   button: {
     primary: {
       backgroundColor: gradients.purple,
@@ -99,7 +118,7 @@ export default {
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
-      promo: {
+      Success: {
         backgroundColor: gradients.green,
         backgroundColorHover: gradients.greenHover,
         backgroundColorActive: lightenDarkenColor(colors.sushi, -10),

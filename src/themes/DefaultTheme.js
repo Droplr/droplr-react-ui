@@ -1,24 +1,25 @@
 import { lightenDarkenColor, convertToRgb } from './helpers';
 
 const colors = {
-  white:          '#FFFFFF',
-  whiteLilac:     '#F8F9FC',
-  mystic:         '#DEE3EB',
-  grayChateau:    '#A1AAB7',
-  shuttleGray:    '#5E646E',
-  mako:           '#44484F',
-  brandLight:     '#A28FC6',
-  brand:          '#7A50C7',
-  brandDark:      '#542D9B',
-  goldenTainoi:   '#FFC554',
-  yellowSea:      '#FFAD0C',
-  seaPink:        '#EB8888',
-  sunsetOrange:   '#F94C4C',
-  sushi:          '#70C843',
-  asparagus:      '#6DA450',
-  dodgerBlue:     '#5495FF',
-  blueRibbon:     '#0B68FF',
-  black:          '#000000',
+  white: '#FFFFFF',
+  whiteLilac: '#F8F9FC',
+  mystic: '#DEE3EB',
+  grayChateau: '#A1AAB7',
+  shuttleGray: '#5E646E',
+  mako: '#44484F',
+  brandLight: '#A28FC6',
+  brand: '#7A50C7',
+  brandDark: '#542D9B',
+  brandBlue: '#2B6BF3',
+  goldenTainoi: '#FFC554',
+  yellowSea: '#FFAD0C',
+  seaPink: '#EB8888',
+  sunsetOrange: '#F94C4C',
+  sushi: '#70C843',
+  asparagus: '#6DA450',
+  dodgerBlue: '#5495FF',
+  blueRibbon: '#0B68FF',
+  black: '#000000',
 };
 
 const buttonGradient = (color, invert) =>
@@ -60,6 +61,7 @@ export default {
     weight: {
       normal: '400',
       bold: '600',
+      bolder: 'bolder',
     },
   },
 
@@ -74,13 +76,13 @@ export default {
     // border
     borderColor: colors.mystic,
     borderColorHover: colors.grayChateau,
-    borderColorFocus: colors.brand,
+    borderColorFocus: colors.brandBlue,
 
     // other
     placeholderColor: colors.mystic,
     errorColor: colors.sunsetOrange,
     iconColor: colors.grayChateau,
-    shadowColor: shadows.brand,
+    shadowColor: shadows.brandBlue,
 
     label: {
       textColor: colors.shuttleGray,
@@ -102,6 +104,23 @@ export default {
     shadowColor: shadows.black,
   },
 
+  textSwitch: {
+    // background
+    backgroundColor: colors.brandBlue,
+    backgroundColorAfter: colors.white,
+    backgroundColorDisabled: lightenDarkenColor(colors.mystic, 10),
+
+    // border
+    borderColor: colors.mystic,
+
+    //text
+    textColorActive: colors.white,
+    textColorDisabled: colors.grayChateau,
+
+    // other
+    shadowColor: shadows.black,
+  },
+
   button: {
     primary: {
       backgroundColor: gradients.purple,
@@ -112,7 +131,7 @@ export default {
       textColor: colors.white,
       iconColor: colors.white,
       loaderColor: colors.white,
-      promo: {
+      Success: {
         backgroundColor: gradients.green,
         backgroundColorHover: gradients.greenHover,
         backgroundColorActive: lightenDarkenColor(colors.sushi, -10),
@@ -148,7 +167,7 @@ export default {
       backgroundColorDisabled: colors.whiteLilac,
       borderColor: colors.mystic,
       borderColorHover: lightenDarkenColor(colors.mystic, -10),
-      textColor: colors.shuttleGray,
+      textColor: colors.black,
       textColorDisabled: colors.mystic,
       iconColor: colors.shuttleGray,
       loaderColor: colors.shuttleGray,
