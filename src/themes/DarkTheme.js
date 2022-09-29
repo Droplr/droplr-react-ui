@@ -103,6 +103,7 @@ export default {
     //text
     textColorActive: colors.brandBlue,
     textColorDisabled: colors.grayChateau,
+    textColorLabel: colors.white,
 
     // icon
     iconColorActive: colors.brandBlue,

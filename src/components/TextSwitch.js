@@ -15,16 +15,16 @@ class TextSwitch extends React.Component {
             },
             options: this.props.options || [],
         };
-        
+
         this.onChange = this.onChange.bind(this);
     }
 
     onChange(e) {
-        this.setState({ selected: this.props.options.find(x => x.id === Number(e.target.value)) }, 
-        () => {
-            this.props.selected(this.state.selected)
-            this.props.onChange(this.state.selected);
-        });
+        this.setState({ selected: this.props.options.find(x => x.id === Number(e.id)) },
+            () => {
+                this.props.selected(this.state.selected)
+                this.props.onChange(this.state.selected);
+            });
     };
 
     render() {
@@ -34,41 +34,46 @@ class TextSwitch extends React.Component {
             defaultOption,
             disabled,
             className,
-            labelPosition,
             labelContent,
             onChange,
         } = this.props;
 
         return (
-            <div className={classnames('text-switch', {
-                [`text-switch--${labelPosition}`]: labelContent,
-                ['text-switch--disabled']: disabled,
-                [className]: className,
-            })}>
+            <div >
                 {
-                    options.map(
-                        (item, i) => {
-                            return (
-                                <div key={i}>
-                                    <input
-                                        type="radio"
-                                        id={`text-switch-${i}-${this.props.className}`}
-                                        value={item.id}
-                                        onChange={this.onChange}
-                                        checked={this.state.selected.id === item.id}
-                                    />
-                                    <label htmlFor={`text-switch-${i}-${this.props.className}`}>
-                                        {item.icon && <item.icon className="drui-button__icon" />}
-                                        {item.label}
-                                    </label>
-                                </div>
-                            );
-                        }
-                    )
+                    labelContent ? <>
+                        <div className='text-switch-label'>
+                            {labelContent}
+                        </div>
+                    </> : <></>
                 }
+                <div className={classnames('text-switch', {
+                    ['text-switch--disabled']: disabled,
+                    [className]: className,
+                })}>
+                    {
+                        options.map(
+                            (item, i) => {
+                                return (
+                                    <div key={i} 
+                                        id={`text-switch-${i}-${this.props.className}`}
+                                        className={classnames('text-switch-item', {
+                                            ['active']: this.state.selected.id === item.id,
+                                            [className]: className,
+                                        })}
+                                        onClick={() => { this.onChange(item); }}>
+                                        <label>
+                                            {item.icon && <item.icon className="drui-button__icon" />}
+                                            {item.label}
+                                        </label>
+                                    </div>
+                                );
+                            }
+                        )
+                    }
+                </div>
 
                 <style jsx global>{`
-        
                     .text-switch {
                         padding: 4px;
                         border: 1px solid ${defaultTheme.textSwitch.borderColor};
@@ -76,6 +81,13 @@ class TextSwitch extends React.Component {
                         width: max-content;
                         display: flex;
                         flex-direction: row;
+                    }
+                    .text-switch-label {
+                        color: ${defaultTheme.textSwitch.textColorLabel};
+                        font-family: ${defaultTheme.font.family.primary};
+                        font-size: ${defaultTheme.font.size.normal};
+                        font-weight: ${defaultTheme.font.weight.bold};
+                        padding-bottom: 8px;
                     }
                     .text-switch input {
                         position: absolute !important;
@@ -85,9 +97,7 @@ class TextSwitch extends React.Component {
                         border: 0;
                         overflow: hidden;
                     }
-                    .text-switch label { 
-                        display: flex;
-                        align-items: center;
+                    .text-switch .text-switch-item { 
                         min-width: 64px;
                         width: max-content;
                         background-color: transparent;
@@ -105,6 +115,10 @@ class TextSwitch extends React.Component {
                           fill: ${defaultTheme.textSwitch.iconColorDisabled};
                         }
                     }
+                    .text-switch label {
+                        display: flex;
+                        align-items: center;
+                    }
                     .text-switch label:hover {
                         cursor: pointer;
                     }
@@ -115,7 +129,7 @@ class TextSwitch extends React.Component {
                         margin-right: 6px;
                       }
 
-                    .text-switch input:checked + label {
+                    .text-switch .active {
                         background-color: ${defaultTheme.textSwitch.backgroundColor};
                         color: ${defaultTheme.textSwitch.textColorActive};
 
@@ -126,6 +140,9 @@ class TextSwitch extends React.Component {
                     .theme--dark {
                         .text-switch {
                             border: 1px solid ${darkTheme.textSwitch.borderColor};
+                        }
+                        .text-switch-label {
+                            color: ${darkTheme.textSwitch.textColorLabel};
                         }
                         .text-switch label {
                             color: ${darkTheme.textSwitch.textColorDisabled};
@@ -166,14 +183,11 @@ TextSwitch.propTypes = {
 
 TextSwitch.defaultProps = {
     options: [],
-    selected() {},
+    selected() { },
     defaultOption: {},
     disabled: false,
     className: '',
-    leftText: 'left',
-    labelPosition: 'top',
-    rightText: 'right',
-    labelContent: 'Label',
+    labelContent: '',
     onChange() { },
 };
 

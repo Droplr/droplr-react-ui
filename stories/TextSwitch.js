@@ -39,7 +39,7 @@ const optionsWithIcons = [
 ];
 
 const onChange = (e) => {
-  console.log('Object: ', e.id, e.label);
+  return e;
 }
 
 let x = {};
@@ -50,6 +50,7 @@ storiesOf('TextSwitch /', module)
     options={options}
     defaultOption={options[1]}
     onChange={onChange}
+    labelContent={'Label example'}
     selected={(e) => {x = e.label}}
   />
 ))
@@ -57,6 +58,15 @@ storiesOf('TextSwitch /', module)
   <TextSwitch
     options={optionsWithIcons}
     defaultOption={optionsWithIcons[1]}
+    onChange={onChange}
+    labelContent={'Text Switch'}
+    selected={(e) => {x = e.label}}
+  />
+))
+.addWithJSX('without label', () => (
+  <TextSwitch
+    options={options}
+    defaultOption={options[1]}
     onChange={onChange}
     selected={(e) => {x = e.label}}
   />

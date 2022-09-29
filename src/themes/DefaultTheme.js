@@ -117,6 +117,7 @@ export default {
     // text
     textColorActive: colors.white,
     textColorDisabled: colors.grayChateau,
+    textColorLabel: colors.black,
 
     // icon
     iconColorActive: colors.white,
@@ -127,7 +128,7 @@ export default {
     // background
     backgroundColor: colors.white,
     checkmarkBackgroundColor: colors.brandBlue,
-    
+
     // border
     borderColorActive: colors.brandBlue,
     borderColorHover: colors.grayChateau,
