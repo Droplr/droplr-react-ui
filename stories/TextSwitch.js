@@ -45,7 +45,7 @@ const onChange = (e) => {
 let x = {};
 
 storiesOf('TextSwitch /', module)
-.addWithJSX('text-switch-normal', () => (
+.addWithJSX('normal', () => (
   <TextSwitch
     options={options}
     defaultOption={options[1]}
@@ -53,7 +53,7 @@ storiesOf('TextSwitch /', module)
     selected={(e) => {x = e.label}}
   />
 ))
-.addWithJSX('text-switch-icon', () => (
+.addWithJSX('with icon', () => (
   <TextSwitch
     options={optionsWithIcons}
     defaultOption={optionsWithIcons[1]}

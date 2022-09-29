@@ -20,6 +20,7 @@ const colors = {
   dodgerBlue: '#5495FF',
   blueRibbon: '#0B68FF',
   black: '#000000',
+  transparent:    'transparent',
 };
 
 const buttonGradient = (color, invert) =>
@@ -120,9 +121,24 @@ export default {
     // icon
     iconColorActive: colors.white,
     iconColorDisabled: colors.grayChateau,
+  },
+
+  thumbnailSwitch: {
+    // background
+    backgroundColor: colors.white,
+    checkmarkBackgroundColor: colors.brandBlue,
     
-    // other
-    shadowColor: shadows.black,
+    // border
+    borderColorActive: colors.brandBlue,
+    borderColorHover: colors.grayChateau,
+    borderColorInactive: colors.mystic,
+
+    // text
+    textColor: colors.black,
+
+    // icon
+    iconColor: colors.grayChateau,
+    checkmarkColor: colors.white,
   },
 
   button: {

@@ -49,21 +49,19 @@ class TextSwitch extends React.Component {
                     options.map(
                         (item, i) => {
                             return (
-                                <>
+                                <div key={i}>
                                     <input
-                                        key={`tsi-${item.id}`}
                                         type="radio"
                                         id={`text-switch-${i}-${this.props.className}`}
                                         value={item.id}
                                         onChange={this.onChange}
                                         checked={this.state.selected.id === item.id}
                                     />
-                                    <label htmlFor={`text-switch-${i}-${this.props.className}`}
-                                        key={`tsl-${item.id}`}>
+                                    <label htmlFor={`text-switch-${i}-${this.props.className}`}>
                                         {item.icon && <item.icon className="drui-button__icon" />}
                                         {item.label}
                                     </label>
-                                </>
+                                </div>
                             );
                         }
                     )

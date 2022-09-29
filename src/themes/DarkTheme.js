@@ -22,6 +22,7 @@ const colors = {
   dodgerBlue:     '#5495FF',
   blueRibbon:     '#0B68FF',
   black:          '#000000',
+  transparent:    'transparent',
 };
 
 const shadows = {
@@ -106,10 +107,22 @@ export default {
     // icon
     iconColorActive: colors.brandBlue,
     iconColorDisabled: colors.grayChateau,
-
-    // other
-    shadowColor: shadows.black,
   },
+
+  thumbnailSwitch: {
+    // background
+    backgroundColor: colors.transparent,
+    // border
+    borderColorActive: colors.white,
+    borderColorInactive: colors.grayChateau,
+
+    // text
+    textColor: colors.white,
+
+    // icon
+    iconColor: colors.white,
+  },
+
 
 
   button: {

@@ -43,6 +43,7 @@ function loadStories() {
   require('../stories/Input');
   require('../stories/Switch');
   require('../stories/TextSwitch');
+  require('../stories/ThumbnailSwitch');
   require('../stories/Icons');
 }
 
