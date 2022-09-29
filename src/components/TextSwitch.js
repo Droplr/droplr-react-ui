@@ -81,6 +81,7 @@ class TextSwitch extends React.Component {
                         width: max-content;
                         display: flex;
                         flex-direction: row;
+                        flex-wrap: wrap;
                     }
                     .text-switch-label {
                         color: ${defaultTheme.textSwitch.textColorLabel};

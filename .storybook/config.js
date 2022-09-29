@@ -10,7 +10,6 @@ const ThemesDecorator = (storyFn) => (
       {storyFn()}
       <style jsx>{`
         .storyWrapperLight {
-          width: 400px;
           padding: 40px;
           background: #F8F9FC;
         }
@@ -22,7 +21,6 @@ const ThemesDecorator = (storyFn) => (
         @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
 
         .storyWrapperDark {
-          width: 400px;
           padding: 40px;
           background: #3A3A43;
         }

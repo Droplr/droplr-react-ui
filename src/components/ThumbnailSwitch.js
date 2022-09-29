@@ -77,6 +77,7 @@ class ThumbnailSwitch extends React.Component {
                     .thumbnail-switch {
                         display: flex;
                         flex-direction: row;
+                        flex-wrap: wrap;
                     }
                     .thumbnail-switch-container {
                         padding: 16px 24px 4px 24px;
