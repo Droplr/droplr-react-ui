@@ -1,6 +1,6 @@
 {
   "name": "droplr-react-ui",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A responsive UI library for React web applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   "author": "Droplr Inc.",
   "contributors": [
     "Rafal Swietek <raf.swietek@gmail.com> (https://github.com/rafalswietek)",
-    "Aliaksandr Savitski <alieks.sawicki@gmail.com> (https://github.com/aliaksandr-savitski)"
+    "Aliaksandr Savitski <alieks.sawicki@gmail.com> (https://github.com/aliaksandr-savitski)",
+    "Hamdija Radoncic <radoncic.hamdija@gmail.com> (https://github.com/hamdij4)"
   ],
   "license": "ISC",
   "bugs": {
