@@ -61,13 +61,3 @@ Icon.propTypes = {
 };
 
 export default Icon;
-
-{/* <g clip-path={`url(#${icon})`}>
-        {getPaths(IconRefs[icon])}
-      </g>
-      <defs>
-        <clipPath id={`${icon}`}>
-          <rect width={size} height={size} fill="white" />
-        </clipPath>
-      </defs>
-    </svg> */}

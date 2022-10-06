@@ -8,3 +8,4 @@ export { default as DropdownWithToggler } from './components/DropdownWithToggler
 export { default as Switch } from './components/Switch';
 export { default as TextSwitch } from './components/TextSwitch'
 export { default as ThumbnailSwitch } from './components/ThumbnailSwitch'
+export {default as Icon } from './components/IconsExtended'
