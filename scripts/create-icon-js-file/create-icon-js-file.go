@@ -169,6 +169,17 @@ func main() {
 		}
 	}
 
+	// Create delimitered TScript string
+	out_file += "\n// The following is used for TS Strict Types\n//"
+	for i, e := range export_names {
+		out_file += " '" + e
+		if i < len(export_names)-1 {
+			out_file += "' |"
+		} else {
+			out_file += "'"
+		}
+	}
+
 	// Create file with configured filename
 	f, err := os.Create(OUT_FILE_NAME)
 	if err != nil {

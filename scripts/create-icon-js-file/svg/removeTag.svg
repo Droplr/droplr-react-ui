@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+
+    <desc>Created with Sketch.</desc>
+    <g id="icons/removeTag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18.6666667,6 L8.66666667,6 C8.20666667,6 7.84666667,6.23333333 7.60666667,6.58666667 L4,12 L7.60666667,17.4066667 C7.84666667,17.76 8.20666667,18 8.66666667,18 L18.6666667,18 C19.4,18 20,17.4 20,16.6666667 L20,7.33333333 C20,6.6 19.4,6 18.6666667,6 Z M16.6666667,14.3933333 L15.7266667,15.3333333 L13.3333333,12.94 L10.94,15.3333333 L10,14.3933333 L12.3933333,12 L10,9.60666667 L10.94,8.66666667 L13.3333333,11.06 L15.7266667,8.66666667 L16.6666667,9.60666667 L14.2733333,12 L16.6666667,14.3933333 Z" id="removeTag" fill="#5E646E" fill-rule="nonzero"></path>
+    </g>
+</svg>

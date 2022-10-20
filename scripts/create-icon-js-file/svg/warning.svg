@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+
+    <desc>Created with Sketch.</desc>
+    <g id="icons/warning" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3.5,19 L20.5,19 L12,4 L3.5,19 Z M13,17 L11,17 L11,15 L13,15 L13,17 Z M13,14 L11,14 L11,10 L13,10 L13,14 Z" id="warning" fill="#5E646E" fill-rule="nonzero"></path>
+    </g>
+</svg>
