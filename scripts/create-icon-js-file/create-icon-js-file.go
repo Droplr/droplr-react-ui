@@ -20,6 +20,15 @@ const (
 
 var time_counter time.Time
 
+func contains(s []string, e string) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	time_counter = time.Now()
 	fmt.Println("Ignoring arguments...\nLooking for .svg files in ./svg/")
@@ -111,6 +120,26 @@ func main() {
 				}
 			}
 		}
+		// No paths found, check for polygon or polyline containing points attribute
+		if len(paths) == 0 {
+			for i, r := range file_data_string {
+				if r == 's' && file_data_string[i-1] == 't' {
+					if file_data_string[i+1] == '=' {
+						k := i + 3
+						path := "M"
+						for {
+							if file_data_string[k] == '"' {
+								path += "z"
+								paths = append(paths, path)
+								break
+							}
+							path += string(file_data_string[k])
+							k++
+						}
+					}
+				}
+			}
+		}
 		fmt.Println("Found", len(paths), " paths for ", file_info.Name(), "\n----")
 		// Export variable naming
 		// Rules:
@@ -138,6 +167,10 @@ func main() {
 			export_name += string(r)
 		}
 		// Generate JS variables in out file template
+		if contains(export_names, export_name) {
+			fmt.Println("\nFound duplicate entry for :", export_name)
+			continue
+		}
 		export_names = append(export_names, export_name)
 		out_file += "const " + export_name + " = [\n"
 		for i, p := range paths {
