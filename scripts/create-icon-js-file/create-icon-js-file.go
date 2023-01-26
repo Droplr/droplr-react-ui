@@ -100,6 +100,7 @@ func main() {
 		}
 		// Stringify file contents
 		file_data_string := string(file_data)
+
 		// Contains 'd=' attributes of <path></path> elements
 		var paths []string
 
@@ -141,6 +142,55 @@ func main() {
 			}
 		}
 		fmt.Println("Found", len(paths), " paths for ", file_info.Name(), "\n----")
+
+		// Check for <circle /> elements and append them as "C CX CY R"
+		if strings.Contains(file_data_string, "circle") {
+			path := "C"
+			for i, r := range file_data_string {
+				if (r == 'x' || r == 'y') && file_data_string[i-1] == 'c' {
+					// fmt.Println("\n###############################\n\n FOUND \n\n###########################\n\n")
+					if file_data_string[i+1] == '=' {
+						k := i + 3
+						for {
+							if file_data_string[k] == '"' {
+								break
+							}
+							if r == 'x' {
+								if strings.Contains(path, "CX-") {
+									path += string(file_data_string[k])
+								} else {
+									path += ("+CX-" + string(file_data_string[k]))
+								}
+							} else if r == 'y' {
+								if strings.Contains(path, "+CY-") {
+									path += string(file_data_string[k])
+								} else {
+									path += ("+CY-" + string(file_data_string[k]))
+								}
+							}
+							k++
+						}
+					}
+				} else if r == 'r' && file_data_string[i+1] == '=' {
+					k := i + 3
+					for {
+						if file_data_string[k] == '"' {
+							break
+						}
+						if strings.Contains(path, "+R-") {
+							path += string(file_data_string[k])
+						} else {
+							path += ("+R-" + string(file_data_string[k]))
+						}
+						k++
+					}
+				}
+			}
+			if len(path) > 0 {
+				paths = append(paths, path)
+			}
+		}
+
 		// Export variable naming
 		// Rules:
 		// Starts with an uppercase
