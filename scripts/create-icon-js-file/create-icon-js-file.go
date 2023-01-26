@@ -104,30 +104,45 @@ func main() {
 		// Contains 'd=' attributes of <path></path> elements
 		var paths []string
 
+		// Set additional attributes
 		// Find d= and iterate from opening \"  to closing  \"
 		for i, r := range file_data_string {
+			path := ""
+			attrs := ""
 			if r == 'd' {
 				if file_data_string[i+1] == '=' && file_data_string[i-1] == ' ' {
 					k := i + 3
-					path := ""
 					for {
 						if file_data_string[k] == '"' {
-							paths = append(paths, path)
 							break
 						}
 						path += string(file_data_string[k])
 						k++
 					}
+					// Find EoL
+					for {
+						if file_data_string[k] == '>' {
+							break
+						}
+						k++
+					}
+					attrs = getAdditionalAttributes(file_data_string[i+1 : k])
 				}
+			}
+			if len(path) > 0 {
+				if len(attrs) > 0 {
+					path += attrs
+				}
+				paths = append(paths, path)
 			}
 		}
 		// No paths found, check for polygon or polyline containing points attribute
 		if len(paths) == 0 {
+			path := "M"
 			for i, r := range file_data_string {
 				if r == 's' && file_data_string[i-1] == 't' {
 					if file_data_string[i+1] == '=' {
 						k := i + 3
-						path := "M"
 						for {
 							if file_data_string[k] == '"' {
 								path += "z"
@@ -146,9 +161,9 @@ func main() {
 		// Check for <circle /> elements and append them as "C CX CY R"
 		if strings.Contains(file_data_string, "circle") {
 			path := "C"
+			attrs := ""
 			for i, r := range file_data_string {
 				if (r == 'x' || r == 'y') && file_data_string[i-1] == 'c' {
-					// fmt.Println("\n###############################\n\n FOUND \n\n###########################\n\n")
 					if file_data_string[i+1] == '=' {
 						k := i + 3
 						for {
@@ -170,6 +185,14 @@ func main() {
 							}
 							k++
 						}
+						// Find EoL
+						for {
+							if file_data_string[k] == '>' {
+								break
+							}
+							k++
+						}
+						attrs = getAdditionalAttributes(file_data_string[i+1 : k])
 					}
 				} else if r == 'r' && file_data_string[i+1] == '=' {
 					k := i + 3
@@ -186,7 +209,21 @@ func main() {
 					}
 				}
 			}
+			// Crawl for <circle> and check attributes
+			circle_el_data := strings.Split(file_data_string, "<")
+			for _, el := range circle_el_data {
+				if strings.Contains(el, "circle") {
+					if strings.Contains(el, "fill") && !strings.Contains(el, "fill=\"none\"") {
+						// +HF -> HasFill
+						path += "+HF"
+					} else {
+						// +NF -> NoFill
+						path += "+NF"
+					}
+				}
+			}
 			if len(path) > 0 {
+				path += attrs
 				paths = append(paths, path)
 			}
 		}
@@ -289,4 +326,63 @@ func main() {
 func goodbye() {
 	fmt.Println("Execution time is: ", time.Since(time_counter))
 	fmt.Println("Goodbye")
+}
+
+func getAdditionalAttributes(data string) string {
+	additional_attributes := "|"
+	// Set trackers for tag open/close
+	tag_parts_data := strings.Split(data, " ")
+	for _, pt := range tag_parts_data {
+		if strings.Contains(pt, "stroke=") && !strings.Contains(additional_attributes, "SF") {
+			// +SF stroke found
+			additional_attributes += "+SF"
+		}
+		if strings.Contains(pt, "stroke-width=") && !strings.Contains(additional_attributes, "SWF") {
+			// +SWF has stroke width
+			additional_attributes += "+SWF-"
+			interest_tag_index := strings.Index(pt, "stroke-width=\"") // len 14
+			rn_ctr := 0
+			for {
+				if (pt[interest_tag_index+rn_ctr+14]) == '"' {
+					break
+				}
+				// Get numerical value
+				additional_attributes += string(pt[interest_tag_index+rn_ctr+14])
+				rn_ctr++
+			}
+		}
+		if strings.Contains(pt, "stroke-linecap=") && !strings.Contains(additional_attributes, "SLCF") {
+			// +SLCF has stroke linecap
+			additional_attributes += "+SLCF-"
+			interest_tag_index := strings.Index(pt, "stroke-linecap=\"") // len 16
+			rn_ctr := 0
+			for {
+				if (pt[interest_tag_index+rn_ctr+16]) == '"' {
+					break
+				}
+				// Get string value
+				additional_attributes += string(pt[interest_tag_index+rn_ctr+16])
+				rn_ctr++
+			}
+		}
+		if strings.Contains(pt, "stroke-linejoin=") && !strings.Contains(additional_attributes, "SLJF") {
+			// +SLJF has stroke linejoin
+			additional_attributes += "+SLJF-"
+			interest_tag_index := strings.Index(pt, "stroke-linejoin=\"") // len 17
+			rn_ctr := 0
+			for {
+				if pt[interest_tag_index+rn_ctr+17] == '"' {
+					break
+				}
+				// Get string value
+				additional_attributes += string(pt[interest_tag_index+rn_ctr+17])
+				rn_ctr++
+			}
+		}
+		if strings.Contains(pt, "fill=") && !strings.Contains(additional_attributes, "HF") {
+			// +HF has fill
+			additional_attributes += "+HF"
+		}
+	}
+	return additional_attributes
 }
